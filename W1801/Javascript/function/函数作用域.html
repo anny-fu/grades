@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>函数作用域</title>
+</head>
+<body>
+<script>
+//	主函数
+	function fn(){
+		var text ="主函数变量";
+
+//		子函数1
+		function childFn1(){
+			var a = "第一个子函数";
+			return a;
+		}
+//		子函数2
+		function childFn2(){
+			var b = "第二个子函数";
+			return b;
+		}
+//		将局部函数暴露出去
+		return{
+			fn1:childFn1,
+			fn2:childFn2
+		}
+
+	}
+ fn().fn1();
+
+</script>
+</body>
+</html>
