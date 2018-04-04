@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>三元运算符</title>
+</head>
+<body>
+<script>
+	var num1 = 5,num2 = 10,result;
+	result = num1 > num2 ? '结果为真' : '结果为假';
+	result;//'结果为假'
+
+
+	result = num1 < num2 ? (function(){console.log('条件为真');})() : false;
+
+
+	result = num1 < num2 ? fun() : false;
+	function fun(){
+		console.log('条件为真输入的内容！');
+	}
+
+//	if结构
+	if(num1>num2){
+		console.log('结果为真');
+	}
+
+//	if ...else
+	if(num1>num2){
+		console.log('结果为真');
+	}else{
+		console.log('结果为假');
+	}
+
+//	if..else-if..else
+	if(条件1){
+		//
+	}else if(条件2){
+		//
+	}else if(条件3){
+		//
+	}else{
+		//
+	}
+
+
+</script>
+</body>
+</html>

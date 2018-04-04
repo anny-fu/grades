@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>函数声明</title>
+</head>
+<body>
+<script>
+//	声明函数
+	function showText(name){
+		console.log(name);
+		return ['返回值',name,true];
+		console.log("return后的语句");
+	}
+//	调用执行函数
+showText("tom");
+
+var showTime = function(){
+	var year = new Date();
+	console.log(year.getFullYear());
+}
+showTime();
+
+var add = new Function("a","b","console.log(a+b)");
+add(5,20);
+
+(function(a,b){console.log( a * b);})(4,7);
+
+
+var arr =(function(){var a = 5,b= 9;return [a,b,a+b,a*b,a/b]})();
+
+//声明函数(随机参数两个);返回值是这两个参数的和、差、积、商
+
+</script>
+</body>
+</html>

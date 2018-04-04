@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<script>
+	//	字符串的转换为驼峰命名法:getElementsByTagName
+	var str = "get-elements-by-tag-name";
+	//	切割字符串：split()
+	var split_str = str.split('-');
+	//	['get','elements','by','tag','name']
+	console.log(split_str);
+	//	声明空变量，转换后的字符串
+	var str_new = "";
+	//	获取数组成员中(除第一个)的字符串的首个字符转换大写
+	for (var i = 1; i < split_str.length; i++) {
+//		取到第一个字符然后转换，再放回数组:E + lements == Elements
+		split_str[i] = split_str[i].charAt(0).toUpperCase() + split_str[i].substr(1);
+//		console.log(split_str);
+	}
+	//	将数组转换为字符串输出
+	str_new = split_str.join('');
+	console.log(str_new);
+</script>
+</body>
+</html>

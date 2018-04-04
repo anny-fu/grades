@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>bind方法</title>
+</head>
+<body>
+<script>
+
+	var date = new Date();
+	date.getDate();
+	console.log(date.getDate());
+//	将getDate方法赋值给一个变量 d;
+	var d = date.getDate;
+//	console.log(d());
+
+
+//	绑定this指向
+	var  p = date.getTime.bind(date);
+console.log(p());
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>练习四</title>
+</head>
+<body>
+<script>
+	var arr = ["HTML", "CSS", "JavaScript"];
+	var obj = {name: "JS", fullName: "JavaScript", duty: "行为控制"};
+	//对象在赋值时，不是赋值引用
+	var arr1 = [], obj1 = {};
+
+	//	arr1 = arr;
+	//	arr[0] = 10;
+	console.log(arr1);
+
+	//	将对象内值进行一一赋值,对象和数组的”克隆“
+	for (var n in arr) {
+		arr1[n] = arr[n];
+	}
+	//	for(var j in obj){
+	//		obj1[j] = obj[j];
+	//	}
+	console.log(arr1);
+	//console.log(obj.name = "脚本");
+
+	//ES6:assign()
+	obj1 = Object.assign(obj1, obj);
+	//console.log(obj1);
+
+	Object.prototype.isObject = function () {
+		return this.valueOf() === Object(this);
+	};
+	var str = "字符串";
+	console.log(str.isObject());
+</script>
+</body>
+</html>

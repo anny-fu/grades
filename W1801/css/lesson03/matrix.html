@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>矩阵</title>
+	<style>
+		/*matrix(1,0,0,1,0,0)*/
+		/*位移:5,6位参数*/
+		section {
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			margin: 0px 0px 10px 10px;
+			color: #fff;
+			transition: 3s;
+		}
+
+		section:nth-child(1):hover {
+			transform: matrix(1, 0, 0, 1, 200, 200);
+		}
+
+		/*旋转：1~4参数;matrix(cosθ,sinθ,-sinθ,cosθ,0,0)*/
+		section:nth-child(2):hover{
+			/*translate(30deg)*/
+			transform: matrix(0.866025, 0.5, -0.5, 0.866025, 0, 0);
+		}
+		/*缩放：1,4参数*/
+		section:nth-child(3):hover {
+			transform: matrix(0.5, 0, 0, 0.5, 0, 0);
+		}
+		/*倾斜：2,3参数;matrix(1,tanθY,tanθX,1,0,0)*/
+		section:nth-child(4):hover {
+			/*skew(30deg,15deg)*/
+			transform: matrix(1, 0.267949, 0.577350, 1, 0, 0);
+		}
+
+
+	</style>
+</head>
+<body>
+<section>位移</section>
+<section>旋转</section>
+<section>缩放</section>
+<section>倾斜</section>
+</body>
+</html>

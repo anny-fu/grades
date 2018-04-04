@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>变形转换</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: #ff0000;
+			float: left;
+			margin-left: 10px;
+			margin-bottom: 10px;
+			transition: 6s;
+			color: #fff;
+		}
+
+		/*位移*/
+		div:nth-child(1):active {
+			transform: translateX(-200px);
+			transform: translateY(-200px);
+			/*一个参X轴位移，两个参X和Y同时位移*/
+			transform: translate(-200px, 200px);
+			/*3D*/
+			/*transform:translateZ(-200px);*/
+
+		}
+
+		/*旋转*/
+		div:nth-child(2):active {
+			transform: rotateX(1800deg);
+			transform: rotateY(1800deg);
+			/*transform: rotate(1800deg);不指定默认为Z轴*/
+			transform: rotateZ(1800deg);
+		}
+
+		/*缩放*/
+		div:nth-child(3):active {
+			/*元素默认大小为1，小于1为缩小，大于1为放大*/
+			transform: scaleX(0.3);
+			transform: scaleY(1.5);
+			transform: scale(0.5);
+		}
+
+		/*倾斜*/
+		div:nth-child(4):active {
+			/*沿X轴的倾斜角：元素倾斜前和倾斜后的Y轴中线产生的夹角
+			Y轴的倾斜角：元素倾斜前和倾斜后的X轴中线产生的夹角
+			*/
+			transform: skewX(30deg);
+			transform: skewY(30deg);
+			/*一个参数代表X轴倾斜角，二个参数是X和Y轴倾斜角*/
+			transform: skew(30deg, 60deg);
+			background-color: #0f0;
+		}
+
+		/*组合写法*/
+		div:nth-child(5){
+			width: 80px;
+			height:80px;
+		}
+		div:nth-child(5):active {
+			/*transform:translate() rotate() scale() skew();*/
+			transform:translate(100px,100px) rotate(360deg) scale(0.6) skewX(-30deg);
+			transform:scale(0.6)  translate(100px,100px) rotate(360deg) skewX(-30deg)  ;
+
+		}
+
+	</style>
+</head>
+<body>
+<div>位移</div>
+<div>旋转</div>
+<div>缩放</div>
+<div>倾斜</div>
+<div>组合</div>
+</body>
+</html>

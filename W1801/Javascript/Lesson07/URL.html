@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>章节练习一获取URL信息</title>
+	<style>
+		span[id] {
+			color: #f38d1c;
+			font-size: 26px;
+		}
+		section > p {
+			margin: 0;
+			line-height: 2;
+		}
+		#webURL {
+			width: 320px;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<section>
+		<p>
+			<label>请输入网址：</label>
+			<input id="webURL" type="url" value="https://www.baidu.com/index.html">
+			<button id="parseURL" type="button">解析</button>
+		</p>
+		<p>
+			<span>当前URL的协议为：</span>
+			<span id="protocal"></span>
+		</p>
+		<p>
+			<span>当前URL的文件类型为：</span>
+			<span id="fileType"></span>
+		</p>
+		<p>
+			<span>当前URL的域名为：</span>
+			<span id="domain"></span>
+		</p>
+	</section>
+</main>
+<script>
+//获取按钮
+	var parseURL = document.getElementById('parseURL');
+//	内容输出到DOM中
+var protocal = document.getElementById('protocal'),
+	fileType = document.getElementById('fileType'),
+	domain = document.getElementById('domain');
+	parseURL.onclick = function(){
+//		获取输入框及内容
+		var webURL = document.getElementById('webURL'),
+			webURL_val = webURL.value;
+//		https://www.baidu.com/index.html
+//		定义变量：协议类型、文件类型和域名
+//		var getProtocal = webURL_val.split("://",1)[0];
+		var getProtocal = webURL_val.slice(0,webURL_val.indexOf("://"));
+		console.log(getProtocal);
+//		文件类型数组
+		var fileType_arr = ['html', 'htm' ,'txt' ,'jpg','gif','jpeg','png','mp3','mp4'];
+		var getFileType = webURL_val.split('\.')[webURL_val.split('\.').length - 1];
+//		var getFileType = webURL_val.slice(webURL_val.lastIndexOf('\.') + 1);
+		for(var i = 0 ;i<fileType_arr.length;i++){
+				if(fileType_arr[i] !== getFileType){
+					break;
+				}
+			console.log(getFileType);
+		}
+
+//		域名截取：1.有www 2.没有www
+		var getDomain;
+		var hasWWW = (webURL_val.indexOf('www') !== -1);
+		if(hasWWW){
+				getDomain = webURL_val.split('/')[2].replace('www.','');
+//				getDomain = webURL_val.split('.')[1] + '.' + webURL_val.split('.')[2].slice(0,webURL_val.split('.')[2].indexOf('/'));
+//				getDomain = webURL_val.slice(webURL_val.search('www.') + 4 ,webURL_val.split('//')[1].indexOf('/')+webURL_val.split('//')[0].length + 2);
+				console.log(getDomain);
+		}else{
+			getDomain = webURL_val.split('/')[2];
+			console.log(getDomain);
+		}
+
+		//	分别设置到元素中
+		protocal.innerText = getProtocal;
+		fileType.innerText = getFileType;
+		domain.innerText = getDomain;
+
+	}
+
+
+
+
+</script>
+</body>
+</html>

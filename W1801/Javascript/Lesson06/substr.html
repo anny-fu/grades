@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>substring和substr</title>
+</head>
+<body>
+<script>
+	var str = "hello,javascript!";
+console.log(str.substring(6,10));
+console.log(str.substring(-4,-2));
+
+console.log(str.indexOf('a'));
+console.log(str.lastIndexOf('a'));
+console.log(str.indexOf('m'));
+
+
+console.log(str.match('ja'));
+var str_new = str.match('ja');
+console.log(str.search('ja'));
+console.log(str.match('m'));
+console.log(str.search('m'));
+
+console.log(str.replace('java','java '));
+console.log(str.replace('!'));
+
+</script>
+</body>
+</html>

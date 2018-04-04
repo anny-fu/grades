@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<div class="block">
+	<div>
+		<ul>
+			<li>元素li1</li>
+			<li>元素li2</li>
+			<li>元素li3</li>
+		</ul>
+		<div>孙子元素div</div>
+	</div>
+	<p>子元素p</p>
+</div>
+
+<script>
+	var div = document.getElementsByClassName('block')[0].children[0].children[1].style.display = 'none';
+	console.log(document.getElementsByClassName('block')[0].children[0].children[1]);
+
+//	数值转换方法:parseInt();
+//1.一般的数据类型转换
+	console.log(parseInt(35.587));
+	console.log(parseInt('35.587'));
+	console.log(parseInt('38px'));
+	console.log(parseInt('-23'));
+	console.log(parseInt('+23'));
+	console.log(parseInt('he39'));//NaN
+
+
+	console.log(parseInt(0b0011));
+	console.log(parseInt(0o67));
+	console.log(parseInt(0xffffff));
+
+
+//	parseFloat()
+	console.log(parseFloat(34));
+	console.log(parseFloat(34.4567));
+
+
+console.log(parseFloat(0b0011));
+console.log(parseFloat(0o67));
+console.log(parseFloat(0xffffff));
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>对象的原型链</title>
+</head>
+<body>
+<script>
+//prototype(原型链),this关键字：总是指向一个对象
+var person = {
+	name :"陈应龙",
+	des:function(){
+		return this.name;
+	}
+}
+//console.log(person.des());
+//this指向顶层对象window
+var name = "杨蒙";
+console.log(this.name);
+
+function fn(){
+	return this.name;
+}
+console.log(fn());
+
+//this指向对象
+var per = {name:"陈应龙",des:fn};
+console.log(per.des());
+//this指向构造函数
+
+//	Node:this ===global
+
+
+</script>
+</body>
+</html>

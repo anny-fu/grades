@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>背景渐变</title>
+	<style>
+		section{
+			width:300px;
+			height: 200px;
+			border:1px solid #333;
+			float:left;
+		}
+		/*标准角度：0度从下到上的渐变；
+		非标准：老版浏览器的0度从左到右
+		相差90度，已知任何一个角度，用90度减去这个角度就得到另一个角度
+		标准:135deg
+		兼容:-45deg
+		*/
+		section:nth-child(1){
+			background: -webkit-linear-gradient(90deg,#f00,#0f0);
+			background: -moz-linear-gradient(90deg,#f00,#0f0);
+			background: -ms-linear-gradient(90deg,#f00,#0f0);
+			/*标准必须放在最后*/
+			background: linear-gradient(0deg,#f00,#0f0);
+		}
+		section:nth-child(2){
+			background: -webkit-linear-gradient(-45deg,#f00,#0f0);
+			background: -moz-linear-gradient(-45deg,#f00,#0f0);
+			background: -ms-linear-gradient(-45deg,#f00,#0f0);
+			background: linear-gradient(135deg,#f00,#0f0);
+		}
+
+	</style>
+</head>
+<body>
+<section></section>
+<section></section>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>嵌套for循环示例</title>
+</head>
+<body style="text-align:center;color:#f00;">
+
+</body>
+<script>
+	var  n=prompt("请输入一个绝对值大于3的整数！");
+	var  t=Math.abs(n);
+	if(t>5){
+		for(var i=1;i<=t;i++){
+			// 控制每行的制表符个数
+			for(var k = i; k <= t; k++) {
+				document.write('&nbsp;');
+			}
+			// 每行打印的*号个数
+			for(var j = 1;j <= i*2 -1;j++){
+				document.write('*');
+			}
+			document.write('<br/>');
+		}
+	}else{
+		for(var k=t;k>=1;k--){
+			for (var e = 1; e <= k; e++) {
+				document.write('*&nbsp;');
+			}
+			document.write('<br/>');
+		}
+		for(var n=1;n <= t;n++){
+			for (var g = 1; g <= n; g++) {
+				document.write('*&nbsp;');
+			}
+			document.write('<br/>');
+		}
+	}
+</script>
+</html>

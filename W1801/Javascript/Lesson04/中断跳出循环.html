@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>中断语句和跳转标签</title>
+</head>
+<body>
+
+<script>
+	//	continue
+	var arr = ['周楷翔', '杨蒙', '陈应龙', '孟开拓', '张智深', '廖麒麟', '夏翠', '何金果'];
+	//查找并输出除“陈应龙”和“廖麒麟”在数组中的下标和姓名
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i] == '陈应龙' || arr[i] == '廖麒麟') {
+			continue ;
+		}
+		console.log(i + ":" + arr[i]);
+	}
+	//break
+	for (var j = 0; j < arr.length; j++) {
+//		找出"夏翠"
+		if (arr[j] == '夏翠') {
+			console.log(arr[j] + ":" + j);
+//			找到结果后直接跳出循环
+			break;
+		}
+
+//		return
+		function tests() {
+			var arr = ['今', '天', '在', '下', '雨', '!'];
+//			声明空变量装拼接好后的字符串
+			var str = '';
+//			循环遍历数组拼接字符串
+			for (var k = 0; k < arr.length; k++) {
+				//如果值为"!"返回拼接号的字符串
+				if (arr[k] == '!') {
+					return str + "?";
+				}
+				str += arr[k];
+			}
+
+
+		}
+
+
+	}
+
+
+</script>
+
+
+</body>
+</html>

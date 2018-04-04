@@ -1,0 +1,74 @@
+@charset "utf-8";
+/**
+ * 功能：项目模版
+ * 日期：
+**/
+
+/*************************************************/
+/* 样式初始化部分 */
+/*************************************************/
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0; padding: 0;
+	font: 56px "华文行楷";
+	color: #dcac7e;
+}
+
+/*************************************************/
+/* 样式细节设置部分 */
+/*************************************************/
+main {
+	width: 960px;
+	background-color: #131a1d;
+	margin: 0 auto;
+	padding: 12px;
+}
+h1 {
+	margin: 0;
+	padding: 10px 0;
+}
+
+/*************************************************/
+/* 响应式设计部分 */
+/*************************************************/
+@media (max-width:599px) {
+	body{
+		font:22px '楷体';
+		color:#cbfadb;
+	}
+	main{
+		width:378px;
+		background-color: #12622d;
+	}
+}
+
+@media (min-width:600px) and (max-width:759px) {
+	body{
+		font-size:32px;
+		color:#8d076e;
+	}
+  main{
+	  width:572px;
+	  background-color: #dbb1e8;
+  }
+}
+
+@media (min-width:760px) and (max-width:980px){
+	body{
+		font-size: 42px;
+		color:#261708;
+	}
+	main{
+		width:734px;
+		background-color: #e3c2a2;
+	}
+}
+@media (min-width:1024px){
+	h1{
+		/*font:56px '华文琥珀';*/
+		font-family:'华文琥珀';
+	}
+}
+

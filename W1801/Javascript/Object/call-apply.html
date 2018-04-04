@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>call和apply</title>
+</head>
+<body>
+<script>
+	//变量赋值和对象赋值区别
+	var a = 10, b = 30;
+	b = a;//copy一份值赋值给另一个变量，变量改变后，不会相互影响
+	a = 40;
+	console.log(b);//10
+
+
+	var obj1 = {a:10,b:20},num = 0;
+	num = obj1;//赋值存储地址，如果一个对象的属性值改变，另外一个对象也会改变
+	console.log(num);
+function edit(num){
+//	num.a = 0;
+	var a  = num.a;
+	num = 200;
+	return num;
+}
+
+function Animal(name){
+	this.name = name;
+	this.showName = function(){
+		console.log(this.name);
+	}
+}
+
+function Cat(name){
+Animal.call(this,name)
+}
+var cat = new Cat("cat");
+//cat.showName();
+//将this指向cat.将animal.showName放到cat上执行
+	var animal = new Animal();
+//	animal.showName.call(cat);
+cat.name;
+	cat.showName();
+
+
+function Person(name,age,gender){
+	this.name = name;
+	this.age = age;
+	this.gender = gender;
+
+}
+function Student(name,age,gender,grade){
+//	this.name = name;
+//	this.age = age;
+//	student执行Person类里面的name，age
+//	Person.call(this,name,age);
+	Person.apply(this,arguments);
+	this.grade =grade;
+}
+
+var  stu = new Student('tom',21,'男','五年级');
+console.log(stu.name+'==='+stu.age+'==='+stu.gender+'====='+stu.grade);
+
+//apply运用
+var arr = [12,40,300,50,6,80];
+console.log(Math.max(arr));
+function getMax(arr){
+	var arrLen = arr.length;
+	for(var i =0,ret = arr[0];i<arrLen;i++){
+		ret = Math.max(ret,arr[i]);
+	}
+	return ret;
+}
+
+//apply
+	function getMaxs(arr){
+	return Math.max.apply(null,arr);
+//	return Math.min.apply(null,arr);
+	}
+//	合并数组
+	Aarry.prototype.push.apply(arr1,arr2);
+
+
+</script>
+</body>
+</html>

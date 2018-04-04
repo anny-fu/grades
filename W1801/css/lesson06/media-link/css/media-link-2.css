@@ -1,0 +1,33 @@
+@charset "utf-8";
+/**
+ * 功能：Link Media - 2
+ * 日期：2017/7/3
+**/
+main {
+    width: 760px;
+    padding: 30px;
+    background-color: #1d1d14;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    font: bold 36px "全新硬笔行书简", Serif;
+    color: #fff2db;
+}
+h1 {
+    text-align: center;
+}
+article section {
+    margin: 60px 0;
+}
+section h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+section h2 small {
+    color: #e3dcc3;
+}
+section p {
+    text-indent: 40px;
+    font-size: 32px;
+}
+

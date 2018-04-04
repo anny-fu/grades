@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>对象声明以及属性值</title>
+</head>
+<body>
+<script>
+//	对象键命名
+//错误的语法
+//	var Obj = {0len:"",2-ab:"",c d:""};
+	var Obj1 = {"0len":"tom","2-ab":"","c d":""};
+	var Obj2 = {name:"",type:"",typeof:"object"};
+//键名调用
+console.log(Obj1["0len"]);
+console.log(Obj2.typeof);
+var obj = {
+	str:'字符串',
+	att:[1,2,3],
+	obj:{
+		name:'object',
+		type:'引用类型'
+	},
+	fun:function(n){
+		return 3*n;
+	}
+}
+/*声明一个人类对象
+* 属性：姓名，性别，年龄.
+* 方法：走路，敲代码，吃饭
+* */
+var person = {
+		name:"杨蒙",
+		gender:"男",
+		age:24,
+		sayHello:function(name){
+			console.log("hello,my name is "+person[name]);
+		}
+}
+//通过下标访问属性值
+Object.prototype.eq = function(index){
+	return this[Object.keys(this)[index]];
+}
+
+
+
+/*
+* 狗对象：
+* 属性：名字，性别，年龄，颜色
+* 方法(行为)：叫，跑，游泳
+* */
+
+var dog = {};
+//对象赋值和读取
+dog.name = '小花';
+dog['gender'] = '母';
+console.log(dog.name);
+console.log(dog['gender']);
+
+
+
+
+
+
+</script>
+</body>
+</html>

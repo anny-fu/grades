@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>元素轮廓线</title>
+	<style>
+		input{
+			width:230px;
+			height: 80px;
+			border:3px solid #f00;
+			padding:1px 5px;
+			border-radius:10px;
+			/*轮廓线*/
+			outline:0;
+		}
+		input:focus{
+			outline: 3px dashed #0f0;
+			outline-offset: 10px;
+		}
+
+	</style>
+</head>
+<body>
+<input type="text">
+</body>
+</html>

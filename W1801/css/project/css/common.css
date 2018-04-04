@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/**
+**功能：初始化公共样式表
+**开发人员：Tom.Anny
+**日期：2018/2/27
+**/
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl, dt, dd, input, button {
+	margin: 0;
+	padding: 0;
+}
+/*兼容老版浏览器*/
+header,footer,section,article,nav,aside{
+	display: block;
+}
+ul, ol {
+	list-style: none;
+}
+
+input, button {
+	outline: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.clearfix:after, clearfix:before {
+	content: '';
+	display: table;
+}
+
+.clearfix:after {
+	height: 0;
+	line-height: 0;
+	clear: both;
+}
+/*将所有元素转换为IE盒子模型*/
+*{
+	box-sizing: border-box;
+}

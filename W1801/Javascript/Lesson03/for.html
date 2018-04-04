@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>for循环</title>
+</head>
+<body>
+<table>
+	<thead>
+	<th>序号</th>
+	<th>姓名</th>
+	<th>年龄</th>
+	</thead>
+	<tbody id="stuInfo">
+
+	</tbody>
+</table>
+<script>
+	//	DOM打印内容
+	//	for(var i = 0;i<5;i++){
+	//		document.write('满满的套路！<br>')
+	//	}
+	var arr = ['周楷翔', '杨蒙', '陈应龙', '孟开拓', '张智深', '廖麒麟', '夏翠', '何金果'];
+	var arr1 = [22, 24, 27, 25, 20, 24, 26, 28];
+	//获取tbody
+	var tbody = document.getElementById('stuInfo');
+	for (var i = 0; i < arr.length; i++) {
+//		tbody.innerHTML += `<tr>
+//<td>${i + 1}</td>
+//<td>${arr[i]}</td>
+//<td>${arr1[i]}</td>
+//</tr>`;
+
+		tbody.innerHTML +='<tr><td>'+(i+1)+
+			'</td><td>'+arr[i]+
+			'</td><td>'+arr1[i]+'</td></tr>';
+	}
+
+//输出成绩大于60
+//	var arr = [80,50,70,90,40,60,76,54];
+/*	for(var i = 0;i<arr.length;i++){
+//		如果小于60就输出“不及格”
+		if(arr[i] < 60){
+			console.log('不及格');
+//			中断本次循环，进入下一次循环
+			continue;
+		}
+		console.log(arr[i]);
+	}*//*	for(var i = 0;i<arr.length;i++){
+//		如果小于60就输出“不及格”
+		if(arr[i] < 60){
+			console.log('不及格');
+//			中断本次循环，进入下一次循环
+			continue;
+		}
+		console.log(arr[i]);
+	}*/
+
+
+</script>
+</body>
+</html>

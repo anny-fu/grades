@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>背面翻转</title>
+	<style>
+		article, section {
+			width: 300px;
+			height: 300px;
+			transition:2s;
+		}
+
+		article {
+			overflow: hidden;
+			position: relative;
+			-webkit-perspective: 800px;
+		}
+
+		section {
+			position: absolute;
+			left: 0;
+			top: 0;
+			background-size: cover;
+		}
+
+		section:nth-child(1) {
+			background-image: url("../img/03.jpg");
+			backface-visibility: hidden;
+		}
+		section:nth-child(2) {
+			background-image: url("../img/04.jpg");
+			/*背面不可见*/
+			transform: rotateY(-180deg);
+			backface-visibility: hidden;
+		}
+		article:hover section:nth-child(1){
+			transform: rotateY(180deg);
+		}
+		article:hover section:nth-child(2){
+			transform: rotateY(0deg);
+		}
+
+
+	</style>
+
+</head>
+<body>
+<article>
+	<section></section>
+	<section></section>
+</article>
+</body>
+</html>

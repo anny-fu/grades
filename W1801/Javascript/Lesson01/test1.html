@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>js的引入</title>
+</head>
+<body>
+<h1>网页内容</h1>
+<!--// 对事件作出相应-->
+<button type="button" onclick="alert('Hello!吃饭了吗？')">点击我</button>
+<!--改变网页内容、样式、属性-->
+<p id="demo">html原有内容</p>
+<button type="button" onclick="myFun();">改变p内容</button>
+
+<img id="imgDemo" onclick="changeImg();" src="../img/timor.jpeg" alt=""
+		 width="140px" height="140px">
+
+<!--输入框-->
+<div>
+	<input type="text" id="inputVal">
+	<button type="button" onclick="inputOrNum();">验证</button>
+</div>
+
+<!--引入脚本文件-->
+<script type="text/javascript" src=""></script>
+<!--嵌入脚本-->
+<script type="text/javascript">
+	//	直接向DOM中输出标签和内容
+	//	document.write('<h2>js脚本动态输出的内容</h2>');
+	//声明myFun函数
+	/**
+	 * 操作DOM
+	 * 参数：无
+	 * 返回值：无
+	 * */
+	function myFun() {
+		//改变ID为demo的元素内容
+		var demoEl = document.getElementById('demo');
+//		输出获取到的p元素
+		console.log(demoEl);
+//		改变内容
+		demoEl.innerHTML = "动态改变的内容！";
+//		改变样式
+
+		demoEl.style.color = "#f00";
+		demoEl.style.fontSize = "30px";
+
+	}
+
+	//		改变属性值
+	function changeImg() {
+		var imgEl = document.getElementById('imgDemo');
+		//判断
+		if (imgEl.src.match('timor')) {
+			imgEl.src = "../img/exam-002.jpg";
+		} else {
+			imgEl.src = "../img/timor.jpeg";
+		}
+	}
+
+	//输入内容的验证
+	function inputOrNum() {
+//		获取输入框内容
+		var inpVal = document.getElementById('inputVal').value;
+		console.log(inpVal);
+//		验证输入框内容.isNaN = is not a number
+		if(inpVal == "" || isNaN(inpVal)){
+				alert('输入错误，请输入数字格式！');
+		}else{
+			console.log('验证通过！');
+		}
+	}
+</script>
+</body>
+</html>

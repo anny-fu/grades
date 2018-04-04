@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>计算器</title>
+	<style type="text/css">
+		body, h3 {
+			margin: 0;
+			padding: 0;
+		}
+
+		section {
+			padding-top: 100px;
+			width: 700px;
+			margin: 30px auto;
+			position: relative;
+		}
+
+		.rotates {
+			width: 100px;
+			height: 100px;
+			margin: 0 auto;
+			margin-bottom: 50px;
+			border-radius: 50%;
+			border: 1px solid #d504a6;
+			position: absolute;
+			top: 0;
+			left: 45%;
+			opacity: 0;
+			transition: opacity 1s;
+			animation: bgcolor 3s linear infinite;
+			animation-play-state: paused;
+		}
+
+		.rotates:before, .rotates:after {
+			content: '';
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: #ae00c0;
+			animation: scales 2s linear infinite;
+			animation-play-state: paused;
+		}
+
+		.rotates:before {
+			left: 12px;
+			top: -2px;
+			animation-delay: 1.5s;
+		}
+
+		.rotates:after {
+			left: 22px;
+			bottom: -5px;
+		}
+
+		.box {
+			width: 500px;
+			margin: 10px auto;
+			padding: 50px 20px;
+			border-radius: 20px;
+			border-top: 5px solid #ae00c0;
+			border-bottom: 1px solid #a4a2a2;
+			background-color: #f6f5f5;
+			margin-top: 20px;
+		}
+
+		.box:hover {
+			box-shadow: 0 3px 2px 2px #9b9b9b;
+		}
+
+		.box input, .box select {
+			width: 75px;
+			height: 32px;
+			line-height: 28px;
+			border: 1px solid #f6f5f5;
+			border-radius: 5px;
+			color: #ae00c0;
+			font-size: 22px;
+			text-align: center;
+		}
+
+		.box span {
+			padding: 0 10px;
+			color: #ae00c0;
+			font-size: 22px
+		}
+
+		#result {
+			font-size: 28px;
+		}
+
+		/*显示隐藏动画*/
+		.box:hover + .rotates, .box:hover + .rotates:before, .box:hover + .rotates:after {
+			opacity: 1;
+			animation-play-state: running;
+		}
+
+		/*定义动画帧*/
+		@keyframes bgcolor {
+			0% {
+				transform: rotate(0deg);
+				border-color: #f68c04;
+			}
+			50% {
+				border-color: #d100b5;
+				transform: rotate(180deg);
+			}
+			100% {
+				border-color: #70fc3a;
+				transform: rotate(360deg);
+			}
+		}
+
+		@keyframes scales {
+			0% {
+				transform: scale(1)
+			}
+			50% {
+				transform: scale(1.8)
+			}
+			100% {
+				transform: scale(1)
+			}
+		}
+
+	</style>
+</head>
+<body>
+<section>
+	<!-- 计算器容器 -->
+	<div class="box">
+		<input type="text" id="firstNum" value="0">
+		<select id="fuhao">
+			<option value="1">+</option>
+			<option value="2">-</option>
+			<option value="3">×</option>
+			<option value="4">÷</option>
+			<option value="5">%</option>
+		</select>
+		<input type="text" id="lastNum" value="0">
+		<span>=</span>
+		<span id="text">0</span>
+	</div>
+	<!-- 动画圈 -->
+	<div class="rotates">
+	</div>
+</section>
+<script>
+//	获取元素
+	var firstNum = document.getElementById('firstNum'),
+		lastNum = document.getElementById('lastNum'),
+		fuhao = document.getElementById('fuhao'),
+		text = document.getElementById('text');
+//	声明变量存储数字和符号以及结果
+	var num1 = 0,num2 = 0,fh = 1,result = 0;
+//	监听输入框值变化事件
+	firstNum.oninput = function(){
+		num1 = this.value;
+		console.log(num1);
+//    方法二：调用封装运算函数
+		result = calculator(num1,num2,fh);
+		/*方法一：不封装*/
+////		判断值是否为空，如果为空直接返回0
+//		 num1 = Number(num1),num2 = Number(num2);
+//		 if(num1 === '' || num2 === ''){
+//			 result = 0;
+//		 	return result;
+//		 }
+////		 如果不为空
+//		switch(fh){
+//			case 1:
+//				result = num1 + num2;
+//				break;
+//			case 2:
+//				result = num1 - num2;
+//				break;
+//			case 3:
+//				result = num1 * num2;
+//				break;
+//			case 4:
+//				result = num1 / num2;
+//				break;
+//			case 5:
+//				result = num1 % num2;
+//				break;
+//			default:
+//				result = 0;
+//		}
+
+//		结果显示
+		text.innerHTML = result;
+	}
+lastNum.oninput = function(){
+	num2 = this.value;
+	console.log(num2);
+	//		调用运算函数
+	result = calculator(num1,num2,fh);
+
+//		结果显示
+	text.innerHTML = result;
+}
+
+//监听下拉列表改变
+	fuhao.onchange = function(){
+	fh = Number(this.value);
+	console.log(fh);
+//		调用运算函数
+		result = calculator(num1,num2,fh);
+//		结果显示
+		text.innerHTML = result;
+	}
+/**
+ * 功能：计算函数
+ * 参数：1,数字一；2，数字二；3，运算符
+ * return：计算结果
+ * */
+function calculator(n1,n2,fh){
+//		判断值是否为空，如果为空直接返回0
+var	num1 = Number(n1),num2 = Number(n2);
+	if(num1 === '' || num2 === ''){
+		return 0;
+	}
+//		 如果不为空
+	switch(fh){
+		case 1:
+			return num1 + num2;
+		case 2:
+			return num1 - num2;
+		case 3:
+			return num1 * num2;
+		case 4:
+			return num1 / num2;
+		case 5:
+			return num1 % num2;
+		default:
+			return 0;
+	}
+}
+
+
+
+
+</script>
+</body>
+</html>

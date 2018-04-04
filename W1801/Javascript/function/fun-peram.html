@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>函数参数</title>
+</head>
+<body>
+<script>
+	//	实参和形参
+	function fn(num1, num2) {//形参
+		console.log(num1 + num2);
+	}
+	var n1 = 20, n2 = 40;
+	fn(n1, n2);
+	function fnc() {
+		console.log(n1 * n2);
+	}
+	fnc();
+
+	/**
+	 * 功能：录入用户信息
+	 * 参数：1,用户名(string);2,年龄(number);3,描述(string)
+	 * 返回值：无
+	 * */
+	function userInfo(uName, uAge, uDescribe) {
+		var obj = {
+			userName:uName,
+			userAge:uAge,
+			userDescribe:uDescribe
+		}
+		for(var n in obj){
+			console.log(n+":"+obj[n]);
+		}
+	}
+	function users(user){
+//		判断对象是否有空值，如果有，没有设置默认值
+		if(user === "{}"){
+			return;
+		}
+		user.name = user.name || "tom";
+		user.age = user.age || 20;
+		user.gender = user.gender || '男';
+
+		for(var n in user){
+			console.log(n+":"+user[n]);
+		}
+	}
+	var obj = {
+		name:"anny",
+		gender:"女"
+	}
+	users(obj);
+
+
+</script>
+</body>
+</html>

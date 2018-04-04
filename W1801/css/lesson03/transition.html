@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>过渡特效</title>
+	<style>
+		div{
+			width: 800px;
+			height: 80px;
+			margin-bottom: 5px;
+			background-color: #F00;
+			border:10px solid #00f;
+			/*transition-duration: 6s;*/
+			/*transition-timing-function: ease-in;*/
+			/*组合写法*/
+			transition:all 6s linear;
+		}
+		/*过渡特效属性要设置在元素基本样式里，并且需要鼠标事件触发*/
+		div:nth-child(1){
+			/*property:none|all(默认)|propertyName*/
+			/*transition-property:all;*/
+			/*display: block;*/
+		}
+		div:nth-child(2){
+			transition-delay: 1s;
+		}
+		div:nth-child(3){
+			 transition-delay: 3s;
+		 }
+
+
+		div:nth-child(1):active{
+			width:100px;
+			/*过渡效果对display属性不生效*/
+			/*display: none;*/
+		}
+		div:nth-child(1):active + div{
+			width:100px;
+			background-color: #0f0;
+		}
+
+		div:nth-child(1):active ~ div:nth-child(3){
+			width:100px;
+			background-color: blue;
+			border-color:#00ff00;
+		}
+	</style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

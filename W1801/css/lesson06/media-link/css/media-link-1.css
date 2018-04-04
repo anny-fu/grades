@@ -1,0 +1,32 @@
+@charset "utf-8";
+/**
+ * 功能：Link Media - 1
+ * 日期：2017/7/3
+**/
+article {
+    font: 24px "华文行楷", Serif;
+    color: #333126;
+}
+h1 {
+    text-align: center;
+}
+section h2 {
+    font-size: 32px;
+}
+main {
+    padding: 20px;
+    background-color: #dbd8aa;
+    margin-left: auto;
+    margin-right: auto;
+}
+article {
+    overflow: hidden;
+}
+article section {
+    width: 33.33333333%;
+    text-align: center;
+    float: left;
+}
+section h2 {
+    margin-bottom: 20px;
+}

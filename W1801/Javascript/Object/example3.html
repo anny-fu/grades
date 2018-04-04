@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>练习三</title>
+</head>
+<body>
+<script>
+	var arr1 = ['100','30','88','67','50'];
+	var arr2 = [20,25,40,45,70];
+	arr1 = arr1.map(function(e){
+		return parseInt(e);
+	});
+	console.log(arr1);
+//	apply合并数组
+	Array.prototype.push.apply(arr1,arr2);
+	console.log(arr1);
+
+
+</script>
+</body>
+</html>

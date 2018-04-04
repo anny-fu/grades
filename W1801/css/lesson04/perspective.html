@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>透视</title>
+	<style>
+		/*透视距离:perspective*/
+		article,section{
+			width:300px;
+			height:300px;
+		}
+		article{
+			border:1px solid #000;
+			/*作为样式属性使用时需在父元素设置透视距离*/
+			-webkit-perspective: 1200px;
+			/*perspective: 1200;*/
+			/*透视点*/
+			-webkit-perspective-origin: right bottom;
+		}
+		section{
+			background-color: #12d601;
+			opacity: .8;
+			/*作为transform的属性值使用时，需在当前元素上设置，并且要放在(位移，旋转，缩放，倾斜)
+			的最前面*/
+			/*transform: perspective(800px) rotateY(45deg);*/
+			transform:rotateY(45deg);
+		}
+	</style>
+</head>
+<body>
+<article>
+	<section></section>
+</article>
+</body>
+</html>

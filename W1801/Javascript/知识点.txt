@@ -1,0 +1,470 @@
+javaScript:轻量级的脚本语言、嵌入式语言、具有丰富的页面交互效果
+
+组成：基本语法结构和标准库
+
+浏览器的API分类：
+1.控制类：操作浏览器
+2.DOM类：操作网页元素
+3.web类：实现互联网的各种功能
+
+特点：语法灵活，易学性，强大的性能优势，应用领域广泛
+
+语法特点：以行为单位，从上到下一行一行，每一行结尾需要";"分号，所有的符号都
+是英文的。
+
+变量声明、赋值
+变量先声明后使用，声明必须用var,变量类型由值决定，为赋值为undefined类型。
+变量不能重复声明
+
+变量命名规则：
+1.不能以数字，特殊符号开头,除首个字符外可以使用。
+2.只能以字母，下划线，美元符，其他国家语言字符开头。
+3.不能使用javascript中的关键字和保留字,其他infinity,null,NaN,undefined
+
+变量和常量
+
+数据类型
+number、string、boolean
+object:键值对方式存在，花括号；数组也属于对象。
+var obj = {name:'杨萌',gender:'人妖',age:28}
+var arr = [1,'a',true,'abc',76];
+function:关键字function,小括号。一个函数内至少一条语句，可以实现特定功能。
+分类：普通函数、构造函数、变量函数、匿名函数、闭包
+function fun(){console.log('普通函数')}
+//构造函数
+function Person(name,age,gender){
+this.name = name;
+this.age = age;
+this.gender = gender;
+function showInfo(){
+console.log(name+','+age+','+gender);
+}
+var p = new Person();
+
+var fun = function(){console.log('变量函数')};
+
+(function(){console.log('匿名函数')})();
+
+
+function cosole(){
+ var info = '闭包函数';
+ setInterval(function(){console.log(info)},1000);
+}
+
+
+undefined和null
+undefined:缺少值、未定义
+null:空对象
+
+返回undefined场景：
+1.变量声明未赋值
+2.调用没有返回值的函数
+3.调用函数时，未提供参数
+4.没有赋值的对象属性
+
+
+检测值类型方法：
+typeof()//typeof 运算符
+instanceof 运算符
+Object.prototype.toString()
+
+
+数据类型转换
+1.强制类型(显式)转换
+2.自动类型(隐式)转换
+
+基本运算符
+=：赋值运算符
++、-、*、/、%=：x+=y  ===>  x = x+y
++：加法运算、拼接运算
+++：累加
+var a = 10;
+++a;先加1再输出
+a++;先输出再加1
+--：递减
+
+二元运算符(逻辑运算符)
+与 === && ：true && true == true ; false && true == false; false && false == false;
+或 === || : true || true == true ; false || true == true ; false || false == false;
+非 === ！  ： true == false  false == true
+
+三元运算符
+语法：条件 ? 结果1 : 结果2
+
+能有比较形式的运算符：
+== === < > >= <= !=
+
+if条件判断语句
+1.if结构
+2.if-else结构
+3.if-elseif-else结构
+
+switch-case条件选择结构
+1.条件匹配时运用的是严格相等运算符
+2.break语句不能少
+3.default语句也不能少
+
+
+循环
+//初始化值
+while(条件){
+//循环体
+//条件修改
+}
+
+//初始化值
+do{
+//循环体
+//更新条件
+}while(条件);//条件表达式
+
+区别：do-while循环至少要执行一次循环体
+
+
+for(1.初始化表达式;2.测试表达式;4递增/递减表达式){
+//3.循环体
+}
+
+循环中断和跳出；
+continue：中断本次循环，进入下一次循环
+break：跳出程序
+return：跳出整个函数(返回值，必须在局部作用域中使用)
+
+for in循环遍历
+语法：for(var a in obj){}
+var arr = [[2,4,5,6],[5,6,3,8],[20,50,80],0]
+var arr1 = [1,3,4]
+var obj = {
+    name:'anny',
+    age:25,
+    gender:'男',
+    hobby:{
+    play:'打篮球',
+    book:'看书'
+    }
+}
+
+
+数值类型：
+精度:toFixed(数值);
+数值表示范围:(-Math.pow(2,53)) - 1 ~ (+ Math.pow(2,53))-1
+
+
+科学计数法：
+6.23E26（e不区分大小写）
+6.23为小数部分，E科学计数法的声明，26为10的幂指数
+数值自动转换为科学计数法：
+1.小数点前的数字多于21位
+2.小数点后的0多于5个
+
+将科学计数法转换为一般的字符串数字：
+function convertNum(amount) {
+                // 判断是否科学计数法,是则进行转换
+                var num = 0;
+                var result = [];
+                amount = new String(amount);
+                if((amount.indexOf('E') != -1) || (amount.indexOf('e') != -1)) {
+                    (amount.indexOf('E') != -1)? num = amount.indexOf('E'):num = amount.indexOf('e');
+                    var decimal = amount.substr(0, num);
+                    // devide the sentice efficial number
+                    var decArr = decimal.split('.',2);
+                    // total 10 power
+                    var power = amount.substr(num+1,amount.length);
+                    // symbol + -
+                    var symbol = power.substr(0,1);
+                    power = power.substr(1, power.length);
+                    power = power * 1.0;
+                    if('+' == symbol) {
+                        // the number of 0 is power - decArr[1]
+                        power = power - decArr[1].length;
+                        // the return data
+                        while(power > 0) {
+                            result.unshift(0);
+                            power -= 1;
+                        }
+                        result.unshift(decArr[1] * 1.0);
+                        result.unshift(decArr[0] * 1.0);
+                    } else {
+                        power = power - decArr[1].length;
+                        var result = [0];
+                        result.push('.');
+                        while(power > 0) {
+                            result.push(0);
+                            power -= 1;
+                        }
+                        result.push(decArr);
+                    }
+                }
+                result.join("");
+                result = result + '';
+                amount = result.replace(/,/g,'');
+                return amount;
+            }
+
+
+非数字：NaN
+NaN是一个和任何值都不等的特殊数值(包括它本身)
+方法：isNaN();判断一个数值是/不是  不是一个数字
+true:不是一个数字    false:是一个数字
+
+数值进制：
+常用的是：十进制
+二进制：0b/0B(0或1)
+八进制：0o/0O(0~7)
+十六进制：0x/0X(0~9、a~f)
+
+
+整型转换：parseInt()
+1.除数字以外的非字符(包含小数点)都将忽略，然后将是数字的值进行返回，否则
+结果是NaN,数字前的正负号除外；
+2.可以对带有前导数的二进制、八进制、十六进制都转换为十进制数。
+
+浮点数转换：parseFloat()
+可以对有小数点的数进行正常转换，其他转换都和parseInt方法相同
+
+转换为数值：Number();
+能转换整数和浮点数还有科学计数法，进制数。以及布尔值类型和空字符。
+
+数值进制转换：参数二:(2~36)之间的进制，超出范围返回NaN
+parseInt('023',8);
+parseInt('02f',16);
+
+
+字符串：
+1，引号使用规则：
+字符串中同类型引号嵌套，需要使用转义符"\",否则只能单双嵌套
+
+2.字符串换行
+
+字符串和Unicode的转换：
+string===>Unicode
+var str = '字符串';
+var str_len = str.length,str_u = '';
+for(var i = 0;i<str_len;i++){
+//将对应字符下标索引的字符转换为数字编码
+//将数字编码转换为16进制的表示法,再拼接一个"\u"即可
+//"\\u"+ str.charCodeAt(0).toString(16);
+str_u += "\\u"+ str.charCodeAt(i).toString(16);
+}
+console.log(str_u);
+
+
+Unicode ====> string
+//ES6模板字符串：`${变量名}`
+var str_u = '\u5b57\u7b26\u4e32';
+//1.将这个Unicode码字符串用模板字符串的方式组合成一个JSON格式的字符串
+var obj = `{"unincodeString":"${str_u}"}`;
+//2.JSON字符串格式转换为普通的对象
+var obj1 = JSON.parse(obj);
+//3.对象点属性名
+obj1.unincodeString;
+//字符串
+
+字符串和数组
+相同：都有length属性，都有下标(从0开始),都可以使用for循环遍历
+不同：类型不同，字符串对length属性不可以修改。
+
+相互转换：
+string ===> array :split();
+array ===> string :join(分割字符);
+
+
+包装对象和内置对象：
+三大包装对象：String(),Number(),Boolean()
+区别：如果一个值使用Object()后还严格等于自身，或者调用对象自身的valueOf()
+方法返回的任然是一个对象，这个值都是内置对象，反之就为包装对象
+包装对象：
+var str = '字符串';
+str === Object(str); //false
+
+var obj_str = new String(str);
+obj_str.valueOf();//"字符串"
+
+toString()和String()构造函数
+不同：toString方法不能对null和undefined进行转换；可以将数值类型转换为2~36之间
+的进制字符串。
+
+不能改变原字符串方法：
+concat(变量1,变量2,...)：字符串(一个或者多个)拼接，返回一个新的字符串
+
+slice(start,end)：从原字符串中截取出对应的子字符串，返回截取的子字符串
+不包含结束位置字符，如果为负数，开始位置不能大于结束位置
+
+substring(start,end):用法和slice相同，区别是substring对负数参数无效，
+自动转为0;
+
+substr(start,length):和slice一样，第一个参数可以为负，
+但是第二个参数不能（表示截取的字符长度)。
+
+
+indexOf()和lastIndexOf():查询一个字符是否存在另一个字符中，如果存在就
+返回这个字符的下标，反之返回-1。
+
+trim():去除字符串两端的空格，返回新字符串
+
+match()和search()：确定原字符串中是否匹配某个子字符串。
+返回值：match方法存在返回数组,反之null；search方法存在返回匹配成功的这个
+字符在原字符的位置，反之-1；
+
+replace(需要匹配的字符串,替换字符串):用新字符串替换匹配的字符串
+
+split(分割符,数值长度):切割字符串，将切割后的字符串以数组的方式返回。
+
+
+toLowerCase()和toUpperCase()：大小写转换，返回一个转换后的新字符串
+
+Base64转码：
+1.btoa():将字母类型字符串转换Base64编码
+2.atob():将Base64编码转为原来的编码
+3.encodeURIComponent():将非ASC II字符转换为Base64码
+4.decodeURIComponent():将Base64码转为非ASC II字符
+
+中文转换：
+btoa(encodeURIComponent('中文'))
+decodeURIComponent(atob('Base64码'))
+
+
+
+
+
+数组：
+键名：下标(从0开始记数);最大的下标值为“length-1”
+值：数组元素、数组项、数组成员
+值构成：可以由同类型或者不同类型的值构成，多种类型值集合。
+
+属性：length(数组元素个数或数组长度)
+
+Object.keys(arr):可以获取数组的所有下标，返回一个由下标组成的数组
+
+检测数组空位
+运算符in：检测数组下标对应位置是否存在元素,存在(true),不存在(false)
+
+
+判断是否为数组
+Array.isArray(变量)：true(是)，false(不是)
+
+对象自身方法：
+valueOf():返回自身原始类型值
+toString()：返回字符串类型值，或者字符串类型进制
+
+
+不改变原数组：
+slice(start,end):提取一部分数组成员，返回新数组
+
+参数说明：item:数组成员，index：数组下标，arr：数组本身
+map(function(item,index,arr1){return item})：以数组的形式返回操作后的数组成员
+forEach(function(item,index,arr1){//操作})：forEach不会执行返回值操作，其他操作和map一样
+
+filter(function(item,index,arr1){//操作}):过滤，返回符合过滤条件的数组成员
+
+reduce()/reduceRight():数组成员累加；返回累加结果
+
+indexOf()/lastIndexOf():判断数组中是否存在某一个值；返回值下标/-1
+
+
+some()/every():判断数组成员是否符合某种条件，返回结果为布尔值。
+some():数组中只要有一个成员符合条件，结果为true
+every：数组中只要有一个成员不符合条件，结果为false
+
+
+
+
+会改变原数组：
+splice(index,count,newEles,...):可以删除数组中指定位置元以及元素个数，
+并且可以在删除位置插入新元素,以数组的形式返回被删除的数组元素
+1.三个参数：删除加替换
+2.三个参数，第二个为0:插入新元素
+3.二个参数，第二个为0：无操作
+4一参数：分割数组
+
+sort():排序，默认按ASC II码顺序
+sort(function(item1,item2){return item1 - item2;})
+ASC II码顺序：数字(48-57) 大写字母(65-90) 小写字母(97-122)
+
+reverse():倒序排序
+
+添加/插入：
+push()/unshift():向数组末端添加元素/数组起始位置添加元素，参数为插入的新
+元素，返回值为添加元素后的数组长度
+删除：
+pop()/shift():删除数组末端的一个元素或起始位置的一个元素。设置参数无效，
+返回数组中被删除的元素。
+
+
+
+对象
+概念：由若干的键值对构成的无序数据集合。
+声明语法：
+1.常用写法： var obj = {name:'anny',gender:'男'}
+2.严格写法：var obj1 = {"name":'tom',"gender":'男'}  === JSON文件格式
+键名命名：可以是任何字符包括数字，关键字保留字，为数字和有特殊符号的情况下
+需要给键名添加双引号("")
+
+判断属性是否存在于对象：
+1.in关键字
+2.hasOwnProperty()：false：继承属性；true：自身属性
+
+原型：原型是一个对象，其他对象可以通过它实现属性继承。
+原型存在对象内部的prototype属性里面，通过浏览器非标准的访问器_proto_;
+
+原型链：每个对象和原型都有一个原型(原型：对象),对象的原型指向对象的父级，
+而父级的原型又指向父级的父级，这种通过原型层层连接起来的关系称为原型链。
+
+this：始终指向一个对象(对象不固定)
+顶层对象：window  ===> null
+Object   ====  String ==== Number === Boolean  === Array
+
+
+function.prototype.call()：改变this，然后再调用该函数
+function.prototype.apply():与call方法类似，区别是她接收数组作为参数
+function.prototype.bind():将函数体内的this绑定到某个对象上，让后再返回一个新函数
+
+
+函数：
+可重复执行的语句块
+声明：
+1.利用关键字"function"
+function 函数名(参数){//函数体}
+2.函数表达式形式
+var 函数名 = function(参数){//函数体}
+3.构造函数"Function"声明(不常用===可读性不高)
+var 函数名 = new Function("a","b","return a*b");
+4.自调用函数(即时执行函数)
+(function(参数){//函数体})()
+
+
+函数返回值
+return：跳出函数体，return后面的语句不在执行。return的返回值只能有一个(类型不定)
+如需返回多个值，以对象或者数组集合的方式返回。
+
+
+函数参数：对位传参（不能少，不能错位，不能不对类型），参数过多以集合传递
+形参：函数声明时的参数名
+实参：调用函数时传递的参数
+
+参数属性
+arguments：类似于数组的对象(不能直接操作数组特有的方法)
+转换为真正的数组：Array.prototype.slice.call(arguments);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

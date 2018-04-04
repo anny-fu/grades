@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>圆角盒子</title>
+	<style>
+		div{
+			border:5px solid #f00;
+			float: left;
+			margin-left:10px;
+			/*元素轮廓线*/
+			outline: 5px solid #00ff00;
+		}
+		div:nth-child(1){
+			width:200px;
+			height:300px;
+			background-color: #00BBEE;
+			/*border-radius:100px;*/
+			border-radius:50%;
+		}
+		div:nth-child(2){
+			width:200px;
+			height:200px;
+			background-color: #0000ff;
+			/*border-radius:100px;*/
+			border-radius:50%;
+		}
+		div:nth-child(3){
+			width:400px;
+			height:300px ;
+			background-color: #0387bc;
+			/*border-top-right-radius:330px;*/
+			/*border-bottom-left-radius:300px;	*/
+			border-top-right-radius:150%;
+			border-bottom-left-radius:150%;
+		}
+		div:nth-child(4){
+			width:300px;
+			height:300px ;
+			background-color: #0f0;
+		}
+
+	</style>
+</head>
+<body>
+	<!--1.四角同时设置时：上限值50%/像素单位的时候上限值取的是
+	 宽高中较小值的一半。大于等于这个上限值，元素不在做任何变化。-->
+<div></div>
+<div></div>
+<!--2.四角分别设置时：上限值100%/150%;如果大于等于这个值，
+	会对当前设置角的对角产生影响-->
+<div></div>
+<div></div>
+</body>
+</html>

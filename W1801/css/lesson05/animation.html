@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>动画</title>
+	<style>
+		div.box {
+			width: 400px;
+			height: 300px;
+			/*background-color: #f00;*/
+			border: 1px solid #f00;
+			/*animation:resizeWidth 5S 2 alternate;*/
+			/*动画播放次数：
+			animation-iteration-count:1(默认)/number(次数)/infinite
+			*/
+			/*动画周期逆向播放：
+			animation-direction:normal/alternate*/
+		}
+
+		.xq {
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background-color: #000;
+			/*调用小球位移动画:动画名称和动画时间不可省略*/
+			animation: translates 5s infinite;
+			/*animation-fill-mode: backwards;*/
+			/*animation-fill-mode:forwards;*/
+			animation-fill-mode: both;
+			/*animation-fill-mode:
+			backwards(动画开始前保持第一帧样式)/
+			forwards(动画结束后，保留在最后一帧样式)/
+			both*/
+			/*动画播放和暂停*/
+			/*animation-play-state:running/paused*/
+		}
+
+		div.box:hover .xq {
+			animation-play-state:paused;
+		}
+
+		@keyframes translates {
+			/*from{*/
+			/*transform:translate(370px,270px);*/
+			/*background-color: #00ff00;*/
+			/*}*/
+			/*to{transform:translate(370px,0px)}*/
+
+			/*百分数的定义模式：0%~100%*/
+			0% {
+				transform: translate(0, 0) rotate(360deg);
+			}
+			25% {
+				transform: translate(370px, 0) rotate(360deg);
+			}
+			50% {
+				transform: translate(370px, 270px) rotate(360deg);
+			}
+			75% {
+				transform: translate(0px, 270px) rotate(360deg);
+			}
+			100% {
+				transform: translate(0px, 0px) rotate(360deg);
+			}
+
+		}
+		@keyframes rotates {
+			0%{transform:rotateX(35deg) rotateY(45deg) rotate(0deg)}
+			100%{transform:rotateX(35deg) rotateY(405deg) rotate(-360deg)}
+		}
+
+		/*语法格式：声明-动画帧定义-调用*/
+		/*动画声明
+		animationName命名规则：语义化
+		*/
+		@keyframes resizeWidth {
+			/*动画帧定义：英文单词模式和百分数模式*/
+			from { /*开始帧*/
+				width: 300px;
+			}
+
+			to { /*结束帧*/
+				width: 500px;
+			}
+		}
+
+	</style>
+	<!--Html浏览器兼容条件语法
+	下面的注释条件解释：如果是小于IE9版本的浏览器，即可解析当前js文件，并执行该文件-->
+<!--[if lt IE 9]>
+	<script src="https://cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<!--外层盒子-->
+<div class="box">
+	<!--小球-->
+	<div class="xq"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>元素阴影</title>
+	<style>
+		html,body{
+			width:100%;
+			height: 100%;
+		}
+		/*section:nth-child(1){*/
+			/*width:240px;*/
+			/*height:140px;*/
+			/*border:1px solid #f00;*/
+			/*border-radius:30px;*/
+			/*!*阴影：外阴影*!*/
+			/*box-shadow: 5px 5px 5px 3px #00f,*/
+			/*5px 5px 5px 3px #0f0 inset,*/
+		/*-5px 0px 5px 0px pink;*/
+
+		/*}*/
+		section:nth-child(2){
+			width:240px;
+			height:180px;
+			border:1px solid #333;
+			/*绝对定位加负外间距实现元素水平垂直居中*/
+			position: absolute;
+			/*top:calc(50% - 90px);*/
+			/*left:calc(50% - 120px);*/
+			top:50%;
+			margin-top: -90px;
+			left:50%;
+			margin-left: -120px;
+			/*border-radius: 30px;*/
+			box-shadow:
+				-30px -30px 10px rgba(235, 21, 21, 0.75),
+				30px -30px 10px rgba(202, 235, 21, 0.75),
+				30px 30px 10px rgba(21, 235, 103, 0.75),
+				-30px 30px 10px rgba(21, 87, 235, 0.75),
+				0px 0px 20px rgba(219, 21, 235, 0.75) inset;
+		}
+	</style>
+</head>
+<body>
+<section></section>
+<section></section>
+</body>
+</html>

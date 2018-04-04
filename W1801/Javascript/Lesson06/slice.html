@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>slice</title>
+</head>
+<body>
+<p id="text"></p>
+<script>
+	var str1 = '',text = "我爱编程",num =3;
+	for(var i = 0 ;i<num ;i++){
+		str1 = str1.concat(text);
+	}
+	console.log(str1);
+	var content= "slice()方法用于从原字符串取出子字符串并返回，不改变原字符串。它的第一个参数是子字符串的开始位置，第二个参数是子字符串的结束位置（不含该位置）。如果省略第二个参数，则表示子字符串一直到原字符串结束。如果参数是负值，表示从结尾开始倒数计算的位置，即该负值加上字符串长度。";
+//	var a = 0;
+//	for(var i = 0;i<content.length;i++){
+//		if(content[i] == '数' && content[i+1] =="，"){
+//			a = i+1;
+//		}
+//	}
+//	var str = content.slice(0,a);
+	var texts = content.substr(0,50);
+	console.log(texts);
+	document.getElementById('text').textContent = texts +"...";
+</script>
+</body>
+</html>

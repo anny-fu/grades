@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>数组和字符串</title>
+</head>
+<body>
+<script>
+	var arr = [1,3,6,8,20];
+	var str1 = '这是一个字符串';
+	var str2 = '这,是,一,个,字,符,串';
+
+//	数组转字符串:join(分隔符号)
+	console.log("将数组以逗号分隔："+arr.join(','));
+	console.log("将数组以空字符分隔："+arr.join(''));
+
+//	字符串转换为数组：split(切割符号)
+	console.log(str1.split(''));
+	console.log(str2.split(','));
+
+//访问成员
+	arr[0];
+	str1[0];
+//	兼容IE8以前的浏览器
+	str1.charAt(0);
+
+
+
+//	不同
+	console.log("数组未修改之前："+arr.length);
+	arr.length = 3;
+	console.log("数值已修改之后："+arr.length);
+
+
+	console.log("字符串未修改之前："+str.length);
+	str.length = 5;
+	console.log("字符串已修改之后："+str.length);
+
+
+
+
+</script>
+</body>
+</html>

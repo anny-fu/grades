@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>if语句</title>
+	<style>
+		.item {
+			width: 300px;
+			background-color: #f00;
+			color: #fff;
+			transition: height 2s;
+		}
+	</style>
+</head>
+<body>
+<input type="button" onclick="block()" value="点击">
+<ul class="item" style="height:63px">
+	<li>Javascript</li>
+	<li>HTML/CSS</li>
+	<li>jQuery</li>
+</ul>
+<script>
+	/**
+	 * 功能：按钮点击隐藏或显示item
+	 * */
+	var item = document.getElementsByClassName('item')[0];
+	function block() {
+//		如果item的display属性为block,设置为none,否则相反
+//		item.style.display='block'
+
+		if (item.style.height == '63px') {
+			item.style.height = 0;
+		} else {
+			item.style.height = '63px';
+		}
+
+//		if (item.style.display == 'block') {
+//			item.style.display = 'none';
+//		} else {
+//			item.style.display = 'block';
+//		}
+	}
+
+//	if结构嵌套
+	var marry = true, hasChild = true,
+		school = true,hasPertner = true;
+	if(marry){
+		if(hasChild){
+			if(school){
+
+			}else{
+
+			}
+		}else{
+			//没有
+		}
+	}else{
+		if(hasPertner){
+
+		}else{
+
+		}
+	}
+
+</script>
+</body>
+</html>

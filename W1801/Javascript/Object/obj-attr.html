@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>对象(增、删、改、查)</title>
+</head>
+<body>
+<script>
+	Object.prototype.price = 30;
+	var book ={
+		name:"深入javaScript",
+		author:"刘邦",
+		pages:1200
+	}
+//	增
+	book.pubDate = "1998-12-05";
+	book.publish = "上海日报出版社";
+
+//	改
+	book.author = "诸葛亮";
+
+//	删除
+	delete book.pubDate;
+	console.log(book);
+//查，[],.
+	console.log(book['author']);
+	console.log(book.name);
+
+//属性是否存在于对象(in)
+	console.log('name' in book);
+	console.log('pubDate' in book);
+	console.log('price' in book);
+//属性属于对象自身还是继承的 hasOwnProperty(),true:自身的，false：继承;
+	console.log(book.hasOwnProperty("name"));
+	console.log(book.hasOwnProperty("price"));
+
+
+</script>
+</body>
+</html>

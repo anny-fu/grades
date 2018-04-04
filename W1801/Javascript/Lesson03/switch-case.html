@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>switch..case</title>
+</head>
+<body>
+<!--==：比较值是否相等
+===：类型是否相等，再判断值是否相等
+-->
+<script>
+//	获取日期
+var day = new Date().getDay();
+console.log(day);
+	function fc(m){
+//值类型优先相等
+		switch(m){
+			case 1:
+				console.log('周一');
+				break;
+			case 2:
+				console.log('周二');
+				break;
+			case 3:
+				console.log('周三');
+				break;
+			case 4:
+				console.log('周四');
+				break;
+			case 5:
+				console.log('周五');
+				break;
+			case 6:
+				console.log('周六');
+				break;
+			case 0:
+				console.log('周日');
+				break;
+			default:
+				console.log('无效数字！');
+		}
+//		多对一匹配
+		switch(m){
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+				console.log('工作日！');
+				break;
+			case 6:
+			case 0:
+				console.log('休息日！');
+				break;
+			default:
+				console.log('无效数字！');
+		}
+	}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>arguments</title>
+</head>
+<body>
+<script>
+	function numFun(param){
+//		获取到传入的所有参数
+		console.log(arguments);
+
+		arguments = Array.prototype.slice.call(arguments);
+		console.log(arguments.push("45"));
+		console.log(arguments);
+		console.log(arguments[0]);
+		console.log(arguments[1]);
+		console.log(arguments[2]);
+		return param;
+	}
+//	numFun("a",50,true);
+
+//	累积求和函数
+	
+
+</script>
+</body>
+</html>

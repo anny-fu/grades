@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+	<style>
+		* {
+			box-sizing: border-box
+		}
+
+		html, body, h1, ul, li {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		img {
+			vertical-align: middle;
+			width: 100%;
+		}
+
+		.container {
+			width: 1180px;
+			margin: 0 auto;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		.imgList {
+			width: 100%;
+			/*height: 450px;*/
+			background-color: #0387bc;
+			padding: 10px 0;
+			/*定义类型为伸缩(弹性)盒子*/
+			display: -webkit-box; /*ios 6-,safari 3.1~6*/
+			display: -moz-box; /*Firefox 19-*/
+			display: -ms-flexbox; /*IE 10*/
+			display: -webkit-flex; /*老版chrome*/
+			display: flex;
+			/*定义子元素以行/列来布局*/
+			/*flex-direction: row;*/
+			flex-direction: row;
+			/*让子元素水平方向布局*/
+			justify-content:center;
+			/*让子元素垂直方向布局*/
+			/*align-content:stretch;*/
+			/*设置子元素多行显示*/
+			flex-wrap: wrap;
+		}
+
+		.imgList > li {
+				/*设置元素宽度*/
+			flex-basis:230px;
+			height:auto;
+			text-align: center;
+			margin:5px;
+			padding:8px;
+		}
+	</style>
+</head>
+<body>
+<!--container-->
+<section class="container">
+	<h1>弹性盒子布局</h1>
+	<!--图片列表-->
+	<ul class="imgList">
+		<li><img src="img/s3.jpg" alt=""></li>
+		<li><img src="img/s3.jpg" alt=""></li>
+		<li><img src="img/s3.jpg" alt=""></li>
+		<li><img src="img/s3.jpg" alt=""></li>
+		<li><img src="img/s3.jpg" alt=""></li>
+		<li><img src="img/s3.jpg" alt=""></li>
+		<li><img src="img/s3.jpg" alt=""></li>
+		<li><img src="img/s3.jpg" alt=""></li>
+	</ul>
+</section>
+</body>
+</html>

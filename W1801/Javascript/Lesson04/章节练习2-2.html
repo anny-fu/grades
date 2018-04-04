@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<script>
+	// 学员信息
+	var info = [
+		['学员A', '女', '本科'],
+		['学员B', '男', '大专'],
+		['学员C', '女', '大专'],
+		['学员D', '男', '本科'],
+		['学员E', '女', '大专'],
+		['学员F', '女', '本科'],
+		['学员G', '男', '大专'],
+		['学员H', '男', '本科'],
+		['学员I', '女', '大专']
+	]
+	//声明两个数据分别记录本科学员和性别为女的学员信息
+	var zyArr = [], genderArr = [];
+	var str1 = '', str2 = '';
+	for (var i = 0; i < info.length; i++) {
+//		存储数据成员值
+		var arrs = info[i];
+//		如果成员数组，结束本次循环，继续下一次
+		if (typeof  arrs !== 'object') {
+			continue;
+		}
+//如果是数据，继续循环
+		for (var j = 0; j < arrs.length; j++) {
+//			匹配数组中值为本科或性别为女的学员信息
+			switch (arrs[j]) {
+				case '本科':
+					zyArr.push(arrs);
+					break;
+				case '女':
+					genderArr.push(arrs);
+					break;
+				default:
+					break;
+			}
+
+//			if(arrs[j] == '本科'){
+////				将这个值存到新数组
+//				zyArr.push(arrs);
+//			}else if(arrs[j] == '女'){
+//				genderArr.push(arrs);
+//			}else{
+//				continue;
+//			}
+
+		}
+
+	}
+	console.log("本科人数：" + zyArr.length + "人;分别是：" + zyArr);
+	console.log("女学员人数：" + genderArr.length + "人;分别是：" + genderArr);
+
+
+</script>
+</body>
+</html>

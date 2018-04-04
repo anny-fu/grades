@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>for-in使用实例</title>
+	<link rel="stylesheet" href="css/for-in.css">
+</head>
+<body>
+	<form>
+		<div>
+			<label>品牌:</label>
+			<input id="brand" type="text" placeholder="请输入品牌">
+		</div>
+		<div>
+			<label>型号:</label>
+			<input id="model" type="text" placeholder="请输入产品型号">
+		</div>
+		<div>
+			<label>参数:</label>
+			<input id="param" type="text" placeholder="请输入产品参数">
+		</div>
+		<div>
+			<label>价格:</label>
+			<input id="price" type="text" placeholder="请设置产品价格">
+		</div>
+		<div>
+			<label>国别:</label>
+			<select id="country">
+				<option value="请选择">请选择...</option>
+				<option value="中国">中国</option>
+				<option value="美国">美国</option>
+				<option value="法国">法国</option>
+				<option value="日本">日本</option>
+				<option value="韩国">韩国</option>
+				<option value="德国">德国</option>
+				<option value="英国">英国</option>
+				<option value="意大利">意大利</option>
+			</select>
+		</div>
+		<div>
+			<button type="reset" id="btnAddInfo">添加信息</button>
+		</div>
+	</form>
+	<table id="showData">
+		<thead>
+			<tr>
+				<th>品牌</th>
+				<th>型号</th>
+				<th>参数</th>
+				<th>价格</th>
+				<th>国别</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	
+	<script src="js/for-in.js"></script>
+</body>
+</html>
+
+
+
+

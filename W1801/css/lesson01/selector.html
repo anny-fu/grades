@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器</title>
+	<style type="text/css">
+	/*	div.first{
+			font:20px/28px '宋体';
+			width:100px;
+			background-color: #f00;
+		}
+		div{width:200px;}
+		.nav>li{
+			float:left;
+		}*/
+		p{
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		div{
+			width:200px;
+			height: 200px;
+		/*	padding:10px;
+		border:5px solid #0f0;*/
+	}
+	div:nth-child(1){
+		box-sizing: content-box;
+		background-color: #f00;
+	
+	}
+	div:nth-child(1)>p{
+		background-color: #0387bc;
+		/*margin-top: 50px;*/
+	}
+	div:nth-child(2){
+		box-sizing: border-box;
+		background-color: #00f;
+			margin-top: 30px;
+	}
+
+</style>
+</head>
+<body>
+<ul class="clearfix">
+<!--  -->
+	<li></li>
+	<li></li>
+	<li></li>
+	<!-- 内容之后 ::after-->
+</ul>
+
+	<!-- <div>
+		<p>段落子元素</p>
+	</div>
+	<div>IE</div> -->
+
+<!-- 	<div class="first">div内容</div>
+	<h1>标题一</h1> -->
+
+	<!-- 二级菜单 -->
+<!-- 	<nav>
+		<ul class="nav">
+			<li>
+				<ul class="nav-item">
+					<li></li>
+					<li></li>
+				</ul>
+			</li>
+			<li>
+				<ul>
+					<li></li>
+					<li></li>
+				</ul>
+			</li>
+		</ul>
+	</nav> -->
+
+	<!-- 	<p>在上一节中我们讲到过了“CSS字体样式”，而我们这一节中要讲的文本和字体是有所区别的，字体CSS设置主要是围绕文字本身进行，如文字风格、字体粗细、字体大小、字体系列、字体颜色等，就是说无论进行什么样的设置都是围绕单个文字本身的样式进行设置的，并不会影响到文本的整体布局（“font”组合值写法中的“行高”除外），这一节中所讲的CSS文本设置是对文本布局方面的知识进行的。</p> -->
+
+
+</body>
+</html>

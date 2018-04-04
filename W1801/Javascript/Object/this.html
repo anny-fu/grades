@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<script>
+	function Foo(){
+	getName = function(){ //全局变量
+			console.log(1);
+		};
+		return this;//window
+	}
+
+	Foo.getName = function (){console.log(2);};
+
+	Foo.prototype.getName=function () {console.log(3);};
+
+	var getName = function (){ console.log(4);};//变量提升
+
+	function getName(){console.log(5);}
+
+//	下面调用输出结果为?,原因(不要在控制台测试，直接看代码写答案)
+	//  Foo.getName();  === 2  直接执行Foo.getName函数表达式
+
+//	  getName(); === 4 如果一个没有赋值的变量和函数名相同时，优先读取函数。
+
+	//  Foo().getName(); ==== 1  函数中的变量没有使用var关键字，
+	// 不会发生变量提升，属于全局变量，Foo()函数返回的this，指向window
+	// new Foo.getName(); === 2 new出来的构造函数，依然会继承实例的原型上
+	// 的所有属性和方法
+//	Foo.getName.prototype.name = 4;
+//	var ac = new Foo.getName();
+//	console.log(ac.name);
+
+	// new Foo().getName();  ===3 new创建新对象时，将新对象的原型链指向Foo的原型
+//	执行方法时优先调用原型中的方法
+var  a = new Foo();
+console.log(a.getName());
+//console.log(new Foo().getName());
+
+
+
+
+</script>
+</body>
+</html>

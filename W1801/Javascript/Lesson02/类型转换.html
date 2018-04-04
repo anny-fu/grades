@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>数据类型转换</title>
+</head>
+<body>
+<script>
+	//	强制转换：手动使用Number、String、Boolean三个构造函数
+	//	将各类型值转换成对应的数值，字符串，或者布尔值。
+	//1.	原始类型值的转换规则
+//	Number转换结果:对应数值或者NaN
+	Number('123');//123
+	Number(456);//456
+	Number(true);//1
+	Number(false);//0
+	Number('');//0
+	Number(null);//0
+	Number('abc');//NaN
+	Number(undefined);//NaN
+	Number('23ab');//NaN
+	parseInt('23ab');//23
+
+//	String转换结果：给原类型值基础上加引号
+	String(123);//"123"
+
+//Boolean转换结果：true/false
+//	false:undefined,null,-0,+0,0,Na
+
+
+
+//	2.对象转换规则(obj.valueOf().toString())
+	Number({age:30});//NaN
+	Number([1,2,3]);//NaN
+	Number({});//NaN
+	Number([]);//0
+
+//String转换对象：obj.toString().valueOf()
+	String({name:'tom'});//"[object Object]"
+	String([1,2,3]);//"1,2,3"
+
+//自动类型转换：在强制转换的基础上自动调用Number、String、Boolean
+//	函数进行数据类型转换(自动完成，对用户不可见)
+
+
+</script>
+</body>
+</html>

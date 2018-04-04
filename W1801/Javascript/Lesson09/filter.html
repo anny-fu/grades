@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>过滤数据</title>
+</head>
+<body>
+<script>
+	var arr = [30,50,67,98,39];
+//	及格人数,返回符合过滤条件的数组成员
+	var con = arr.filter(function (p1) {
+		return p1 >= 60;
+	})
+console.log(con);
+	var num = arr.filter(function (p1,p2,p3) {
+		return p3[p2 % 2] == p1;
+	})
+console.log(num);
+
+</script>
+</body>
+</html>

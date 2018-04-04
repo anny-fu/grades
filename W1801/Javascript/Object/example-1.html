@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>练习一</title>
+</head>
+<body>
+<!--角色信息-->
+<div id="galen">
+
+</div>
+
+<script>
+	//	对象原型方法获取对象“长度”
+	Object.prototype.objLen = function () {
+		return Object.keys(this).length;
+	}
+	//原型链的方法通过下标访问属性值
+	Object.prototype.attrVal = function (index) {
+		return this[Object.keys(this)[index]];
+	}
+
+	var attrNameArr = ["ID", "角色名", "攻击力", "防御力", "速度", "血量", "魔法", "技能"];
+	var roleInfo = {
+		id: "lol-119",
+		name: "德玛西亚之力",
+		attack: 36,
+		defense: 42,
+		speed: 66,
+		hp: 2400,
+		mp: null,
+		skill: ["坚韧（被动）", "致命打击", "勇气", "审判", "德玛西亚正义"]
+	}
+
+	var galen = document.getElementById('galen');
+	//获取对象属性个数
+	var attrLen = roleInfo.objLen();
+	//	空字符串
+	var htmlStr = "";
+	for (var i = 0; i < attrLen; i++) {
+//			属性值为空时显示为“无”
+		if (roleInfo.attrVal(i) === null) {
+			htmlStr += `<div>
+<label>${attrNameArr[i]}:</label>
+&nbsp;<span>无</span>
+</div>`;
+		}
+//		属性值为数组的时候
+		else if (Array.isArray(roleInfo.attrVal(i))) {
+			htmlStr += `<div>
+<label>${attrNameArr[i]}:</label>
+&nbsp;<span>${roleInfo.attrVal(i).join("、")}</span>
+</div>`;
+		} else {
+			htmlStr += `<div>
+<label>${attrNameArr[i]}:</label>
+&nbsp;<span>${roleInfo.attrVal(i)}</span>
+</div>`;
+		}
+	}
+	//绑定到页面元素
+	galen.innerHTML = htmlStr;
+</script>
+</body>
+</html>

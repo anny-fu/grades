@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<div>
+	<p><label>姓名：</label><input type="text"></p>
+	<p><label>性别：</label><input type="text"></p>
+	<p><label>年龄：</label><input type="text"></p>
+	<button id="btnCreate" type="button">录入</button>
+	<!--自我介绍信息-->
+	<p id="sayHi"></p>
+</div>
+<h4>录入的学员信息如下：</h4>
+<table>
+	<thead>
+	<tr>
+		<th>姓名</th>
+		<th>性别</th>
+		<th>年龄</th>
+	</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+<script>
+	//	获取元素
+	var btn = document.getElementById('btnCreate');
+	var inputs = document.getElementsByTagName('input');
+	var sayHi = document.getElementById('sayHi');
+	var tbody = document.getElementsByTagName('tbody')[0];
+
+	/*数组对象格式*/
+	var personArr = [];
+
+	//	对象原型链的上的方法
+	Object.prototype.sayHello = function () {
+		return "大家好，我是" + this.name + ",今年" + this.age + "岁";
+	};
+
+	btn.onclick = function () {
+
+//获取内容存入对象
+		var stu_info = {
+			name: inputs[0].value,
+			gender: inputs[1].value,
+			age: inputs[2].value
+		};
+		console.log(stu_info);
+//	显示自我介绍
+		sayHi.innerText = stu_info.sayHello();
+//	将对象存入数组
+		personArr.push(stu_info);
+		tbody.innerHTML += "<tr></tr>";
+// 找tbody中最新的tr
+		var trs = tbody.getElementsByTagName("tr"),
+			new_tr = trs[trs.length - 1];
+		var tds = "";
+// 找到数组中最新的那个成员
+		var arrEle = personArr[personArr.length - 1];
+//		console.log(personArr);
+//		console.log(arrEle);
+		for (var n in arrEle) {
+//			过滤继承属性
+			if (arrEle.hasOwnProperty(n)) {
+				tds += `<td>${arrEle[n]}</td>`;
+			}
+		}
+//  将内容填入表格
+		new_tr.innerHTML += tds;
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>for-in遍历</title>
+</head>
+<body>
+
+<input type="text" value="" id="brandName">
+<input type="text" value="" id="brandPrice">
+<button id="btn" type="button">获取</button>
+<table>
+	<thead>
+	<tr>
+		<th>品牌</th>
+		<th>价格</th>
+	</tr>
+	</thead>
+	<tbody>
+
+	</tbody>
+</table>
+<script>
+
+var btn = document.getElementById('btn');
+
+btn.onclick = function(){
+	//	获取元素
+	var brand = document.getElementById('brandName');
+	var price = document.getElementById('brandPrice');
+
+	//获取对应的输入框的值存入对象
+	var formObject = {
+		brandVal:brand.value,
+		priceVal:price.value
+	}
+//将信息输出到页面元素
+var tbody = document.getElementsByTagName('tbody')[0];
+tbody.innerHTML +="<tr></tr>";
+//获取最新的tr标签
+	var tbody_tr = tbody.getElementsByTagName('tr'),
+	newTr = tbody_tr[tbody_tr.length - 1];
+//	数据输出
+	for(var x in formObject){
+		newTr.innerHTML +="<td>"+formObject[x]+"</td>";
+	};
+
+}
+
+
+
+
+
+
+	var arr = [[2,4,5,6],[5,6,3,8],[20,50,80],0];
+//	for(var i in arr){
+//		if(typeof arr[i] !== 'object'){
+//			console.log(arr[i]);
+//			continue;
+//		}
+////		如果还是对象，继续遍历
+//		for(var j in arr[i]){
+//			console.log(arr[i][j]);
+//		}
+//
+//	}
+
+
+//	遍历对象
+	var computer = {
+		"mainboard": "主板",
+		"cpu": "CPU",
+		"internalStrage": "内存",
+		"graphicsCard": "显卡",
+		"soundCard": "声卡",
+		"hardDisk": "硬盘",
+		"caseAndPower": {
+			"computerCase": "机箱",
+			"power": "电源"
+		},
+		"dispay": "显示器",
+		"keyboard": "键盘",
+		"mouse": "鼠标",
+		"loudspeaker": "音箱"
+	}
+
+	for(var t in computer){
+		if (typeof computer[t] !== 'object') {
+			console.log(computer[t]);
+			continue;
+		}
+//		如果还是对象，继续遍历
+		for (var j in computer[t]) {
+			console.log(computer[t][j]);
+		}
+	}
+
+
+
+
+
+</script>
+</body>
+</html>

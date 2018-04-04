@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>大小写转换</title>
+	<style>
+		div{
+			padding:10px;
+			width:300px;
+			background-color: #f00;
+		}
+		div>ul{
+			background-color: lime;
+		}
+		div>p{
+			background-color: #cccccc;
+		}
+		ul>li{
+			background-color: #0387bc;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+<div>
+	<ul>
+		<li>列表项1</li>
+		<li>列表项2</li>
+		<li>列表项3</li>
+	</ul>
+	<p>p子元素</p>
+</div>
+
+<script>
+	var div = document.getElementsByTagName('div')[0];
+	//	event：事件对象
+//	事件代理
+	div.onclick = function (event) {
+//		获取当前点击的元素的标签名(大写)
+		console.log(event.target.tagName);
+		var tgName = event.target.tagName.toLowerCase();
+//		如果点的元素为li,改变其元素背景颜色
+		if(tgName === 'li'){
+			event.target.style.backgroundColor = '#F225FF';
+		}
+	}
+
+</script>
+</body>
+</html>

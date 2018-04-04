@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>遍历数组成员的方法</title>
+</head>
+<body>
+<script>
+//	map()/forEach()
+var  arr1 = [1,2,3];
+//参数说明：item:数组成员，index：数组下标，arr：数组本身
+ var arrs = arr1.map(function(item,index,arr1){
+	return arr1.push(item+index);
+});
+var ar = arr1.map(function(item,index,arr1){
+//	return item+index;
+	console.log(item);
+});
+console.log(arr1);
+//console.log(arrs);
+console.log(ar);
+
+//forEach不会执行返回值操作，其他操作和map一样
+arr1.forEach(function(item){
+	console.log(item * 2);
+//	return item * 2;
+});
+
+
+
+
+</script>
+</body>
+</html>

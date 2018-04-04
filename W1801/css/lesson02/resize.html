@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>可调整大小</title>
+	<style>
+		div{
+			width:400px;
+			height: 350px;
+			border:1px solid #f00;
+			overflow: auto;
+			/*水平垂直方向均可调整大小*/
+			resize: both;
+			/*水平方向可调整*/
+			/*resize:horizontal;*/
+			/*垂直方向可调整*/
+			/*resize:vertical;*/
+
+			/*限制水平和垂直方向的最大和最小值*/
+			min-width:200px;
+			max-width:600px;
+
+			min-height: 150px;
+			max-height: 450px;
+		}
+
+
+
+	</style>
+</head>
+<body>
+<div>resize:both</div>
+</body>
+</html>

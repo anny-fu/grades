@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>this关键字</title>
+</head>
+<body>
+<script>
+//	全局环境   ===>  window
+//var name = "杨蒙";
+console.log(this.name === window.name);
+function fn(){
+	console.log(this.name === window.name);
+}
+fn();
+
+//构造函数 ===> 实例化对象
+	var Person = function(name){
+		this.name = name;
+		this.show = function(){
+			return this.name;
+		}
+	}
+
+//	实例化构造函数
+//	var ym = new Person('杨蒙');
+	var hjg = new Person('何金果');
+//	console.log(ym.name);
+//	console.log(hjg.show());
+
+//对象方法   this ===> 调用方法的对象
+	var dog ={
+		name:"贝贝",
+		age:3,
+		say:function(){
+			console.log(this);
+		}
+	}
+dog.say();//dog
+(dog.say = dog.say)();//window
+(false || dog.say)();//window
+(1,dog.say)();//window
+
+
+//	Node
+//全局环境
+//	this ===> global
+//模块环境
+//	this ===> module.exports;
+
+
+//	this使用注意点
+	var o = {
+		fn1:function(){
+			console.log(this);//o
+			var fn2 = function(){
+				console.log(this);//window
+			}();
+		}
+	}
+o.fn1();
+
+	var obj1 = function(){
+		console.log(this);
+	}
+	var obj2= {
+		fun1:function(){
+			console.log(this);
+			var fun2 = obj1();
+		}
+	}
+
+//改变this指向
+var o = {
+	fn1:function(){
+		console.log(this);//o
+		var that = this;
+		var fn2 = function(){
+			console.log(that);//o
+		}();
+	}
+}
+o.fn1();
+
+
+</script>
+</body>
+</html>

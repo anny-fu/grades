@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>数组</title>
+</head>
+<body>
+<script>
+	//获取数组所有下标：Object.keys()
+	var arr = ['hello', 38, false, 'HTML'];
+	//	数组的下标可以为字符串形式
+	console.log(Object.keys(arr));
+
+	//	数组的声明
+	var arr1 = new Array();
+	arr1[0] = 'ab';
+	arr1[4] = true;
+	arr1[6] = 90;
+	console.log(arr1);
+
+	var arr2 = [];
+	arr2[4] = 790;
+	arr2[5] = 56;
+	console.log(arr2);
+//访问数组成员
+	var count = 0;
+for(var i =0; i<arr1.length;i++){
+//	检测数组中空位个位数及下标位置
+	if(i in arr1){
+		continue;
+	}
+	count ++;
+	console.log(i);
+}
+	console.log(count);
+	var str = '字符串';
+	var obj= {name:'anny',age:40};
+console.log(Array.isArray(arr));
+console.log(Array.isArray(str));
+console.log(Array.isArray(obj));
+</script>
+</body>
+</html>

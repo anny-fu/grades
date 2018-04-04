@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>循环嵌套</title>
+</head>
+<body>
+<script>
+//	嵌套循环
+//	for(var i = 1 ;i<5;i++){
+//			for(var j = 0;j<i*2-1;j++){
+//				document.write("*");
+//			}
+//		document.write("<br>");
+//	}
+
+	for(var i = 1;i<=7;i++){
+//			控制每行的空格个数
+		for(var j =i;j <=7 ;j++){
+				document.write('&nbsp;');
+		}
+		for(var t = 1;t<=i*2-1;t++){
+			document.write('*');
+		}
+		document.write('<br>');
+	}
+
+
+</script>
+</body>
+</html>

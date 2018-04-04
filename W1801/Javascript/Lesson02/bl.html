@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<script>
+	var name = 'tom';
+	var age = 20;
+	//	一次性声明多个变量
+	var name = 'tom' ,
+		age = 20;
+
+//	typeof检测原始类型(number,string,boolean)
+	typeof 12;
+	typeof 'ab';
+	typeof true;
+//返回函数类型(function)
+	function f(){}
+	typeof f;
+//	返回undefined类型
+	typeof undefined;
+	typeof ge;//未定义的变量
+
+//引用类型object：window,object,array,null
+typeof window;
+typeof {};
+typeof [];
+typeof null;
+
+//判断object类型中那些是真正的数组
+	var obj = {a:12,b:'fgfd'},arr = [25,67,89];
+	obj instanceof Array;
+	arr instanceof Array;
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>练习二</title>
+</head>
+<body>
+<script>
+//	声明对象
+	var dog = {
+		name:"贝贝",
+		breed:"边牧",
+		gender:"公",
+		age:3,
+		color:"黑"
+	}
+	var dog1={
+		name:"小花",
+		breed:"拉布拉多",
+		gender:"母",
+		age:2
+	}
+//	原型链上声明犬型属性
+	Object.prototype.type = "中型犬";
+	Object.prototype.sayHello = function(){
+		return console.log("我是一只可爱的"+this.breed+"我叫"+this.name);
+	}
+console.log(dog);
+console.log(dog.type);
+console.log(dog.sayHello());
+
+
+
+	for(var n in dog){
+		if(n in dog){
+			console.log("dog的属性有："+n);
+			if(!dog.hasOwnProperty(n)){
+				console.log("其中继承属性有："+n);
+			}
+		}
+	}
+
+
+
+</script>
+</body>
+</html>

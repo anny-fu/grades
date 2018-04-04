@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>排序</title>
+</head>
+<body>
+<script>
+//	数字排序
+	var arr1 = [60,40,80,70,9,75,35,96,100];
+//	console.log(arr1);
+	console.log(arr1.sort());
+//字母排序
+	var arr2 = ['a','g','i','c','Ok','yes','Z'];
+	console.log(arr2.sort());
+
+//以数字大小进行排序sort(function(item1,item2){
+// return item1 - item2;升序排序
+//return item2 - item1;降序排序
+// })
+var arr3 = [60,40,80,70,9,75,35,96,100];
+arr3.sort(function(item1,item2){
+	return item1 - item2;
+});
+console.log(arr3);
+//倒序
+console.log(arr3.reverse());
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
