@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>事件回调函数</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		component {
+			position: fixed;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			z-index: -1;
+		}
+
+		popup-box {
+			padding: 30px 40px;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+		}
+
+		popup-content, popup-ctrl {
+			width: 100%;
+			text-align: center;
+			display: block;
+		}
+
+		#showImg {
+			width: 320px;
+			display: block;
+		}
+
+		#createPopupBox {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<img id="showImg" src="../img/img-7.jpg">
+	<button id="showImg1" type="button">显示图片1</button>
+	<button id="showImg2" type="button">显示图片2</button>
+	<button id="showImg3" type="button">显示图片3</button>
+	<button id="popupImg" type="button">弹出图片</button>
+	<button id="popupInfo" type="button">弹出详细信息</button>
+	<!-- 组件显示区域 -->
+	<component>
+		<!--文本内容和按钮组件-->
+		<!-- <popup-box>
+			<popup-content>
+				<p>您确定要替换位图片1吗？</p>
+			</popup-content>
+			<popup-ctrl>
+				<button id="sureCtrl" type="button">确认</button>
+			</popup-ctrl>
+		</popup-box> -->
+		<!--图片弹出框-->
+		<!--<popup-box>
+		<popup-content>
+		<img src="">
+		</popup-content>
+		</popup-box>-->
+	</component>
+</main>
+<script>
+	//图片显示容器
+	var showImg = document.getElementById('showImg'),
+//	四个按钮
+		imgBtn1 = document.getElementById('showImg1'),
+		imgBtn2 = document.getElementById('showImg2'),
+		imgBtn3 = document.getElementById('showImg3'),
+		imgBtn4 = document.getElementById('popupImg'),
+		imgBtn5 = document.getElementById('popupInfo');
+	//替换为图片1
+	imgBtn1.onclick = function () {
+		creatBox({
+			type: "text",
+			title: "您需要将当前图片替换为图片1吗？",
+//		确认按钮的回调事件函数
+			sureEvent: function () {
+				showImg.src = "../img/img-1.jpg";
+			}
+		});
+	}
+	//替换为图片2
+	imgBtn2.onclick = function () {
+		creatBox({
+			title: "您需要将当前图片替换为图片2吗？",
+//		确认按钮的回调事件函数
+			sureEvent: function () {
+				showImg.src = "../img/img-2.jpg";
+			}
+		});
+	}
+	//替换为图片3
+	imgBtn3.onclick = function () {
+		creatBox({
+			title: "您需要将当前图片替换为图片3吗？",
+//		确认按钮的回调事件函数
+			sureEvent: function () {
+				showImg.src = "../img/img-3.jpg";
+			}
+		});
+	}
+	//替换为显示图片
+	imgBtn4.onclick = function () {
+		creatBox({
+			type: "image",
+			title: "魔兽",
+			imgSrc: "../img/img-5.jpg"
+		});
+	}
+	//显示详细信息
+	imgBtn5.onclick = function () {
+		creatBox({
+			type: "info",
+			name: "闪电鸟",
+			series: "电系",
+			skill: "雷云咒",
+			imgSrc:"../img/img-6.jpg"
+		});
+	}
+	/**
+	 *功能：弹出框插件
+	 * 参数：Object{弹出框类型,弹出框显示文本,确认按钮的回调函数}
+	 * */
+	function creatBox(param) {
+//			处理type厨师长
+		param.type = (param.type === undefined) ? "text" : param.type;
+
+//		获取组件显示容器
+		var component = document.getElementsByTagName('component')[0];
+//		如果是文本框
+		if (param.type === "text") {
+			component.innerHTML = `<popup-box>
+			<popup-content>
+				<p>${param.title}</p>
+			</popup-content>
+			<popup-ctrl>
+				<button id="sureCtrl" type="button">确认</button>
+			</popup-ctrl>
+		</popup-box>`;
+			component.style.zIndex = "10";
+			var sureCtrl = document.getElementById('sureCtrl');
+			sureCtrl.onclick = function () {
+//				执行回调函数(传入的参数中函数操作的内容)
+				param.sureEvent();
+//				点击确定按钮后隐藏当前弹出框
+				this.parentElement.parentElement.remove();
+				component.style.zIndex = "-1";
+			}
+		}
+//		如果是显示图片
+		else if (param.type === "image") {
+			component.innerHTML = `<popup-box>
+		<popup-content>
+		<img id="popup-image" src="${param.imgSrc}" alt="${param.title}">
+		</popup-content>
+		</popup-box>`;
+			component.style.zIndex = "10";
+			var popupImage = document.getElementById('popup-image');
+			popupImage.onclick = function () {
+				this.parentElement.parentElement.remove();
+				component.style.zIndex = "-1";
+			}
+
+		}
+//		如果是显示信息
+		else if (param.type === "info") {
+			component.innerHTML = `
+			<popup-box>
+		<popup-content>
+		<img id="popup-image" src="${param.imgSrc}">
+		</popup-content>
+		<popup-text>
+		<ul>
+		<li>角色：${param.name}</li>
+		<li>属系：${param.series}</li>
+		<li>技能：${param.skill}</li>
+</ul>
+		</popup-text>
+		</popup-box>
+			`;
+			component.style.zIndex = "10";
+			var popupImage = document.getElementById('popup-image');
+			popupImage.onclick = function () {
+				this.parentElement.parentElement.remove();
+				component.style.zIndex = "-1";
+			}
+		}
+	}
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

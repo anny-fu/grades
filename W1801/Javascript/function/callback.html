@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>闭包回调--模拟数据请求</title>
+</head>
+<body>
+
+<form>
+	<p><input type="text" value="" placeholder="用户名"></p>
+	<p><input type="password" value="" placeholder="密码"></p>
+	<p>
+		<button type="button" id="sub">登录</button>
+	</p>
+</form>
+
+<script>
+	var body = document.getElementsByTagName('body')[0];
+	var inputs = document.getElementsByTagName('input');
+	var subBtn = document.getElementById('sub');
+
+	//点击登录按钮,调用封装函数请求数据
+	subBtn.onclick = function () {
+//		获取页面输入的信息存入对象
+		var user = {
+			uName: inputs[0].value,
+			uPwd: inputs[1].value
+		}
+		GET('http://www.example.com', 'get', user, function (responseData) {
+//	根据请求成功后的：函数应该处理的内容
+			if (typeof responseData === "object") {
+				body.innerHTML = `
+<p>${responseData.success}</p>
+<p><b>账号：</b>${responseData.username}</p>
+<p><b>密码：</b>${responseData.password}</p>
+`;
+			} else {
+				body.innerHTML = responseData;
+			}
+
+		});
+	}
+
+
+	/**
+	 * 登录验证
+	 * 参数：url == string；method == string；
+	 * param == object；callback==function
+	 * *
+	 * */
+	function GET(url, method, param, callback) {
+		body.innerHTML = '验证中，请稍候....';
+
+//	模拟网络请求耗时
+		setTimeout(function () {
+//假数据已经请求成功，并且数据解析成对象
+			var datas = {
+				username: "Admin",
+				password: "123456",
+				success: "恭喜您，登录成功！"
+			};
+			if (callback && param.uName === datas.username
+				&& param.uPwd === datas.password) {
+				callback(datas);
+			} else {
+				callback("用户名或密码错误，请重新确认后输入！");
+			}
+		}, 5000)
+
+
+	}
+
+</script>
+</body>
+</html>

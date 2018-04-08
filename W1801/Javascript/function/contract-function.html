@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>函数对象</title>
+</head>
+<body>
+<script>
+	//	对象声明
+	var role1 = {
+		name: "闪电鸟",
+		series: "电系",
+		skill: "雷云咒",
+		showName: function () {
+			console.log(this.name);
+		}
+	}
+	var role2 = {
+		name: "皮卡丘",
+		series: "电系",
+		skill: "十万伏特",
+		showName: function () {
+			console.log(this.name);
+		}
+	}
+	var role3 = {
+		name: "电击魔兽",
+		series: "电系",
+		skill: "雷电掌",
+		showName: function () {
+			console.log(name);
+		}
+	}
+
+	//对象函数
+	function LightningSeries(name, skill) {
+		this.name = name;
+		this.skill = skill;
+		this.series = "雷系";
+		this.showName = function () {
+			console.log(this.name);
+		}
+	}
+	//实例化对象
+	var rol1 = new LightningSeries("闪电鸟", "雷云咒");
+	var rol2 = new LightningSeries("皮卡丘", "十万伏特");
+	var rol3 = new LightningSeries("电击魔兽", "雷光掌");
+
+
+	//	蔬菜,水果,游戏角色,动物
+	//卖鞋子
+
+
+</script>
+</body>
+</html>
