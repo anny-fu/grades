@@ -461,6 +461,25 @@ arguments：类似于数组的对象(不能直接操作数组特有的方法)
 函数作用域：
 函数内部声明的变量,函数,只能在本函数内部访问，子函数可访问父级函数变量，反之怎不可以。
 
+函数对象
+Date()
+get类方法：getDate(),getDay(),getTime()
+set类方法
+
+Math();
+Math.PI;圆周率
+Math.ceil();Math.floor();Math.round();Math.random();
+
+JSON对象
+概念：一种数据交互的文本格式
+XML
+语法要求：对象的属性名必须添加双引号
+运用：
+JSON.stringify(obj):object ===>JSON
+JSON.parse(str):JSON===>object
+
+
+
 
 
 

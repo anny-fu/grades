@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>日期函数</title>
+</head>
+<body>
+
+<script>
+	var body = document.getElementsByTagName('body')[0];
+	function getRtime() {
+		//	本地日期时间
+		var date = new Date();
+//		console.log(date);
+//计算两个时间差
+		var date1 = new Date(2000, 4, 9);
+//		console.log(date - date1);
+//		console.log(date + date1);
+//	距离2018-12-31 23:59:59
+		var endTime = new Date('2018-12-31 23:59:59');
+		var nowTime = new Date();
+//	时间差
+		var t = endTime.getTime() - nowTime.getTime();
+//		console.log(t);
+// 天，小时，分钟，毫秒
+		var day = Math.floor(t / 1000 / 60 / 60 / 24);
+		var hours = Math.floor(t / 1000 / 60 / 60 % 24);
+		var minutes = Math.floor(t / 1000 / 60 % 60);
+		var seconds = Math.floor(t / 1000 % 60);
+//小于10:0day + 02 + 01 + 02
+		body.innerHTML = day + '天' + hours + '小时' + minutes + '分' + seconds + '秒';
+
+		body.innerHTML += editTime(day) + '天' + editTime(hours) + '小时' + editTime(minutes) + '分' + editTime(seconds) + '秒';
+//	定时器调用
+//		setInterval(getRtime,1000);
+	}
+	getRtime();
+	//小于10后格式修改
+	function editTime(t) {
+		if (t < 10) {
+			t = '0' + t;
+		}
+		return t;
+	}
+
+//	日期格式转换
+	var currentTime = new Date();
+	console.log(currentTime);
+	console.log(currentTime.toLocaleString());
+</script>
+</body>
+</html>

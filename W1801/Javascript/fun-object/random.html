@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>获取随机数</title>
+</head>
+<body>
+<script>
+//	Math.random():0~1;等于0,小于1
+	for(var i = 0 ;i< 10 ; i++){
+		console.log(Math.random());
+		console.log(Math.random().toFixed(2));
+	}
+//求固定区间的任意随机数
+	function randoms(min,max){
+		return Math.random() * (max - min) + min;
+	}
+
+//	求固定区间的任意随机整数
+function randoms(min,max){
+	return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+//获取随机字符
+	function reandom_str(strLen){
+		var strs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+//		strs+= 'abcdefghijklmnopqrstuvwxyz';
+//		strs += '0123456789';
+		var s = '';
+		for(var i = 0 ;i<strLen;i++){
+//			获取随机字符位置
+			var index = Math.floor(Math.random() * strs.length);
+			s += strs.substr(index,1);
+		}
+		return s;
+	}
+
+</script>
+</body>
+</html>

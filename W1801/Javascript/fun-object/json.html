@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<!--//	XML格式-->
+<?xml version="1.0" encoding="ISO-8859-1">
+<bookstore>
+	<book category="COOKING">
+		<title lang="en">Everyday Italian</title>
+		<author>Giada de Laurentiis</author>
+		<year>2001</year>
+		<price>30.00</price>
+	</book>
+
+	<book category="CHILDREN">
+		<title lang="en">Harry Potter</title>
+		<author>J K.Rowling</author>
+		<year>2005</year>
+		<price>45.00</price>
+	</book>
+
+</bookstore>
+
+
+
+
+<script>
+//	数组对象
+var book1 = {title:"Javascript",author:"未知",year:2006,price:45};
+
+//JSON格式
+var book2 = '{"title":"Javascript","author":"未知","year":"2006","price":"45.00"}';
+
+//对象和JSON格式的相互转换
+//	JSON.stringify():object ===>JSON
+//	JSON.parse():JSON===>object
+var b = JSON.stringify(book1);
+console.log(b);
+var objB = JSON.parse(book2);
+console.log(objB.toString());
+
+
+
+</script>
+</body>
+</html>
