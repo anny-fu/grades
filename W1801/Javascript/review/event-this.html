@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>点击事件中的this对象</title>
+	<style>
+		ul{
+			background-color: #f00;
+		}
+		li{
+			background-color: #0f0;
+			line-height: 42px;
+			border:1px solid #333;
+		}
+
+	</style>
+</head>
+<body>
+<ul id="item">
+	<li>列表一</li>
+	<li>列表二</li>
+	<li>列表三</li>
+</ul>
+<button type="button" id="btn" onclick="on(this);">点击事件</button>
+<script>
+	function on(obj){
+		console.log(obj);//button
+	}
+
+	var btn = document.getElementById('btn');
+//btn.onclick = function(){
+//	console.log(this);
+//}
+	document.getElementById('item').onclick = function(event){
+//		this对象始终指向绑定事件那个元素
+		console.log(this);
+		console.log(event.target.tagName);
+	}
+
+</script>
+</body>
+</html>
