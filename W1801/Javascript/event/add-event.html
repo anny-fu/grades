@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>事件添加</title>
+	<style>
+		#div {
+			width: 400px;
+			height: 300px;
+			padding: 50px;
+			background-color: #f00;
+		}
+
+		#p {
+			height: 200px;
+			background-color: #0f0;
+		}
+	</style>
+</head>
+<body>
+<div id="div">
+	<p id="p">子元素p</p>
+</div>
+<nav>
+	<ul>
+		<li><a href=""></a></li>
+	</ul>
+</nav>
+<script>
+	//普通事件绑定
+	var div = document.getElementById('div'),
+		p = document.getElementById('p');
+	//div.onclick = eventFun;
+	//	div.onclick = function () {
+	//		console.log(this.tagName);
+	//		eventFun1();
+	//	};
+	//	事件监听\
+//	捕获：div --- p
+	//冒泡 ：p  --- div
+
+	p.addEventListener('click', eventFun1, false);
+	p.addEventListener('click', eventFun2, false);
+p.removeEventListener('click',eventFun2,false);
+//	div.addEventListener('click', eventFun3, false);
+//	div.addEventListener('click', eventFun4, false);
+
+	//	事件函数
+	function eventFun1(event) {
+		event.stopPropagation();
+		console.log("函数1");
+	}
+	function eventFun2() {
+
+		console.log("事件函数2");
+	}
+
+	function eventFun3(event) {
+//		event.stopPropagation();
+		console.log("函数3");
+	}
+	function eventFun4() {
+
+		console.log("事件函数4");
+	}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>构建选择器(id,元素,class)</title>
+</head>
+<body>
+<main id="main">
+	<header>
+		<nav>
+			<ul>
+				<li>首页</li>
+				<li>产品</li>
+				<li>服务</li>
+				<li>关于</li>
+			</ul>
+		</nav>
+	</header>
+	<article>
+		<h1>文章标题</h1>
+		<section>
+			<h2 class="h2Btn">章节一</h2>
+			<p>
+				段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1</p>
+			<p>
+				段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1</p>
+		</section>
+		<section>
+			<h2 class="h2Btn">章节二</h2>
+			<p>
+				段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1</p>
+			<p>
+				段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1，段落内容1</p>
+		</section>
+	</article>
+</main>
+<script>
+	getEle('#main').style.cssText = "width:960px;margin:0 auto;background-color:#3f3631;color:#fff";
+	var h2=getEle('.h2Btn');
+	var h2_len = h2.length;
+	console.log(h2[0]);
+	for(var i = 0 ; i<h2_len;i++){
+		h2[i].onclick = function(){
+			this.style.marginLeft = "200px";
+		}
+	}
+	getEle('ul')[0].style.cssText = "margin:0;padding:0;list-style:none;";
+
+	/***
+	 *
+	 * 元素选择器
+	 * 参数：css选择器(String) === ID Class 标签
+	 * */
+	function getEle(param) {
+//获取首个字符
+		var firstChar = param.charAt(0);
+		var result;
+//	如果是ID
+		if (firstChar === "#") {
+			result = document.getElementById(param.slice(1));
+		}
+//		如果是Class
+		else if (firstChar === ".") {
+			result = document.querySelectorAll(param);
+		}
+//		如果标签
+		else if (/[a-z]/i.test(firstChar)) {
+			result = document.querySelectorAll(param);
+		}
+    return result;
+	}
+
+</script>
+</body>
+</html>

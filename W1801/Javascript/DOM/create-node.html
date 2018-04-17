@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>节点的生成</title>
+</head>
+<body>
+<main id="main">
+
+</main>
+<script src="../common.js"></script>
+<script>
+	//	节点生成的方式:<div calss="redFont">这是一个DIV标签</div>
+	var main = getEle('#main');
+
+	//创建元素节点<div></div>
+	var div = document.createElement('div'),
+//		创建文本节点<div>这是一个DIV标签</div>
+		txt = document.createTextNode('这是一个DIV标签');
+	//创建属性节点
+//	var attr = document.createAttribute('class');
+//	attr.value = "redFont";
+	//	将属性节点绑定到div元素上
+//	div.setAttributeNode(attr);
+
+
+//	直接为div节点设置属性节点和值
+	div.setAttribute("class","redFont");
+//	console.log(attr);
+	console.log(txt);
+//	将文本内容添加到div元素里
+	div.appendChild(txt);
+	console.log(div);
+//	将创建好的div元素添加到main元素里
+main.appendChild(div);
+
+</script>
+</body>
+</html>

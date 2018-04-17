@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>获取当前节点的所有同级元素</title>
+</head>
+<body>
+<div>
+	<p>子元素p1</p>
+	<div>子元素div</div>
+	<ul id="item">
+		<li>列表一</li>
+		<li>列表二</li>
+	</ul>
+	<p>子元素p2</p>
+</div>
+</body>
+<script>
+//	获取ul节点的所有同级元素节点
+
+function getSibling(ele){
+	var arr = [];
+//	找到当前节点父节点，所有子元素节点
+	var childs = ele.parentElement.children;
+	console.log(childs);
+	for(var i= 0 ;i<childs.length ;i++){
+		if(childs[i] !== ele){
+			arr.push(childs[i]);
+		}
+	}
+	return arr;
+}
+
+var childs = ele.parentNode.firstChild;
+for(;childs;childs = childs.nextSibling){
+	if(n.nodeType === 1 && n !== ele){
+		r.push(n);
+	}
+}
+
+</script>
+</html>

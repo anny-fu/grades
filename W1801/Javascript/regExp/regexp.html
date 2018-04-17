@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>正则</title>
+</head>
+<body>
+<script>
+//	忽略大小写:i
+//	var reg = /AbC/i;
+//console.log(reg.test('abc'));
+//console.log(reg.test('Abc'));
+//console.log(reg.test('AbC'));
+
+var reg1 = /b/g;
+var str = "abbab";
+//console.log(reg1.test(str)+":"+reg1.lastIndex);
+//lastIndex:匹配成功后的下标位置
+//	console.log(reg1.test(str)+":"+reg1.lastIndex);
+//	console.log(reg1.test(str)+":"+reg1.lastIndex);
+//	console.log(reg1.test(str)+":"+reg1.lastIndex);
+//	console.log(reg1.test(str)+":"+reg1.lastIndex);
+//	console.log(reg1.test(str)+":"+reg1.lastIndex);
+//	console.log(reg1.test(str)+":"+reg1.lastIndex);
+
+ var strs = "-饭饭饭-饭饭-饭-";
+ var regG = /\-饭+\-/g;//只要剩余部分字符包含正则匹配字符就行
+ var regY = /\-饭+\-/y;//必须要确保从剩余的一个位置开始就要匹配
+console.log(regG.exec(strs)+":"+regG.lastIndex);
+console.log(regG.exec(strs)+":"+regG.lastIndex);
+console.log(regG.exec(strs)+":"+regG.lastIndex);
+console.log(regY.exec(strs)+":"+regG.lastIndex);
+console.log(regY.exec(strs)+":"+regG.lastIndex);
+console.log(regY.exec(strs)+":"+regG.lastIndex);
+</script>
+</body>
+</html>

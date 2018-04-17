@@ -479,26 +479,217 @@ JSON.stringify(obj):object ===>JSON
 JSON.parse(str):JSON===>object
 
 
+DOM操作
+节点属性：nodeName     nodeType      nodeValue
+元素节点:大写的标签名       1          undefined/null
+属性节点:属性名称          2           属性值
+文本节点:#text            3            文本内容
+
+node.textContent;返回当前节点文本内容（包括后代节点的文本内容）
+node.nextSibling:下一个同级节点
+node.previousSibling：上一个同级节点
+node.nextElementSibling：下一个同级元素节点
+node.previousElementSibling：上一个同级元素节点
+
+node.parentNode:返回当前父节点（Element节点/Document节点/documentfragment）
+node.parentElement:返回当前的父元素节点
+
+node.childNodes:返回当前节点的所有子节点
+node.children:返回当前节点的所有子元素节点
+node.childElementCount:返回当前节点的子元素节点的个数
+node.firstChild/lastChild:返回当前节点的第一个、最后一个子节点
+node.firstElementChild/lastElementChild:返回当前节点的第一个、最后一个子元素节点
+
+方法
+node.appendChild(ele):在当前节点中插入一个新的子节点元素
+node.hasChildNodes():判断当前节点是否有子节点
+node.cloneNode(boolean):克隆一个节点(true:克隆子节点;false:不克隆子节点)
+node.insertBefore(新子节点,指定子节点):在指定子节点元素之前插入新的子节点
+node.removeChild(指定子节点):移除指定子节点
+node.replaceChild(新子节点,被替换子节点)：用新子节点替换指定子节点元素
+node.contains(子节点):判断当前参数是否是当前元素的后代节点元素
+node.isEqualNode(节点):判断两个节点是否相等
+node.normalize():清除空的文本节点
+
+
+节点查询方法：
+document.getElementById(id):返回一个元素对象
+document.getElementsByTagName(tagName)：返回元素对象集合
+document.getElementsByClassName(className)：返回元素对象集合
+document.getElementsByName(name)：返回元素对象集合
+document.querySelector(selector)：返回匹配的第一个元素对象
+document.querySelectorAll(selector)：返回元素对象集合
+
+
+节点生成：
+document.createElement(tagName):生成HTML元素节点
+document.createTextNode(text):生成文本节点
+document.createAttribute(attrName):生成一个新的属性对象节点，并返回它。要通过value属性设置它的属性值
+Element.setAttributeNode(attrNode)：将createAttribute()创建的属性设置到创建的元素节点上
+
+属性操作：
+Element.getAttribute()
+该方法返回当前元素节点的指定属性。如果指定属性不存在，则返回null。参数为指定的属性名称。
+Element.setAttribute()
+该方法用于为当前元素节点新增属性。如果同名属性已存在，则相当于编辑已存在的属性。该方法含有两个参数，第一个参数表示属性名，第二个参数表示需要对属性设置的值。
+Element.hasAttribute()
+该方法返回一个布尔值，表示当前元素节点是否包含指定属性。参数为指定的属性名称。
+Element.removeAttribute()
+该方法用于从当前元素节点移除属性。
+dataset属性
+该方法用于获取用户自定义属性(data-*),如：data-user: input.dataset.user获取；input.dataset.user = 'anny'设置
+
+
+Element对象属性和方法：
+Element.attributes
+该属性返回当前元素所有属性节点的一个类似数组对象。
+Element.id
+该属性返回指定元素的id属性，是一个可读可写的属性。
+Element.tagName
+该属性返回指定元素的大写标签名，与nodeName属性的值相等。但在事件对象（event）上通常使用tagName更加常见。
+Element.innerHTML
+属性返回该元素包含的HTML代码。该属性可读可写，常用来设置某个Element节点的内容。如果将该属性设为空字符串，等于删除了它包含的所有节点。
+Element.outerHTML
+该属性返回一个字符串，内容为指定元素节点的所有HTML代码，包括它自身和包含的所有子元素。该属性是同样是可读可写的，对它进行赋值，等于替换掉当前元素。
+但是如果该Element节点已经被赋值给一个变量了，在使用outerHTML替换原来的标签后，之前的变量值还是能够访问，也就是说被替换掉的内容依然保存于内存。
+Element.focus()
+该方法可以上元素获得焦点。用户使用键盘Tab键可以切换获得焦点的元素，都可以使用该方法来获得焦点。
+Element.remove()
+该方法用于删除当前的子节点，并且不再存在于DOM树内和内存里。
+
+
+文档片段对象：
+语法:将创建的元素节点添加到文档片段中，最后将文档片段插入到DOM树中
+	var docGrag = document.createDocumentFragment();
+//	或
+	var docGrag1 = new DocumentFragment();
+
+style对象：
+//直接操作style对象属性(css样式)
+	h2.style.color = "#f00";
+//	操作style对象的cssText属性
+	h2.style.cssText = "color:#f00;font-size:26px;border:1px solid #0f0;";
+
+
+classList对象方法：
+add()：增加一个class。
+remove()：移除一个class。
+contains()：检查当前元素是否包含某个class。
+toggle()：将某个class移入或移出当前元素。
+item()：返回指定索引位置的class。
+toString()：将class的列表转为字符串。
+
+regExp对象:(regular expression  === 正则表达式)
+语法：字面量和构造函数
+var reg = /bac/;
+var reg = new RegExp();
+
+修饰符：
+i:忽略大小写
+g:全局匹配
+u:匹配大于Unicode码点未“\uFFFF”的字符
+y:粘连匹配
+m:多行匹配
+
+test():返回匹配成功结果(true,false)
+exec():返回匹配成功的字符数组
+
+元字符：用一些规定的符号来表示特定的字符
+\.、\r、\n、[]、{}、\ 、- 、$、^、* 、+ 、()、|
+开始位置或结束位置字符：
+^ 和 $：遇到小括符的字符，以括号里面在整体开始或者整体结束
+{m}/{m,}/{,n}/{m,n}:m次、m次以上、n次以下、m~n次
+？：0~1次
+*：0~n次
++：至少1次
+^:如果再中括号中代表取反:[^abc],[^a-zA-Z];
+[]:匹配其中一个[abc];
+
+预定义模式：
+\d 匹配0-9之间的任一数字，相当于[0-9]。
+\D 匹配所有0-9以外的字符，相当于[^0-9]。
+\w 匹配任意的字母、数字和下划线，相当于[A-Za-z0-9_]。
+\W 除所有字母、数字和下划线以外的字符，相当于[^A-Za-z0-9_]。
+\s 匹配空格（包括制表符、空格符、断行符等），相等于[\t\r\n\v\f]
+\S 匹配非空格的字符，相当于[^\t\r\n\v\f]。
+\b 匹配词的边界。
+\B 匹配非词边界，即在词的内部。
+
+
+手机号：/^1(3|4|5|7|8)\d{9}$/
+邮箱：/^\w+@[0-9a-z]+\.(a-z){1,3}$/ 或者 /^\w+([-+.]\w+)*@[0-9a-z]+\.(a-z){1,3}$/
+中文：/^[\u4e00-\u9fa5]{0,}$/
+用户名：/^[a-zA-Z]\w{5,17}$/
+固定电话：/^0\d{2,3}-\d{7,8}/
+前后空格：/(^\s*)|(\s*$)/
+
+
+事件
+1.页面元素属性(on*);
+2.通过DOM元素直接添加
+3.实例化元素对象上添加
+4.实例化后的元素对象添加监听函数
+
+事件监听
+addEventListener('click',事件函数,事件触发阶段[false:冒泡阶段;true:捕获阶段]);
+removeEventListener('click',事件函数,事件触发阶段[false:冒泡阶段;true:捕获阶段]);
+
+兼容IE10及以下版本：
+attachEvent('onclick',事件函数);
+
+
+
+事件传播：
+1.window对象传向目标节点(捕获阶段)
+2.在目标节点上触发(目标阶段)
+3.从目标节点传回到window对象(冒泡阶段)
+
+阻止事件捕获/冒泡：
+event.stopPropagation();
+1.如果监听函数是捕获阶段触发,阻止事件向下传
+2.如果监听函数是冒泡阶段触发，阻止事件向上传
+IE浏览器中阻止冒泡
+event.cancelBubble = true;
+实例：
+div.onclick = function(event){
+var e = (event) ? event:window.event;
+if(window.event){
+e.cancelBubble = true;//IE下阻止冒泡
+}else{
+e.stopPropagation();//其他浏览器
+}
+
+}
 
 
 
 
 
+禁用默认事件：
+event.preventDefault();
+
+事件对象
+event；事件所触发的元素
+
+事件代理(事件委托)：利用事件冒泡，在父元素绑定事件，统一处理多个子元素的事件
 
 
+鼠标事件：
+mouseout:会冒泡
+mouseleave:不会冒泡
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+键盘key值：
+字母(a-z):65-90
+数字(0-9):48-57
+enter:13
+ctrl:17
+alt:18
+shift:16
+backspace:8
+tab:9
+delete:46
+left:37
+top:38
+right:39
+bottom:40

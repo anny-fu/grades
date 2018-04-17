@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>事件代理</title>
+</head>
+<body>
+<ul id="item">
+	<li>列表一</li>
+	<li>列表二</li>
+	<li>列表三</li>
+</ul>
+<script>
+//	循环添加事件
+	var itemLi= document.getElementById('item').children;
+/*	for(var i = 0;i<itemLi.length;i++){
+		itemLi[i].onclick = function(){
+			console.log(this.innerText);
+		}
+	}*/
+
+
+//事件代理
+	var item = document.getElementById('item');
+	item.onclick = function(event){
+//		如果点击的元素是li,获取其文本内容输出
+		console.log(this.tagName.toLocaleLowerCase());
+		console.log(event.target.tagName);
+		if(event.target.tagName.toLocaleLowerCase() === "li"){
+				console.log(event.target.innerText);
+		}
+	}
+
+var newLi = document.createElement('li');
+newLi.innerHTML = '列表四';
+itemLi[0].parentElement.appendChild(newLi);
+
+
+</script>
+</body>
+</html>

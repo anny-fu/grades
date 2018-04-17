@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>事件对象</title>
+	<style>
+		#btn{
+			background-color: blue;
+			padding:10px;
+		}
+		#btn>h3{
+			background-color: #12d601;
+		}
+		#btn>p{
+			background-color: #00bfc8;
+		}
+		#btn>div{
+			background-color: #cccccc;
+		}
+	</style>
+</head>
+<body>
+<div id="btn">
+	<h3>标题三</h3>
+	<p>p元素</p>
+	<div>子元素div</div>
+</div>
+<script>
+var div = document.getElementById('btn');
+div.addEventListener('click',fun1,false);
+function fun1(event){
+	console.log(this.tagName);
+	console.log(event.target.tagName);
+	console.log(event);
+	console.log(event.target);
+}
+
+</script>
+</body>
+</html>

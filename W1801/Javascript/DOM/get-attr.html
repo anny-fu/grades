@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>属性的操作</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		div {
+			padding: 10px;
+		}
+		.showPwd {
+			padding: 2px;
+			background-color: #aaa;
+			color: #fff;
+			display: inline-block;
+			cursor: pointer;
+		}
+		.showPwd[data-on] {
+			background-color: #4f900e;
+		}
+	</style>
+</head>
+<body>
+<main id="main">
+	<div>
+		<label>账户：</label>
+		<input name="userName" type="text" data-user="anny" value="" />
+	</div>
+	<div>
+		<label>密码：</label>
+		<input name="userPwd" type="password" value="">
+		<span class="showPwd">-_-</span>
+	</div>
+</main>
+<script src="../common.js"></script>
+<script>
+	var showPwd = getEle('.showPwd')[0];
+	console.log(showPwd);
+	var userPwd = document.getElementsByName('userPwd')[0];
+	var userName = document.getElementsByName('userName')[0];
+	showPwd.onclick = function(){
+//		获取密码框的type属性
+		var status = userPwd.getAttribute('type');
+		console.log(status);
+//		根据status判断
+		if(status === "password"){
+			userPwd.setAttribute("type","text");
+		}else{
+			userPwd.setAttribute("type","password");
+		}
+
+//		判断图标的属性
+		var hasOn = this.hasAttribute("data-on");
+		console.log(hasOn);
+		if(hasOn){
+			this.removeAttribute("data-on");
+		}else{
+			this.setAttribute("data-on","data-on")
+		}
+
+
+//		获取data-user的属性值赋值给value属性
+		var val =userName.dataset.user;
+		console.log(val);
+     userName.value = val;
+
+     console.log(this.dataset.on);
+	}
+
+
+</script>
+</body>
+</html>

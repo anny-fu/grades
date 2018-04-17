@@ -140,9 +140,46 @@ function codingString(str) {
 	// 将解析后的对象属性的值写入显示容器元素
 	showUnicode.textContent = obj.unicodeString;
 }
+/**
+ * 获取所有同级节点元素
+ * 参数：当前节点
+ * 返回值：所有同级元素节点集合
+ * */
+function getSibling(ele){
+	var arr = [];
+//	找到当前节点父节点，所有子元素节点
+	var childs = ele.parentElement.children;
+	console.log(childs);
+	for(var i= 0 ;i<childs.length ;i++){
+		if(childs[i] !== ele){
+			arr.push(childs[i]);
+		}
+	}
+	return arr;
+}
 
-
-
-
+/***
+ *
+ * 元素选择器
+ * 参数：css选择器(String) === ID Class 标签
+ * */
+function getEle(param) {
+//获取首个字符
+	var firstChar = param.charAt(0);
+	var result;
+//	如果是ID
+	if (firstChar === "#") {
+		result = document.getElementById(param.slice(1));
+	}
+//		如果是Class
+	else if (firstChar === ".") {
+		result = document.querySelectorAll(param);
+	}
+//		如果标签
+	else if (/[a-z]/i.test(firstChar)) {
+		result = document.querySelectorAll(param);
+	}
+	return result;
+}
 
 

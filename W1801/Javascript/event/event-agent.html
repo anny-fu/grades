@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>事件代理</title>
+</head>
+<body>
+<ul id="roleName">
+	<li>皮卡丘</li>
+	<li>火焰龙</li>
+	<li>钢铁兽</li>
+</ul>
+<button type="button" id="add">新增</button>
+<div id="liText"></div>
+
+<script>
+	var roleName = document.getElementById('roleName'),
+		roleLi = roleName.children,
+		add = document.getElementById('add'),
+		liText = document.getElementById('liText');
+	var a = 1;
+	add.addEventListener('click', function () {
+//	roleName列表中添加一个新的li
+		roleName.innerHTML += `<li>新增怪兽${a}</li>`;
+		a++;
+	}, false);
+//	li循环绑定事件
+//for(var i = 0;i<roleLi.length;i++){
+//	roleLi[i].onclick = function(){
+//		liText.innerHTML = this.textContent;
+//	}
+//}
+
+//	事件代理
+	roleName.addEventListener('click',function(event){
+				var ele = event.target.tagName.toLocaleLowerCase();
+				if(ele == "li"){
+					liText.innerText = event.target.textContent;
+				}
+	},false)
+
+
+</script>
+</body>
+</html>

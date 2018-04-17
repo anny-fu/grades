@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>style对象</title>
+</head>
+<body>
+<h2>标题二</h2>
+<script>
+var h2 = document.getElementsByTagName('h2')[0];
+//直接操作style对象属性(css样式)
+	h2.style.color = "#f00";
+//	操作style对象的cssText属性
+	h2.style.cssText = "color:#f00;font-size:26px;border:1px solid #0f0;";
+
+</script>
+</body>
+</html>

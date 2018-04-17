@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>节点</title>
+</head>
+<body>
+<ul class="item">
+	<li>HTML</li>
+	<li>Javascript</li>
+	<!--注释节点-->
+</ul>
+<iframe src="" frameborder="0"></iframe>
+<script>
+	var ul = document.getElementsByTagName('ul')[0],
+		text = ul.childNodes[0];
+//	ul下面的所有子节点(文本，元素，注释)
+	console.log(ul.childNodes);
+//	属性节点获取
+	var attr = ul.getAttributeNode("class");
+
+	console.log('ul节点名称' + ul.nodeName + '节点类型' + ul.nodeType + '节点值' + ul.nodeValue);
+	console.log('text节点名称' + text.nodeName + '节点类型' + text.nodeType + '节点值' + text.nodeValue);
+	console.log('attr节点名称' + attr.nodeName + '节点类型' + attr.nodeType + '节点值' + attr.nodeValue);
+
+//动态创建文本节点
+	var text1 = document.createTextNode("Hello!");
+	console.log('text1节点名称' + text1.nodeName + '节点类型' + text1.nodeType + '节点值' + text1.nodeValue);
+
+
+
+
+
+
+</script>
+</body>
+</html>

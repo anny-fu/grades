@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>节点属性</title>
+</head>
+<body>
+<ul id="testUl">
+	<li>列表一</li>
+	<!--注释-->
+	<li>列表二</li>
+	<li>列表三</li>
+	<li>列表四</li>
+	<li>列表五</li>
+</ul>
+</body>
+<script>
+	var li = document.getElementById('testUl').childNodes[1];
+
+//获取第一个li的前一个、后一个同级节点
+
+//	获取第一个li的前一个、后一个同级元素节点
+
+//	获取li元素包含的文本内容
+
+//	获取ul元素节点的文本内容
+	var ul =  document.getElementById('testUl');
+	console.log(ul.textContent);
+//	console.log(ul.textContent = '动态设置的文本内容');
+
+//childNodes/children
+	console.log(ul.childNodes);
+	console.log(ul.children);
+
+
+</script>
+
+
+</html>

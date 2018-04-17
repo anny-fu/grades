@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>鼠标事件</title>
+	<style>
+		html,body{
+			height:100%;
+			margin:0;
+			padding:0;
+			background-color: #12d601;
+		}
+		div{
+			width:600px;
+			margin:10px auto;
+			padding:10px;
+			border:5px solid #ff0000;
+			height:500px;
+			background-color: #0387bc;
+		}
+	</style>
+</head>
+<body>
+<div id="btn"></div>
+<!--<div id="box">鼠标移入，我就害羞，我要隐藏</div>-->
+<!--<ul id="item">-->
+	<!--<li>曹操</li>-->
+	<!--<li>项羽</li>-->
+	<!--<li>张飞</li>-->
+<!--</ul>-->
+<script>
+	var box = document.getElementById('box');
+	var box = document.getElementById('btn');
+//	移入事件
+//	box.addEventListener('mouseover',function(){
+//		this.style.display = "none";
+//	},false);
+
+	var body = document.getElementsByTagName('body')[0];
+	body.onclick = function(e){
+		console.log(e);
+	}
+
+	var item = document.getElementById('item');
+
+//	item.onmouseover = function(){
+//		this.style.color= 'red';
+//	}
+//	item.onmouseout = function(event){
+//		var e = event || window.event;
+//		if(e.target.tagName.toLocaleLowerCase() == 'li'){
+//			this.style.color = "blue"
+//		}
+//	}
+//	item.onmouseleave = function(event){
+//		var e = event || window.event;
+//		if(e.target.tagName.toLocaleLowerCase() == 'li'){
+//			this.style.color = "orange";
+//		}
+//	}
+//	var li = item.children;
+//	for(var i = 0;i<li.length;i++){
+//		li[i].onmouseleave = function(event){
+//		this.style.color = "orange";
+//		}
+//	}
+
+//	box.addEventListener('mouseenter',function(){
+//		this.style.display = "none";
+//	},false);
+
+</script>
+</body>
+</html>

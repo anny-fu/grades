@@ -1,0 +1,58 @@
+@charset "utf-8";
+/*
+**图片切换样式
+**
+ */
+ /*初始化样式*/
+body{
+  background-color: #efefef;
+}
+body,ul,li,img,p,div,section{margin:0; padding: 0;box-sizing: border-box;}
+section{display: block;}
+ul,li{
+  list-style: none;
+}
+/*container*/
+section{
+  width:600px;
+  margin: 30px auto;
+}
+#img_container{
+  width:100%;
+  height:375px;
+  margin-bottom: 30px;
+position: relative;
+}
+#img_container>img{
+  width:100%;
+}
+#img_container>p{
+  height: 36px;
+  width:100%;
+  color:#fff;
+  text-align: center;
+  font-size: 18px;
+  line-height: 36px;
+  background-color: rgba(0,0,0,.5);
+  position: absolute;
+  left:0;
+  bottom: 0;
+}
+
+#img_list{
+  width:100%;
+  height:180px;
+}
+#img_list li{
+  float: left;
+  width:140px;
+  cursor: pointer;
+  margin:0 5px;
+}
+#img_list li>img{
+  border-radius: 5px;
+  width:100%;
+}
+#img_list li.on>img{
+  box-shadow: 0 0 4px 2px #00bfc8;
+}

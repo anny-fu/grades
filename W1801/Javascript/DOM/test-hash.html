@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>哈希值测试</title>
+	<style>
+		*{
+			box-sizing:border-box;
+		}
+		div{
+			width:80%;
+			height:600px;
+			padding:20px;
+			border:1px solid #f00;
+		}
+	</style>
+</head>
+<body>
+<main id="main">
+	<div id="div1">#div1</div>
+	<div id="div2">#div2</div>
+	<div id="div3">#div3</div>
+	<div id="div4">#div4</div>
+	<div id="div5">#div5</div>
+</main>
+<script>
+	var count = 0;
+	window.onhashchange = function(){
+		console.log(count++);
+	}
+</script>
+</body>
+</html>

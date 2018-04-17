@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>阻止默认事件</title>
+</head>
+<body>
+<main id="main">
+	<!--<a href="https://www.baidu.com" id="gotoBaidu" target="_self">百度一下</a>-->
+	<a href="javascript:void(0);" id="gotoBaidu" target="_self">百度一下</a>
+	<!--<a href="#" id="gotoBaidu" target="_self">百度一下</a>-->
+</main>
+<script>
+	var  gobtn = document.getElementById('gotoBaidu');
+	gobtn.addEventListener('click',function(event){
+//		阻止a标签默认跳转事件
+		var e = event;
+//		e.preventDefault();
+		window.open('http://www.qq.com',"_self");
+	},false)
+</script>
+</body>
+</html>

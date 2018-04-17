@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>文档片段</title>
+</head>
+<body>
+<ul id="item">
+
+</ul>
+<script>
+	var docGrag = document.createDocumentFragment();
+//	或
+	var docGrag1 = new DocumentFragment();
+
+	var li =document.createElement('li');
+	var a = document.createElement('a');
+	a.setAttribute('href','#');
+	a.innerText = "列表项1";
+	li.appendChild(a);
+//	添加到片段对象中
+	docGrag.appendChild(li);
+
+	document.getElementById('item').appendChild(docGrag.cloneNode(true));
+
+
+</script>
+</body>
+</html>

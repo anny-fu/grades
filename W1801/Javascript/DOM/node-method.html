@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>节点方法</title>
+	<style>
+		ul {
+			width: 220px;
+			padding: 10px 40px;
+			border: 1px solid #999;
+			margin-right: 20px;
+			float: left;
+		}
+
+		ul > li {
+			cursor: pointer;
+		}
+
+		ul > li:hover {
+			color: #677691;
+		}
+
+		ul > li:active {
+			color: #333;
+		}
+
+	</style>
+</head>
+<body>
+<!-- HTML部分 -->
+<ul id="roleName">
+	<li>关羽</li>
+	<li>张飞</li>
+</ul>
+<ul id="new-roleName">
+	<li>赵云</li>
+	<li>黄忠</li>
+	<!--<li>马超</li>-->
+</ul>
+<button id="btnAddRole" type="button" class="normal">插入角色</button>
+
+<script>
+	// 为所有英雄绑定点击事件
+	var roleItem = document.getElementsByTagName("li"),
+		roleItem_leng = roleItem.length;
+	for (var i = 0; i < roleItem_leng; i++) {
+		roleItem[i].onclick = function () {
+			alert("英雄：" + this.textContent);
+		}
+	}
+	// 添加英雄列表
+	/*var btnAddRole = document.getElementById("btnAddRole");
+	 btnAddRole.onclick = function() {
+	 // 存储新英雄列表
+	 var newRoleList = document.getElementById("new-roleName");
+	 // 如果新英雄列表还存在英雄
+	 //		if(newRoleList.childElementCount) {
+	 //			// 存储原有英雄列表
+	 var roleName = document.getElementById("roleName");
+	 //			// 将新英雄添加到现有英雄列表
+	 //			roleName.appendChild(newRoleList.firstElementChild);
+	 //		}
+	 //		else {
+	 //			alert("已经没有新英雄可以添加了");
+	 //		}
+
+
+	 //		document.createElement();没有事件
+	 //		var li = document.createElement('li');
+	 //		li.textContent = "诸葛亮";
+	 //		console.log(li);
+	 //		roleName.appendChild(li);
+
+	 }*/
+
+
+	//	cloneNode
+	// 为所有英雄绑定点击克隆事件
+	/*var roleItem = document.getElementsByTagName("li"),
+	 roleItem_leng = roleItem.length;
+	 for(var i = 0; i < roleItem_leng; i++) {
+	 roleItem[i].onclick = function() {
+	 // 克隆该节点（如果这里不设置参数或者将参数设置为false，都无法克隆文本节点）
+	 var cloneLi = this.cloneNode(true);
+	 console.log(cloneLi);
+	 // 克隆元素存放列表
+	 var roleNameClone = document.getElementById("new-roleName");
+	 // 如果该英雄不存在于克隆列表内
+	 if(!(new RegExp(cloneLi.textContent).test(roleNameClone.textContent))) {
+	 // 将克隆好的元素添加进去
+	 roleNameClone.appendChild(cloneLi);
+
+	 } else {
+	 alert("该英雄已经存在");
+	 }
+	 }
+	 }*/
+
+	//	insertBefore
+	/*	// 原英雄列表
+	 var roleName = document.getElementById("roleName");
+	 // 候选英雄列表
+	 var candidate = document.getElementById("new-roleName");
+
+	 // 绑定插入角色按钮事件
+	 var btnInsertRole = document.getElementById("btnAddRole");
+	 btnInsertRole.onclick = function() {
+	 // 候选英雄列表如果不为0
+	 if(candidate.childElementCount) {
+	 // 在“马超”之前插入候选英雄
+	 //			roleName.insertBefore(candidate.firstElementChild, roleName.lastElementChild);
+	 roleName.insertAfter(candidate.firstElementChild, roleName.lastElementChild);
+	 }
+	 else {
+	 alert("已经没有候选英雄了！");
+	 }
+	 }
+	 //封装insertAfter
+	 //	在节点对象添加一个原型方法
+	 Node.prototype.insertAfter = function(newNode,currentNodeChild){
+	 //	在指定元素节点的下一个同级节点位置插入新节点
+	 this.insertBefore(newNode,currentNodeChild.nextSibling);
+	 }*/
+
+	(function () {
+		// 原英雄列表
+		var roleName = document.getElementById("roleName");
+		// 候选替换英雄列表
+		var candidate = document.getElementById("new-roleName");
+		// 候选列表剩余英雄个数
+		var heroCount_static = candidate.childElementCount;
+
+		// 绑定替换角色按钮事件
+		var btnReplaceRole = document.getElementById("btnAddRole");
+		btnReplaceRole.onclick = function () {
+			// 当前候选列表剩余英雄个数
+			var heroCount_dynamic = candidate.childElementCount;
+			console.log(heroCount_dynamic);
+			// 如果候选替换英雄列表还不为零
+			if (heroCount_dynamic) {
+				roleName.replaceChild(
+					candidate.firstElementChild,
+					// 这里的下标相当于用5减去候选列表内剩余的项数，分别是5/4/3/2/1
+					roleName.children[heroCount_static - heroCount_dynamic]
+				);
+			} else {
+				alert("已经没有可以替换的英雄了");
+			}
+		}
+	})();
+</script>
+</body>
+</html>
