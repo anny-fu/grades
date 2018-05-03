@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人注册</title>
+		<link rel="icon" href="https://www.jd.com/favicon.ico" mce_href="https://www.jd.com/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/jd_register_page.css"/>
+	</head>
+	<body>
+		<!--头部 logo等-->
+		<header class="clearfix">
+			<div class="logo-con center">
+				<a href="javascript:;" class="logo"></a>
+				<span class="logo_title fl"> 欢迎注册</span>
+				<div class="have_account fr">
+					<span>已有账号？</span>
+					<a href="javascript:;">请登录</a>
+				</div>
+			</div>
+		</header>
+		<!--中间 的版芯-->
+		<div class="container center clearfix">
+			<!--左边的用户输入信息-->
+			<div class="left fl">
+				<form name="regForm">
+
+					<!--用户名-->
+					<div class="form_item">
+						<label>用户名</label>
+						<label for="username">您的账户名和登录名</label>
+						<input type="text" placeholder="" maxlength="20" id="username" data-tip = '<i class="i-def"></i>支持中文、字母、数字、“-”“_”的组合，4-20个字符'/>
+					</div>
+					<div class="input-tip">
+						<span class=""></span>
+					</div>
+
+					<!--密码-->
+					<div class="form_item">
+						<label>设置密码</label>
+						<label for="passwd">建议至少使用两种字符组合</label>
+						<input type="password" placeholder="" maxlength="20" id="passwd" data-tip = '<i class=i-def></i>建议使用字母、数字和符号两种及以上的组合，6-20个字符'/>
+					</div>
+					<div class="input-tip">
+						<span class=""></span>
+					</div>
+
+					<!--确认密码-->
+					<div class="form_item">
+						<label>确认密码</label>
+						<label for="repasswd">请再次输入密码</label>
+						<input type="password" placeholder="" maxlength="20" id="repasswd" data-tip = '<i class="i-def"></i>请再次输入密码'/>
+					</div>
+					<div class="input-tip">
+						<span class=""></span>
+					</div>
+
+					<!--手机号-->
+					<div class="form_item">
+						<label class="select_country">中国 0086</label>
+						<label for="phone">建议使用常用手机</label>
+						<input type="text" placeholder="" maxlength="20" id="phone" data-tip = '<i class="i-def"></i>完成验证后，你可以用该手机登录和找回密码'/>
+					</div>
+					<div class="input-tip">
+						<span class=""></span>
+					</div>
+
+					<!--验证码-->
+					<div class="form_item">
+						<label>验证码</label>
+						<label for="authCode">请输入验证码</label>
+						<input type="text" placeholder="" maxlength="6" class="form_authcode" id="authCode" data-tip = '<i class="i-def"></i>看不清？点击图片更换验证码'/>
+						<p id="yzm"></p>
+					</div>
+					<div class="input-tip">
+						<span class=""></span>
+					</div>
+
+					<!--手机验证码-->
+					<div class="form_item">
+						<label>手机验证码</label>
+						<label for="phoneCode">请输入手机验证码</label>
+						<input type="text" placeholder="" maxlength="20" id="phoneCode" data-tip=""/>
+					</div>
+					<div class="input-tip"></div>
+
+					<!--同意协议-->
+					<div class="form_agreen">
+						<input type="checkbox" checked/>
+						<label>我已阅读并同意</label>
+						<a href="javascript:;">《京东用户注册协议》</a>
+					</div>
+					<div class="input-tip">
+						<span class=""></span>
+					</div>
+
+					<!--注册按钮-->
+					<button class="register_btn">立即注册</button>
+				</form>
+			</div>
+
+
+			<!--右边信息-->
+			<div class="right fr">
+				<div class="company-reg">
+					<a href="javascript:;">
+						<i class="i-company"></i>
+						<span>企业用户注册</span>
+					</a>
+				</div>
+				<div class="inter-cust">
+					<a href="javascript:;">
+						<i class="i-global fl"></i>
+						<span>
+							INTERNATIONAL <br /> CUSTOMERS
+						</span>
+					</a>
+				</div>
+				<div class="phone-reg"></div>
+			</div>
+		</div>
+		<footer>
+			<ul class="clearfix">
+				<li>关于我们</li>
+				<li>联系我们</li>
+				<li>人才招聘</li>
+				<li>商家入驻</li>
+				<li>广告服务</li>
+				<li>手机京东</li>
+				<li>友情链接</li>
+				<li>销售联盟</li>
+				<li>京东社区</li>
+				<li>京东公益</li>
+				<li>English Site</li>
+			</ul>
+			<div>
+        		Copyright©2004-2016  京东JD.com 版权所有
+  			</div>
+		</footer>
+	</body>
+	<script src="js/jd_register_page.js"></script>
+</html>

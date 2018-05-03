@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>章节练习二--窗口2</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		body {
+			background-color: #deebcf;
+		}
+		main > div {
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+<div>iframe2内容：</div>
+	<main>
+		<div>
+			<label>宝贝：</label>
+			<span id="sprit"></span>
+		</div>
+		<div>
+			<label>形态：</label>
+			<span id="config"></span>
+		</div>
+		<div>
+			<label>技能：</label>
+			<span id="skill"></span>
+		</div>
+		<div>
+			<button id="btnActive" type="button">激活</button>
+		</div>
+	</main>
+	
+	<script>
+/*	父级页面访问子级页面：contentWindow属性获得iframe节点包含的window对*象，而contentDocument属性获得得iframe节点包含的document对象
+*子页面访问父级页面：window.parent
+*主页面和iframe涉及到跨域限制，需要通过启动本地服务器进行测试
+*/
+		var btnActive = document.getElementById("btnActive");
+		btnActive.onclick = function() {
+			// 获取iframe1里的文本框内容
+			var iframe1 = window.parent.document.getElementById("ifm-1");
+//			iframe引入的頁面的Document
+			var ifm1_doc = iframe1.contentDocument;
+			var txtSprit_val = ifm1_doc.getElementById("txtSprit").value,
+				txtConfig_val = ifm1_doc.getElementById("txtConfig").value,
+				txtSkill_val = ifm1_doc.getElementById("txtSkill").value;
+			// 设置当前iframe2的内容
+			document.getElementById("sprit").textContent = txtSprit_val;
+			document.getElementById("config").textContent = txtConfig_val;
+			document.getElementById("skill").textContent = txtSkill_val;
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>存储机制</title>
+</head>
+<body>
+<form action="">
+	<p><label>用户名：</label><input type="text" id="userName"></p>
+	<p><label>密码：</label><input type="password" id="userPwd"></p>
+	<button id="regs" type="button">注册</button>
+</form>
+<script>
+	//兼容测试
+	var regBtn = document.getElementById('regs');
+	regBtn.onclick = function () {
+		if (typeof(Storage) !== "undefined") {
+//			获取输入的用户名和密码
+			var userN = document.getElementById('userName').value;
+			var userP = document.getElementById('userPwd').value;
+//			存储到sessionStorage
+//			sessionStorage.userName = userN;
+//			sessionStorage.userPwd = userP;
+//			存储到localStorage
+			localStorage.userName= userN;
+			localStorage.userPwd = userP;
+
+//			跳转到登录页面、主页
+			location.href = "hello.html";
+			console.log("该浏览器支持web存储！");
+		} else {
+			console.log("该浏览器不支持web存储！");
+
+		}
+	}
+
+</script>
+</body>
+</html>

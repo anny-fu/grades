@@ -1,0 +1,12 @@
+{
+	"goodsInfo": {
+		"alienware": {
+			"name": "外星人 Aurora R6 ALWS-R2858",
+			"cpu": "Intel i7-7700K",
+			"graphCard": "双NVIDIA GeForce GTX 1070 8GB GDDR5",
+			"memory": "DDR4 16GB",
+			"hardDisk": "2TB mechanical / 256G SSD",
+			"power": "850W"
+		}
+	}
+}

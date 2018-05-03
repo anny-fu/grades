@@ -182,4 +182,30 @@ function getEle(param) {
 	return result;
 }
 
+/**
+ * 获取非行内样式属性值
+ * 参数：元素对象和样式属性
+ * */
+function getStyle(obj, attr) {
+	if (obj.currentStyle) {
+		return obj.curentStyle[attr];
+	} else {
+		return getComputedStyle(obj, false)[attr];
+	}
+}
 
+
+/*
+ * 事件添加函数
+ * 参数1：事件对象
+ * 参数2：事件类型
+ * 参数3：回到函数
+ * */
+function addEvent(element, type, callback) {
+//兼容IE10以下
+	if (element.attachEvent) {
+		element.attachEvent('on' + type, callback);
+	} else {
+		element.addEventListener(type, callback, false);
+	}
+}

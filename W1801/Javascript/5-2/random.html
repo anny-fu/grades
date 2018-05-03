@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<script>
+	/*
+	* 随机获取10个随机数
+	* 参数：
+	* */
+	function sortNum(max,min,num){
+  var arr = [];
+  for(var i = 0 ;i<num;i++){
+  	arr.push(Math.round(Math.random() * (max - min))+min);
+	}
+	return arr.sort(function(a,b){return a - b;});
+	}
+
+
+	var newArr = [];
+	var tr = document.getElementById('proInfo').getElementsByTagName('tbody')[0]
+		.getElementsByTagName('tr');
+	var tr_len = tr.length;
+	for(var i = 0 ;i<tr_len;i++){
+//		取每一行的第二列内容
+		newArr.push(tr[i].children[1].textContent);
+	}
+
+
+</script>
+</body>
+</html>

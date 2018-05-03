@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>欢迎页</title>
+</head>
+<body>
+<h1 id="hello"></h1>
+<script>
+//	从sessionStorage中取出登录的用户名显示
+//	var name = sessionStorage.userName;
+//从localStorage中取出
+var name = localStorage.userName;
+	document.getElementById('hello').innerHTML = "您好！"+"<span>"+name+"</span>";
+</script>
+</body>
+</html>

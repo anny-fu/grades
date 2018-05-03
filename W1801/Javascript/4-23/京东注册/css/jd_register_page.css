@@ -1,0 +1,296 @@
+@charset "utf-8";
+/**
+ * 公共样式
+ */
+ body,li,ul,p{
+ 	margin: 0;
+ 	padding: 0;
+
+ }
+ a{
+ 	color: #666;
+ 	text-decoration: none;
+ }
+ input,button{
+ 	outline: none;
+ 	border: none;
+ }
+ .center{
+ 	margin: 0 auto;
+ }
+ .fl{
+ 	float: left;
+ }
+ .fr{
+ 	float: right;
+ }
+
+ .clearfix:before,.clearfix:after{
+ 	display: table;
+ 	content: "";
+ }
+ .clearfix:after{
+ 	clear: both;
+ }
+ .clearfix{
+ 	zoom: 1;
+ }
+ .logo,.i-def,.i-error,.i-company,.i-global,.i-succes{
+ 	background: url(../img/icon.png);
+ }
+ .i-def{
+ 	background-position: 0 -100px
+ }
+ .i-company {
+ 	background-position: 0 -50px;
+ }
+ .i-global{
+ 	background-position: -50px -50px;
+ }
+ .i-error{
+ 	background-position: -17px -100px;
+ }
+ .i-succes{
+ 	background-position: 0px 53px;
+ }
+
+ .error{
+ 	color: #e22;
+ }
+ .success{
+	 color:#90b71b;
+ }
+ .nochecked{
+ 	padding: 2px;
+ 	border: 1px solid #e22;
+ }
+ body{
+ 	color: #666;
+ 	font-size: 14px;
+ 	font-family: "Microsoft YaHei","Hiragino Sans GB";
+ }
+/**
+ * 头部样式
+ */
+
+ header{
+ 	background: url(../img/headbg.jpg) repeat-x bottom left;
+ 	height: 110px;
+ }
+
+ .logo-con{
+ 	width: 1210px;
+ }
+ .logo-con .logo{
+ 	width: 160px;
+ 	height: 50px;
+ 	float: left;
+ 	margin-top: 24px;
+ }
+ .logo_title{
+ 	font-size: 24px;
+ 	color: #333;
+ 	line-height: 34px;
+ 	margin-top: 34px;
+ 	margin-left: 30px;
+ }
+ .have_account{
+ 	font-size: 16px;
+ 	margin-top: 55px;
+ }
+ .have_account span{
+ 	color: #999;
+ }
+ .have_account a{
+ 	color: #333;
+ }
+
+/**
+ * 容器
+ */
+ .container{
+ 	width: 830px;
+ 	margin-top: 50px;
+ }
+/**
+ * 左边注册列表
+ */
+
+ .left{
+ 	width: 400px;
+ }
+ .form_item{
+ 	height: 52px;
+ 	border: 1px solid #ddd;
+ 	position: relative;
+ }
+ .form_item label:first-child {
+ 	line-height: 52px;
+ 	width: 90px;
+ 	padding-left: 20px;
+ 	float: left;
+
+ }
+ .form_item label:nth-child(2){
+ 	color: rgb(204,204,204);
+ 	line-height: 52px;
+ 	margin-left: 20px;
+ 	position: absolute;
+ 	font-family: "Microsoft YaHei", "Hiragino Sans GB";
+ 	cursor: text;
+
+ }
+ .form_item input{
+ 	padding-bottom: 11px;
+ 	padding-left: 20px;
+ 	padding-top: 16px;
+ 	font-size: 14px;
+ 	width: 190px;
+ }
+ .input-tip{
+ 	height: 27px;
+ 	padding-top: 5px;
+ 	font-size: 12px;
+ 	color: #C5C5C5;
+ }
+ .input-tip span i{
+ 	display: inline-block;
+ 	width: 16px;
+ 	height: 16px;
+ 	vertical-align: text-top;
+ 	margin-right: 8px;
+ }
+ .select_country{
+ 	border-right: 1px solid #ddd;
+ }
+ .form_authcode{
+ 	width: 150px;
+ }
+ .form_authcode + img{
+ 	position: absolute;
+ 	top: 3px;
+ 	right: 3px;
+ }
+ .form_agreen input{
+ 	width: 18px;
+ 	height: 18px;
+ 	margin: 0;
+ 	vertical-align: text-top;
+ }
+ .form_agreen a{
+ 	color: #38f;
+ }
+ .register_btn{
+ 	width: 100%;
+ 	height: 54px;
+ 	background-color: #e22;
+ 	color: #fff;
+ 	font-size: 16px;
+ 	font-family: "Microsoft YaHei","Hiragino Sans GB";
+ }
+ #yzm{
+ 	position: absolute;
+ 	right: 0;
+ 	top:-1px;
+ 	width:95px;
+ 	height: 53px;
+ 	background: url(../img/bg.png);
+ 	cursor: pointer;
+ 	text-align: center;
+ }
+ #yzm>span,#yzm>i{
+ 	display: inline-block;
+ 	line-height: 53px;
+ 	font-size: 18px;
+ 	color:#fff;
+ }
+
+ #yzm>i{
+ 	font-size: 22px;
+ 	color: #4c6188;
+ }
+/**
+ * 右边信息
+ */
+
+ .right{
+ 	height: 605px;
+ 	padding-left: 90px;
+ 	margin-left: 104px;
+ 	border-left: 1px solid #e6e6e6;
+ }
+ .company-reg{
+ 	width: 160px;
+ 	height: 60px;
+ 	margin-left: 30px;
+ 	border-bottom: 1px solid #DDDDDD;
+ }
+ .company-reg i{
+ 	width: 30px;
+ 	height: 29px;
+ 	display: inline-block;
+ 	vertical-align: middle;
+ 	margin-right: 15px;
+ }
+ .company-reg span{
+ 	vertical-align: middle;
+ }
+ .inter-cust{
+ 	margin-top: 30px;
+ 	margin-left: 30px;
+
+ }
+ .inter-cust i{
+ 	width: 30px;
+ 	height: 29px;
+ 	display: inline-block;
+ 	vertical-align: middle;
+ 	margin-right: 15px;
+ 	margin-top: 7px;
+ }
+
+
+ .company-reg a:hover,.inter-cust a:hover{
+ 	color: #000;
+ 	font-weight: 700;
+ }
+
+ .phone-reg{
+ 	width: 213px;
+ 	height: 270px;
+ 	margin-top: 50px;
+ 	background: url(../img/phone.jpg);
+ }
+
+/**
+ * footer
+ */
+ footer {
+ 	border-top: 1px solid #E6E6E6;
+ 	margin-top: 15px;
+ 	width: 1210px;
+ 	margin: 0 auto;
+ 	margin-top: 50px;
+ 	margin-bottom: 30px;
+ 	color: #999;
+ }
+ footer ul{
+ 	width: 870px;
+ 	margin: 0 auto 10px;
+ 	padding-top: 30px;
+ 	text-align: center;
+ }
+
+ footer li {
+ 	float: left;
+ 	list-style: none;
+ 	padding: 0 10px;
+ 	cursor: pointer;
+ }
+
+ footer li:not(:last-child){
+ 	border-right: 1px solid #333;
+ }
+ footer div{
+ 	text-align: center;
+ }

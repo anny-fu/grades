@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<script>
+	//数组去重
+	var arr = [10, 20, 20,20, 30, 30, 30, 40, 50, 60, 60];
+	var arrs = [];
+
+	//方法一
+	for (var i = 0; i < arr.length; i++) {
+//		判断arrs数组中是否存在arr数组中的值，如果不存在就push到arrs中
+/*		if (arrs.indexOf(arr[i]) == -1) {
+			arrs.push(arr[i]);
+		}*/
+//		方法三
+		/*if (arr.indexOf(arr[i]) != i) {
+			arrs.splice(arr[i]);
+			i--;
+		}*/
+	}
+	//	升序排序
+	arrs.sort(function (a, b) {
+		arr.splice(i,1);
+	});
+
+	//	方法二
+	for(var i = 0;i<arr.length;i++){
+		for(var j = i+1;j<arr.length;j++){
+//			如果数组中成员相同，就删除第二相同成员
+			if(arr[i] == arr[j]){
+				arr.splice(j,1);
+//				还原下标
+				j--;
+			}
+		}
+	}
+
+</script>
+</body>
+</html>

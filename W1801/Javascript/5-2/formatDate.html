@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>格式日期</title>
+</head>
+<body>
+<script>
+//	YYYY-MM-DD
+	var date = new Date();
+	var year = date.getFullYear();
+	var month = date.getMonth() + 1;
+	var day = date.getDate();
+
+//	如果月份和日期小于10,就拼接一个0
+	function formats(a){
+		return a > 10 ? a : '0' + a;
+	}
+	var ymd = year +'-'+formats(month)+'-'+formats(day);
+	console.log(ymd);
+
+</script>
+</body>
+</html>

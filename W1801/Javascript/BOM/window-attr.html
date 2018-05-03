@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>窗口属性</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		div {
+			width: 400px;
+			height: 300px;
+			padding: 20px;
+			border: 5px solid #f00;
+			background-color: #f0ad4e;
+			margin: 0 auto;
+		}
+		body{
+			padding:10px;
+			border:5px solid #000;
+			margin:5px;
+		}
+	</style>
+</head>
+<body>
+<div id="div"></div>
+<script>
+//	获取div的实际大小
+	var div = document.getElementById('div');
+//	console.log(div.style.height);
+	console.log(div.offsetHeight);
+	console.log(div.offsetTop);
+	console.log(div.offsetLeft);
+	console.log(div.clientHeight);
+	console.log(div.clientTop);
+	console.log(div.clientLeft);
+</script>
+</body>
+</html>

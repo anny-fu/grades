@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<script>
+//	getElementById
+	var str = "get-element-by-id";
+formatStr(str);
+	function formatStr(str){
+		var arr = str.split('-');
+		for(var i = 1;i<arr.length;i++){
+//			将数组中除第一个成员以外的字符串转换为数组
+//			arr= ["get",["e","l","e","m","e","n","t"],["b","y"],["i","d"]]
+			arr[i] = arr[i].split('');
+//			arr[i][0]= ["E","l","e","m","e","n","t"];
+			arr[i][0] = arr[i][0].toUpperCase();
+//			[get,Element,By,Id]
+//			将二维数组转换为字符串形式
+//			arr[i] = "Element"/"By"/"Id"
+			arr[i] = arr[i].join('');
+		}
+//	"getElementById"
+	return arr.join('');
+	}
+
+//	方法二
+	function formatsStr(str){
+		var arr = str.split('-');
+		for(var i = 1;i<arr.length;i++){
+//			arr[i] = "E"+"lement";
+			arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substr(1);
+		}
+		return arr.join('');
+	}
+
+
+</script>
+</body>
+</html>

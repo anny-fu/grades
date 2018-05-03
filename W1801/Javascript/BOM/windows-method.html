@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>open和close</title>
+</head>
+<body>
+<button type="tutton" id="openBtn">打开</button>
+<button type="tutton" id="closeBtn">关闭</button>
+<script>
+	var openBtn = document.getElementById('openBtn');
+	var closeBtn = document.getElementById('closeBtn');
+	var win;
+	openBtn.onclick = function(){
+//		open();
+//		window.open();
+//	将打开的窗口对象，存储在变量中
+		win = window.open("../img/01.jpg","美图");
+	}
+	closeBtn.onclick = function(){
+		console.log(win);
+//		用打开的窗口对象调用close方法关闭
+		win.close();
+//		window.close();//指代关闭当前窗口对象
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>父级页面</title>
+	<style>
+		p {
+			color: #f00;
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+<p>父级页面内容</p>
+<iframe src="iframe2.html" id="iframes" frameborder="0" width="600px"
+				height="500px"></iframe>
+<script>
+	setTimeout(function () {
+		//	父级页面访问子页面内容
+		var iframes = document.getElementById('iframes');
+		//获取子页面window对象和Document对象
+		var iframeWin = iframes.contentWindow,
+			iframeDoc = iframes.contentDocument;
+		console.log('子页面大小：' + iframeWin.innerWidth + "===" + iframeWin.innerHeight);
+		var text = iframeDoc.getElementById('items').innerText;
+		console.log('子页面内容为：' + text);
+	}, 1000)
+</script>
+</body>
+</html>

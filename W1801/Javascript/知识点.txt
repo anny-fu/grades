@@ -12,16 +12,17 @@ javaScript:轻量级的脚本语言、嵌入式语言、具有丰富的页面交
 语法特点：以行为单位，从上到下一行一行，每一行结尾需要";"分号，所有的符号都
 是英文的。
 
-变量声明、赋值
-变量先声明后使用，声明必须用var,变量类型由值决定，为赋值为undefined类型。
-变量不能重复声明
+变量：
+1.变量需先声明再调用，声明变量的关键字(var);变量声明后可以不用赋值。
+2.变量不能重复声明，否则后声明的变量会覆盖前面的变量。
+3.变量可以先声明后赋值;变量在没有赋值时，它的值为任意类型值，变量的类型时由赋给它的值决定的，属于软类型的变量。
+4.变量命名应当遵守以下规则：
+	1)只能以“英文字母”、“其他国家语言字符”、“_”（下划线）、“$”（美元符号）开头
+	2)不能以“数字”及“其它特殊符号”（键盘上的符号）作为开头
+	3)首个字符以后可以使用“数字”
+	4)不能使用“关键字”和“保留字”作为变量名
+	5)不是保留字，但具有一定意义的字符，如“Infinity”、“null”、“NaN”、“undefined”等
 
-变量命名规则：
-1.不能以数字，特殊符号开头,除首个字符外可以使用。
-2.只能以字母，下划线，美元符，其他国家语言字符开头。
-3.不能使用javascript中的关键字和保留字,其他infinity,null,NaN,undefined
-
-变量和常量
 
 数据类型
 number、string、boolean
@@ -460,6 +461,7 @@ arguments：类似于数组的对象(不能直接操作数组特有的方法)
 
 函数作用域：
 函数内部声明的变量,函数,只能在本函数内部访问，子函数可访问父级函数变量，反之怎不可以。
+如果函数内部出现和全局相同的变量名称，会优先使用函数内部变量。
 
 函数对象
 Date()
@@ -591,19 +593,26 @@ u:匹配大于Unicode码点未“\uFFFF”的字符
 y:粘连匹配
 m:多行匹配
 
-test():返回匹配成功结果(true,false)
-exec():返回匹配成功的字符数组
+正则验证方法：
+test();返回布尔类型值，匹配成功为true，否则为false。
+exec();返回匹配成功的结果(数组)，没有就为null。
 
 元字符：用一些规定的符号来表示特定的字符
-\.、\r、\n、[]、{}、\ 、- 、$、^、* 、+ 、()、|
-开始位置或结束位置字符：
-^ 和 $：遇到小括符的字符，以括号里面在整体开始或者整体结束
-{m}/{m,}/{,n}/{m,n}:m次、m次以上、n次以下、m~n次
-？：0~1次
-*：0~n次
-+：至少1次
-^:如果再中括号中代表取反:[^abc],[^a-zA-Z];
-[]:匹配其中一个[abc];
+点字符(.):除指定字符外的任意一个字符。
+脱字符(^):限定开始位置字符
+美元符($):限定结束位置字符。
+中括号([]):匹配字符串其中一个与“[]”相同。
+竖线符(|):表示或。只需匹配正则中的任何一个即可。
+连字符(-):表示一个连续的范围，ASCII编码的一个字符范围。[a-zA-Z]
+小括号('()'):表示匹配一组完整的内容。
+
+问号(?)：匹配字符串中指定的字符可出现0次或1次。
+星号(*)：匹配字符串中指定字符可以出现0次或多次。
+加号(+)：匹配的内容至少要出现一次。
+大括符({})：
+{n}:匹配的内容可以连续出现n次
+{n,}:匹配的内容至少出现n。
+{n,m}:匹配的内容至少出现n次,最多出现m次。
 
 预定义模式：
 \d 匹配0-9之间的任一数字，相当于[0-9]。
@@ -625,10 +634,17 @@ exec():返回匹配成功的字符数组
 
 
 事件
-1.页面元素属性(on*);
-2.通过DOM元素直接添加
-3.实例化元素对象上添加
+1.DOM元素属性绑定(on*);<div onclick = "test(ident);"></div>
+2.通过获取DOM元素直接添加:
+document.getElementById('div').onclick = function(){test(ident);};
+3.实例化元素对象上添加:
+var div = document.getElementById('div');
+div.onclick = test;
+function test(){}
 4.实例化后的元素对象添加监听函数
+var div = document.getElementById('div');
+div.addEventListener('click',function(){test(ident);},false);
+
 
 事件监听
 addEventListener('click',事件函数,事件触发阶段[false:冒泡阶段;true:捕获阶段]);
@@ -666,8 +682,8 @@ e.stopPropagation();//其他浏览器
 
 
 禁用默认事件：
-event.preventDefault();
-
+1.event.preventDefault();
+2.return false;
 事件对象
 event；事件所触发的元素
 
@@ -693,3 +709,137 @@ left:37
 top:38
 right:39
 bottom:40
+
+BOM：
+窗口属性：
+window.innerWidth:窗口可见宽(包含滚动条)
+window.innerHeight:窗口可见高(包含滚动条)
+window.outerWidth:窗口实际宽(包含滚动条)
+window.outerHeight:窗口实际高(包含滚动条)
+
+element.offsetHeight/offsetWidth:获取元素实际内容宽高(H+P+B)
+element.offsetLeft/offsetTop:当前元素距离浏览器左边/上边的距离
+element.clientHeight/clientWidth:内容可视区域高度(H+P)
+element.scrollHeight:对象的滚动高度
+
+/**
+ * 各浏览器获取scrollTop的区别:
+ * 1.IE6/7/8
+ * 有文档声明：document.documentElement.scrollTop
+ * 没有文档声明：document.body.scrollTop
+ * Safari：
+ * window.pageYOffset
+ * Firefox,chrome:
+ * document.documentElement.scrollTop
+ *
+ */
+兼容写法如下：
+var scrollT = document.documentElement.scrollTop ||
+ window.pageYOffset|| document.body.scrollTop || 0;
+
+
+
+iframe元素对象：
+父级页面访问子页面内容：iframeElement.contentWindow和iframeElement.contentDocument;
+子页面访问父级页面内容：window.parent;
+
+
+定時器：
+setTimeout(函数,时间)：延时函数
+setInterval(函数,时间)：定时函数
+函数：匿名函数，函数名(不能带括号,如果要加小括就要用引号)
+时间：单位为毫秒
+
+
+location对象：
+属性：
+hash：哈希值
+host:主机名和端口
+hostname：主机名
+href:完整的URL信息
+pathname：URL路径
+port:端口号
+protocol:协议(https,http,ftp,file)
+search:URL地址中搜索的内容
+方法：
+assign():替换当前网址(有历史记录)
+reload():重新加载
+replace()：替换网址(没有历史记录)
+
+history对象：
+length:历史记录长度
+back():返回上一条记录
+forward():前进到下一条记录
+go(number):参数可以为正负整数(正：前进一条或多条记录，负：后退一条或多条记录)
+
+
+web Storage机制：
+Cookie：键值方式存储
+到期时间，所属域名，生效路径
+传输数据大小不超过4KB
+
+sessionStorage:会话存储
+localStorage:本地存储
+设置键值：
+localStorage.user = 'anny';
+或localStorage.setItem('user','anny');
+获取键值：
+localStorage.user;
+或localStorage.getItem('user');
+
+可以存储一个对象，比如：
+var userObj = {userN:"anny",pwd:"123456"};
+localStorage.setItem('user',userObj);
+var users = localStorage.getItem('user');
+//因为得到的是一个JSON字符串对象,所以要用JSON.parse方法转换为普通对象
+users = JSON.parse(users);
+
+
+
+三者区别：
+1.定义
+cookie数据始终在同源的http请求中携带（即使不需要），即会在浏览器和服务器间来回传递。
+sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。
+
+2.存储大小
+cookie数据大小不能超过4k。
+sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。
+
+3.有期时间
+localStorage存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；sessionStorage数据在当前浏览器窗口关闭后自动删除。
+cookie设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。
+
+一次完整的AJAX请求大致需要经历以下步骤：
+1.创建AJAX对象 var xhr = new XMLHttpRequest();
+2.创建AJAX请求 xhr.open(method,url,async,[user,password]);
+3.发送AJAX请求 xhr.send();
+4.接收所请求的数据并进行处理 var result = xhr.responseText;
+
+xhr.readyState状态:
+0，对应常量"UNSENT"，表示XMLHttpRequest实例已经生成，但是open()方法还没有被调用
+1，对应常量"OPENED"，表示send()方法还没有被调用，仍然可以使用setRequestHeader()，设定HTTP请求的头信息
+2，对应常量"HEADERS_RECEIVED"，表示send()方法已经执行，并且头信息和状态码已经收到
+3，对应常量"LOADING"，表示正在接收服务器传来的body部分的数据，如果responseType属性是text或者空字符串，responseText就会包含已经收到的部分信息
+4，对应常量"DONE"，表示服务器数据已经完全接收，或者本次接收已经失败了
+
+xhr.status状态:
+200, 对应常量"OK"，访问正常
+301, 对应常量"Moved Permanently"，永久移动
+302, 对应常量"Move temporarily"，暂时移动
+304, 对应常量"Not Modified"，未修改
+307, 对应常量"Temporary Redirect"，暂时重定向
+401, 对应常量"Unauthorized"，未授权
+403, 对应常量"Forbidden"，禁止访问
+404, 对应常量"Not Found"，未发现指定网址
+500, 对应常量"Internal Server Error"，服务器发生错误
+
+GET和POST差异：
+性能：GET的性能比POST更好
+缓存：GET能够缓存文件，而POST每次都必须从服务器更新数据。
+数据量：GET发送的数据参数有大小限制（2048个字节），而POST没有这个限制，可以利用它来发送大量数据参数。
+安全性：GET发送的参数是明文的，而POST发送的参数放在send方法内被加密，更加安全。
+
+
+
+
+

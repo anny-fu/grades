@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>location演示示例</title>
+	<style type="text/css">
+		/*************************************************/
+		/* 公共定义部分 */
+		/*************************************************/
+		html,body {
+			margin: 0; padding: 0;
+			font-family: "微软雅黑";
+		}
+		/* 块级元素 */
+		logo, banner {
+			display: block;
+		}
+		/* 行内块元素 */
+		nav ul li, nav ul li a {
+			display: inline-block;
+		}
+		/* 相对定位元素 */
+		nav, banner {
+			position: relative;
+		}
+		/* 绝对定位元素 */
+		nav ul, logo, banner img {
+			position: absolute;
+		}
+		/* 统一风格 */
+		header, footer {
+			background-color: #3d3d3d;
+			color: #fefefe;
+		}
+		/*************************************************/
+		/* 细节定义部分 */
+		/*************************************************/
+		header {
+			width: 100%; height: 50px;
+			background-color: #3d3d3d;
+		}
+		logo {
+			width: 240px; height: 48px;
+			background: url("../img/mylogo.png") no-repeat;
+			top: 1px; left: 10px;
+		}
+		nav {
+			width: 960px;
+			margin: 0 auto;
+		}
+		nav ul {
+			margin: 0; padding: 0;
+			list-style: none;
+			right: 0;
+		}
+		nav ul li {
+			width: 90px; height: 50px;
+			line-height: 50px;
+		}
+		nav ul li a {
+			width: 100%;
+			line-height: 50px;
+			text-align: center;
+			text-decoration: none;
+			font-size: 18px;
+			color: #fefefe;
+		}
+		nav ul li a:hover {
+			background-color: #6c6c6c;
+		}
+		nav ul li a:active, nav ul li a.selected {
+			background-color: #131313;
+		}
+		banner {
+			width: 100%; height: 520px;
+			overflow: hidden;
+		}
+		banner img {
+			width: auto; height: 520px;
+			left: 50%;
+			margin-left: -960px;
+		}
+		section {
+			width: 960px;
+			margin: 0 auto;
+		}
+
+		section article {
+			margin-bottom: 50px;
+		}
+		section article h2 {
+			font-size: 22px;
+		}
+		section article p {
+			text-indent: 2em;
+		}
+		footer {
+			width: 100%; height: 30px;
+			line-height: 30px;
+			font-size: 14px;
+			text-align: center;
+			margin-top: 50px;
+		}
+		#top{
+			position: fixed;
+			right: 80px;
+			bottom: 30px;
+			width:40px;
+			height: 40px;
+			background-color: aqua;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 40px;
+			color:#fff;
+			cursor: pointer;
+		}
+
+		button{
+			margin: 5px;
+			border: 1px solid #028ae0;
+			background: #039dff;
+			height: 32px;
+			border-radius: 5px;
+			color:#fff;
+		}
+		#demo{
+			display: inline-block;
+			padding-left: 100px;
+			position: absolute;
+			top: 5px;
+			margin: 0;
+		}
+		html,body{
+			border:0px solid #f00;
+		}
+		#result{
+			height: 100px;
+			overflow: auto;
+		}
+	</style>
+</head>
+<body>
+<header>
+	<nav>
+		<ul>
+			<li><a href="javascript:void(0);" class="selected" target="_blank">首页</a></li>
+			<li id="second-li"><a href="#"  target="_blank">设置</a></li>
+			<li id="info"><a href="javascript:void(0);" target="_blank">信息</a></li>
+		</ul>
+	</nav>
+</header>
+<banner>
+	<img src="../../../../../img/banner.jpg" alt="图片加载中" title="科技生活">
+</banner>
+<section>
+	<article>
+		<h2>科技改变生活</h2>
+		<p>20世纪是科学技术突飞猛进的世纪，飞机的发明，第一枚火箭的升空，门德尔遗传规律的再发现，青霉素的发明，第一台电子计算机的诞生，第一只半导体三极管的发明，集成电路的出现，原子弹和氢弹的研制成功，第一座原子能反应堆的建成，激光的发现，PC机的发明，互联网的出现，“多利”克隆羊的降生……日新月异的科学发现和技术发明，改变了人类对客观世界的认识，改变了人们的生产方式、生活方式和经济结构。科学技术确实已成为第一生产力，成为人类文明进步的基础和动力。人们终于建立了走一条与自然协调，又不危及子孙后代生存与发展的可持续发展道路的理念。</p>
+		<p>在此世纪之交，由《钱江晚报》策划撰稿、浙江少年儿童出版社编辑出版的《科学改变人类生活的100个瞬间》一书，将20世纪世界上最伟大的科学发现和技术发明展现给少年读者，意义深远。实施科教兴国战略，建立国家创新体系，提高全民的科技文化素质和创新能力，是迎接21世纪全球化知识经济时代的挑战的必由之路。</p>
+	</article>
+	<article id="result">
+		<h2 id="section">为优生优育作出杰出贡献</h2>
+		<p>1954年，美国生物学家格雷戈里·平卡斯发明了世界上第一种有效口服避孕药，并进行了首批临床试验。它的发明和使用，促进了人类性观念的革命，对于控制世界人口的增长有着巨大的意义。</p>
+		<p>生命的繁衍和延续本来是一件自然的事情。在20世纪之前，人口的生态平衡是靠自然规律来调节的，但今天人们必须依靠自己来控制人口的发展。因此，一场性观念的革命必然如山雨欲来，科学的发展也使之成为可能：1960年5月，美国食品和药品署认可了世界上第一种有效口服避孕药。由美国内分泌学家格雷戈里·平卡斯开发研制的这种药丸，后来被认为是历史上最具有人口学意义的药品之一。</p>
+	</article>
+</section>
+<footer>***责任有限公司&copy;</footer>
+<!--     <div id="top">
+    Top
+</div> -->
+</body>
+<script>
+	var se=document.getElementById('second-li');
+	var info=document.getElementById('info');
+	se.onclick=function(e){
+		// 阻止a标签的默认事件
+		e.preventDefault();
+		document.location.href = 'https://www.baidu.com';
+		// document.location = 'code-08.html';
+
+	}
+	info.onclick=function(){
+		// 第一个section锚点
+		document.location = '#section';
+
+	}
+</script>
+</html>

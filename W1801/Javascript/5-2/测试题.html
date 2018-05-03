@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<ul id="test">
+	<li>这是第1条</li>
+	<li>这是第2条</li>
+	<li>这是第3条</li>
+</ul>
+<script>
+
+	var test = document.getElementById('test');
+	var lis = test.getElementsByTagName('li');
+	//	1.循环绑定事件，并添加index属性
+	/*	for(var i = 0;i<lis.length;i++){
+	 //		给li元素对象添加index属性并赋值
+	 lis[i].index = i;
+	 lis[i].onclick = function(){
+	 //			调用对应的属性
+	 console.log(this.index);
+	 }
+	 }*/
+
+	//2.立即执行函数，参数传递的形式
+	/*	for(var i = 0;i<lis.length;i++){
+	 //		运用立即执行函数，返回一个函数,等待点击事件去执行
+	 lis[i].onclick = (function(a){
+	 return function(){
+	 console.log(a);
+	 }
+	 })(i);
+
+	 }*/
+	//3.事件代理
+	/*		for(var i = 0;i<lis.length;i++){
+	 lis[i].index = i;
+	 }
+	 test.addEventListener('click',function(e){
+	 e = e || window.event;
+	 var target = e.target || e.srcElement;
+	 if(target.tagName.toLowerCase() === "li"){
+	 console.log(target.index);
+	 }
+	 },false);*/
+
+
+	/*
+	 function fun(a){
+	 switch(a){
+	 case 1:return a;
+	 console.log(++a);
+	 default:
+	 console.log(a);
+	 }
+	 a++;
+	 console.log(a);
+	 }*/
+
+	//	阻止事件冒泡
+	//	event.stopPropagation();
+	//改变this指向
+	/*	function.prototype.call(this,param1,param2...);
+	 调用一个对象的一个方法，以另外一个对象替换当前对象
+	 function.prototype.apply(this,[param1,param2...]);
+	 调用一个对象的一个方法，以另外一个对象替换当前对象
+	 function.prototype.bind(this);
+	 将函数体内部的this绑定到某个对象上，然后返回一个新函数*/
+
+	//正则去除前后空格
+	/*
+	 var str = "       java   script    ";
+	 function clearTrim(str){
+	 var reg = /(^\s*)|(\s*$)/g;
+	 if(str && typeof str === "string"){
+	 return str.replace(reg,"");
+	 }
+	 }*/
+</script>
+</body>
+</html>

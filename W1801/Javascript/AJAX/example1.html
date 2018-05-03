@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+	<style>
+		.mainNav {
+			overflow: hidden;
+		}
+
+		.mainNav > a {
+			padding: 8px 20px;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			display: inline-block;
+			text-decoration: none;
+			color: #333;
+		}
+
+		.mainNav > a:hover {
+			color: #666;
+		}
+	</style>
+</head>
+<body>
+<header>
+	<nav class="mainNav">
+		<a href="#page-1">第一页</a>
+		<a href="#page-2">第二页</a>
+		<a href="#page-3">第三页</a>
+	</nav>
+</header>
+<main id="main">
+</main>
+<script>
+	//	页面预加载第一页内容
+	document.addEventListener('DOMContentLoaded', function () {
+		location.hash = "page-1";
+	})
+	document.addEventListener('DOMContentLoaded', function () {
+		fun(3);
+	});
+	function fun(a) {
+		location.hash = "page-1";
+		console.log(a);
+	}
+
+	var main = document.getElementById('main');
+	//	window的hash值改变时
+	window.onhashchange = function () {
+		var getHash = location.hash;
+		switch (getHash) {
+			case "#page-1":
+				router('data/data-1.json', successData);
+				break;
+			case "#page-2":
+				router('data/data-2.json', successData);
+				break;
+			case "#page-3":
+				router('data/data-3.json', successData);
+				break;
+			default:
+				router('data/data-1.json', successData);
+		}
+//		数据处理函数
+		function successData(data) {
+			var obj = JSON.parse(data);
+			var str = "";
+			for (var x in obj) {
+				str += "<p>" + obj[x] + "</p>";
+			}
+			main.innerHTML = str;
+		}
+	}
+	/*
+	 * 单页跳转函数
+	 * 参数：URL(String)
+	 *参数：回调函数（function）
+	 * */
+	function router(url, callback) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', url);
+		xhr.send();
+		xhr.onload = function () {
+			var jsonStr = xhr.responseText;
+//	请求成功，调用回调函数返回数据
+			callback(jsonStr);
+		}
+
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<form name="userInfo">
+	姓名：<input name="userName" type="text">
+	手机：<input name="userTelNum" type="tel">
+	<button id="sendUserInfo" type="button">提交</button>
+</form>
+<script>
+	//	获取到提交按钮
+	var sendUserInfo = document.getElementById('sendUserInfo');
+	//	因为该按钮已经绑定过一个数据验证事件，后续通过事件监听
+	sendUserInfo.addEventListener('click', function () {
+//		获取本地存储中的时间
+		var getSubTime = localStorage.getItem('submitTime');
+		console.log(getSubTime);//null == 0
+//		获取点击时的时间
+		var nowDate = new Date().getTime();
+		var timeInterval = nowDate - getSubTime;
+
+//		转换24小时制
+		var timeDiff = timeInterval / 1000 / 60 / 60;
+		console.log(timeDiff);
+		if (timeDiff < 24) {
+			alert("您今天已经提交过，请耐心等待我们联系您。谢谢！");
+		} else {
+//			存储当前提交时间
+			localStorage.setItem('submitTime', nowDate);
+//			模拟调用存储数据方法
+//			sendToSavaInfo();
+			alert("提交成功，请等待我们联系您！");
+		}
+
+	}, false)
+</script>
+</body>
+</html>

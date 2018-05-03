@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>章节练习二</title>
+	<style>
+		ul {
+			width: 320px;
+			margin: 0;
+			padding: 0;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+		}
+		ul li {
+			padding: 8px 12px;
+			border-bottom: 1px solid #ddd;
+			color: #666;
+			cursor: pointer;
+			user-select: none;
+		}
+		ul li:last-child {
+			border-bottom: none;
+		}
+		ul li:hover {
+			color: #999;
+		}
+		ul li:active {
+			color: #333;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<ul id="hardware"></ul>
+</main>
+
+<script>
+	var hardware = document.querySelector("ul#hardware");
+	getJSON("https://www.aulence.com/data/hardware-info.json", function(data) {
+		for(var x in data) {
+			hardware.innerHTML +=
+				'<li>' + data[x] + '</li>';
+		}
+		var hardwareList = hardware.children,
+			hardwareList_leng = hardwareList.length;
+		for(let i = 0; i < hardwareList_leng; i++) {
+			hardwareList[i].onclick = function() {
+				alert(i + "：" + this.textContent);
+			}
+		}
+	});
+
+	/**
+	 * 功能：AJAX的json文件请求
+	 * 参数1：URL地址（String）
+	 * 参数2：回调函数（Function）
+	 **/
+	function getJSON(url, callback) {
+		var xhr = new XMLHttpRequest();
+		xhr.onload = function() {
+			var jsonStr = xhr.responseText;
+			var obj = JSON.parse(jsonStr);
+			callback(obj);
+		}
+		xhr.open("GET", url);
+		xhr.send();
+	}
+</script>
+</body>
+</html>
+
+
+
+
+
+

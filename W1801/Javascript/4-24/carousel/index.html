@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>图片轮播</title>
+	<link rel="stylesheet" href="css/carousel-1.css">
+</head>
+<body>
+<header>
+	<nav>导航条</nav>
+	<div class="banner">
+		<figure id="carousel">
+		<!--图片列表-->
+		<div class="imageList">
+			<!--<img src="" alt="">-->
+		</div>
+		<!--控制点列表-->
+		<div class="pointList">
+			<!--<i></i>-->
+		</div>
+		<!--切换按钮-->
+		<div class="filp">
+			<a class="toPrevImgBtn"></a>
+			<a class="toNextImgBtn"></a>
+		</div>
+	</figure>
+	</div>
+</header>
+<main></main>
+<footer></footer>
+<script type="text/javascript" src="js/index.js"></script>
+<script>
+	window.onload = function(){
+		var imgURL_list = ["img/01.jpg", "img/02.jpg", "img/03.jpg", "img/04.jpg", "img/05.jpg"];
+//		实例化“图片轮播构造函数”，并进行参数设置
+		var carous = new Imgcarousel('carousel',imgURL_list,2400,false,true);
+//调用初始化方法
+		carous.init();
+
+	}
+</script>
+</body>
+</html>

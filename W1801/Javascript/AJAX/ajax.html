@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>javascript AJAX</title>
+</head>
+<body>
+<main id="main">
+	<button id="requestBtn" type="button">请求数据</button>
+</main>
+<script>
+	//	XMLHttpRequest对象
+	var main = document.getElementById('main');
+	var btn = document.getElementById('requestBtn');
+	btn.onclick = function () {
+//	1.创建AJAX对象
+		var xhr = new XMLHttpRequest();
+//	2.创建AJAX请求
+		xhr.open("GET", "data/spirit-roleinfo.json");
+//	3.发送请求
+		xhr.send();
+		xhr.onreadystatechange = function () {
+//			数据响应成功
+			if (xhr.readyState == 4 && xhr.status == 200) {
+//	接收响应数据
+					var arr = xhr.responseText;
+//	返回结果是一个JSON字符串对象
+					var obj = JSON.parse(arr);
+					console.log(obj);
+//	将数据输出到DOM
+					main.innerHTML += `<p>${obj.name}</p>
+							<p>${obj.gender}</p>
+				<p>${obj.type}</p>`;
+			} else {
+				console.log('数据请求失败，请重试！');
+			}
+		}
+	}
+</script>
+</body>
+</html>

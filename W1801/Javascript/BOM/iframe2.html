@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>子页面</title>
+	<style>
+		#items{
+			width:400px;
+			height:200px;
+			box-shadow: 2px 2px 1px #ccc;
+			list-style: none;
+			font-size: 32px;
+		}
+	</style>
+</head>
+<body>
+<ul id="items">
+	<li>列表1</li>
+	<li>列表2</li>
+	<li>列表3</li>
+</ul>
+<div id="show"></div>
+<script>
+//	子页面访问父级元素内容
+	var parentWin = self.parent.document;
+	var text = parentWin.getElementsByTagName('p')[0];
+	console.log(text.textContent);
+document.getElementById('show').textContent = text.textContent;
+
+
+</script>
+</body>
+</html>

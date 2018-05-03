@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX示例</title>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<nav>
+	<ul id="item">
+		<li>
+			<a href="htmlpage/content.html">HTML请求</a>
+		</li>
+		<li>
+			<a href="doc/text.txt">Text请求</a>
+		</li>
+		<li>
+			<a href="data/testData.json">JSON请求</a>
+		</li>
+		<li>
+			<a href="js/ajaxJS.js">JavaScript请求</a>
+		</li>
+	</ul>
+</nav>
+<mian id="main">
+
+</mian>
+<script type="text/javascript" src="js/ajax.js"></script>
+<script>
+	var main = document.getElementById('main');
+	var item = document.getElementById('item');
+	document.addEventListener('DOMContentLoaded', function () {
+		$ajax.get("htmlpage/content.html", function (data) {
+			main.innerHTML = data;
+		}, "html");
+	}, false)
+	item.onclick = function (event) {
+//			阻止默认事件
+		event.preventDefault();
+//		获取点击的元素对象
+		var a = event.target.tagName.toLowerCase();
+		if (a == "a") {
+			var url = event.target.getAttribute('href');
+			var type = url.slice(url.lastIndexOf('.') + 1);
+
+			$ajax.get(url, function (data) {
+				switch (type) {
+					case "html":
+						main.innerHTML = data;
+						break;
+					case "txt":
+						main.innerHTML = data;
+						break;
+					case "json":
+//						遍历对象
+						var obj = data.goodsInfo.alienware;
+						var str = "";
+						for (var x in obj) {
+							str += `<p>${obj[x]}</p>`;
+						}
+						main.innerHTML = str;
+						break;
+					case "js":
+//						创建script元素,
+						var script = document.createElement('script');
+//						文本节点
+						var scriptText = document.createTextNode(data);
+						script.appendChild(scriptText);
+						document.body.appendChild(script);
+					default:
+						main.innerHTML = data;
+				}
+			}, type);
+		}
+	}
+
+</script>
+</body>
+</html>

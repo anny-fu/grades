@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>javascript AJAX</title>
+</head>
+<body>
+<form action="">
+	<input type="button" id="searBtn" value="搜索">
+</form>
+<div id="showInfo"></div>
+<script src="js/ajax.js"></script>
+<script>
+	var loadBtn = document.getElementById("searBtn");
+	loadBtn.onclick = function () {
+//		var datas = {
+//			"showapi_appid": '62942', //这里需要改成自己的appid
+//			"showapi_sign": 'bfb9a9788fea4816aea713c8f4c0b92b',  //这里需要改成自己的应用的密钥secret
+//			"id": "1"
+//		}
+		var yzm = {
+			"showapi_appid": '62942', //这里需要改成自己的appid
+			"showapi_sign": 'bfb9a9788fea4816aea713c8f4c0b92b'  //这里需要改成自己的应用的密钥secret
+		}
+
+//		将参数序列化
+		var obj = param(yzm);
+		$ajax.getJSON("http://route.showapi.com/26-4?"+obj, null, function (data) {
+			console.log(data);
+			document.getElementById('showInfo').innerHTML = `
+<img src="${data. showapi_res_body.img_path}" title="${data. showapi_res_body.text}">`;
+		})
+
+	}
+</script>
+</body>
+</html>

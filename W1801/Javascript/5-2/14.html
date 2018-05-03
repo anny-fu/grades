@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<button id="showMesg" type="button">验证</button>
+<script>
+	//	兼容IE8:innerHTML属性运行会报错，只能使用
+	//	节点创建和添加节点方法
+	window.onload = function () {
+//		获取按钮
+		var btn = document.getElementById('showMesg');
+//		创建元素
+		var popupDiv = document.createElement('div');
+		popupDiv.setAttribute('class', 'popBox');
+		popupDiv.textContent = "验证通过！验证通过！验证通过！";
+		btn.onclick = function () {
+//			判断DOM中是否存在当前元素
+			if (!document.getElementsByClassName('popBox')[0]) {
+				document.body.appendChild(popupDiv);
+			}
+			var popBox = document.getElementsByClassName('popBox')[0];
+//根据元素实际宽高设置定位样式(先设置定位，再获取元素宽高)
+
+			popBox.style.position = "fixed";
+			popBox.style.border = "1px solid #000";
+//			获取当前元素的实际宽高
+			var popW = popBox.offsetWidth;
+			var popH = popBox.offsetHeight;
+//			设置负外间距
+			console.log(popW);
+			popBox.style.marginLeft = -(popW / 2) + "px";
+			popBox.style.marginTop = -(popH / 2) + "px";
+			popBox.style.left = "50%";
+			popBox.style.top = "50%";
+		}
+	}
+
+</script>
+</body>
+</html>
