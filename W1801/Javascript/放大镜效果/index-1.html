@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜效果</title>
+	<style type="text/css">
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.small-box {
+			width: 300px;
+			height: 300px;
+			margin-left: 100px;
+			margin-top: 100px;
+			border: 1px #ccc solid;
+			cursor: move;
+			float: left;
+			position: relative;
+		}
+
+		.small-box img {
+			width: 300px;
+			height: 300px;
+		}
+
+		.tool {
+			width: 150px;
+			height: 150px;
+			background-color: gold;
+			opacity: 0.6;
+			filter: alpha(opacity=60);
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			display: none;
+		}
+
+		.tool.active {
+			display: block;
+		}
+
+		.big-box {
+			width: 300px;
+			height: 300px;
+			border: 1px #ccc solid;
+			overflow: hidden;
+			float: left;
+			margin-top: 100px;
+			position: relative;
+			display: none;
+		}
+
+		.big-box.active {
+			display: block;
+		}
+
+		.big-box img {
+			width: 600px;
+			height: 600px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+<div class="small-box" id="smallBox">
+	<img src="images/fjt2.jpg"/>
+	<div class="tool" id="tool"></div>
+</div>
+<div class="big-box" id="bigBox">
+	<img src="images/fjt2.jpg" id="bigImg"/>
+</div>
+<script>
+	//    获取元素
+	window.onload = function () {
+//		小图盒子
+		var smallBox = document.getElementById("smallBox");
+//		大图盒子
+		var bigBox = document.getElementById('bigBox');
+//    	黄色小方块
+		var tool = document.getElementById('tool');
+//大图
+		var bigImg = document.getElementById('bigImg');
+//		鼠标进入小盒子容器时，显示黄色小方块和大图容器
+		smallBox.onmouseenter = function () {
+			tool.classList.add('active');
+			bigBox.classList.add('active');
+		}
+//鼠标移出小图盒子，隐藏黄色小方块和大图盒子
+		smallBox.onmouseleave = function () {
+			tool.classList.remove('active');
+			bigBox.classList.remove('active');
+		}
+//鼠标在小图盒子中移动
+		smallBox.onmousemove = function (e) {
+//			兼容
+			var _e = window.event || e;
+//			求事件对象在小图盒子内的横向或竖向偏移量
+			var x = _e.clientX - this.offsetLeft - tool.offsetWidth / 2;
+			var y = _e.clientY - this.offsetTop - tool.offsetHeight / 2;
+			console.log("x:" + x + "====y:" + y);
+//			判断小方块只能在小图盒子容器中移动
+			if (x < 0) {
+				x = 0;//当左偏移出小图盒子时，设为0；
+			}
+			if (y < 0) {
+				y = 0;//当上偏移出小图盒子时，设为0；
+			}
+//			右移范围
+			var moveR = this.offsetWidth - tool.offsetWidth;
+//			下移范围
+			var moveB = this.offsetHeight - tool.offsetHeight;
+			if (x > moveR) {
+				x = moveR;//右移出小图盒子时
+			}
+			if (y > moveB) {
+				y = moveB;//下移出小图盒子时
+			}
+//将鼠标移动位置设置在黄色小方块上
+			tool.style.top = y + "px";
+			tool.style.left = x + "px";
+//大图移动范围,防止移动除边界:-(鼠标偏移量 / 鼠标最大偏移值) * （大图宽高 - 大图容器宽高）
+			var bigX = (x / moveR) * (bigImg.offsetWidth - bigBox.offsetWidth);
+			var bigY = (y / moveB) * (bigImg.offsetHeight - bigBox.offsetHeight);
+			bigImg.style.left = -bigX + "px";
+			bigImg.style.top = -bigY + "px";
+
+			/*简单设置：就在鼠标偏移量放大2倍，
+			缺点：大图移动范围会超出边界*/
+			// bigImg.style.left = -(x * 2) + "px";
+			// bigImg.style.top = -(y * 2) + "px";
+		}
+	}
+</script>
+</body>
+</html>
