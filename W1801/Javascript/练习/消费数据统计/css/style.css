@@ -1,0 +1,160 @@
+@charset "utf-8";
+/**
+ * 功能：消费数据
+ * 日期：2017-8-14
+**/
+/************************************************/
+/* 样式初始化 */
+/************************************************/
+html,body,h1,p,ul,li {
+	margin: 0; padding: 0;
+}
+html,body {
+	font: lighter 20px "微软雅黑";
+	color: #333;
+}
+input, button {
+	border-radius: 3px;
+	border: 1px solid #999;
+	outline: none;
+	font: 20px "微软雅黑";
+}
+button {
+	cursor: pointer;
+}
+button:hover {
+	box-shadow: 0 2px 2px rgba(30,30,30,0.15);
+	cursor: pointer;
+}
+button:active {
+	box-shadow: none;
+}
+
+/************************************************/
+/* 样式元件化 */
+/************************************************/
+/* 行内块 */
+.create-line label {
+	display: inline-block;
+}
+/* IE盒子 */
+.create-line > div,.create-line input {
+	box-sizing: border-box;
+}
+
+/************************************************/
+/* 细节设置 */
+/************************************************/
+main {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/***** 数据添加部分 ****/
+.data-create-group {
+	margin-bottom: 10px;
+}
+/* 添加数据行容器 */
+.create-line {
+	padding-top: 10px; padding-bottom: 10px;
+	overflow: hidden;
+}
+.create-line > div {
+	width: 33.33333333%;
+	padding-left: 10px; padding-right: 10px;
+	float: left;
+}
+.create-line > div:nth-child(1) {
+	text-align: left;
+}
+.create-line > div:nth-child(2) {
+	text-align: center;
+}
+.create-line > div:nth-child(3) {
+	text-align: right;
+}
+/* 添加数据行--字段标签 */
+.create-line label {
+	width: 112px;
+	text-align: right;
+	transition: all 0.3s;
+}
+.create-line label.focusStyle {
+	color: #13ac19;
+	letter-spacing: 1px;
+}
+/* 添加数据行--文本框 */
+.create-line input {
+	width: 180px;
+	padding: 4px 6px;
+	color: #13ac19;
+}
+.create-line input:focus {
+	box-shadow: 0 0 10px #13ac19;
+}
+/* 添加数据行--按钮 */
+.create-line:last-child {
+	margin-top: 10px;
+	text-align: center;
+}
+.create-line button {
+	width: 220px;
+	padding: 8px 0;
+}
+#creatData {
+	background-color: #13ac19;
+	border: 1px solid #0d6d11;
+	margin-left: 54px;
+	color: #fff;
+}
+#creatData:hover {
+	background-color: #25d62c;
+	border: 1px solid #1d9021;
+}
+#creatData:active {
+	background-color: #13ac19;
+}
+
+/***** 表格部分 ****/
+#expenseData, th, td {
+	border: 1px solid #0a880d;
+	cursor: default;
+}
+#expenseData {
+	width: 100%;
+	border-collapse: collapse;
+}
+th, td {
+	border-left: none;
+	border-right: none;
+	padding: 6px;
+	text-align: left;
+}
+tbody td {
+	width: 134px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	font-family: sans-serif,Arial;
+}
+th, tfoot {
+	background-color: #13ac19;
+	font-weight: lighter;
+	color: #fff;
+}
+/* 隔行变色 */
+tbody tr:nth-child(even) {
+	background-color: #dcffdf;
+}
+/* 平均和总计部分 */
+.avgExpense,.sumExpense {
+	font: normal 26px "Arial";
+}
+
+
+
+
+
+
+
+

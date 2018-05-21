@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>函数封装，参数传递</title>
+	<style>
+		html, body, ul, h1, h2, h3 {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		.navItems {
+			width: 600px;
+			margin: 0 auto;
+		}
+
+		.navItems > li {
+			float: left;
+		}
+
+		.navItems > li > a {
+			padding: 10px 15px;
+		}
+	</style>
+</head>
+<body>
+<nav id="navBox">
+	<ul class="navItems">
+		<!--<li><a href=""></a></li>-->
+	</ul>
+	<!--二级导航-->
+	<ul class="nav2">
+
+	</ul>
+</nav>
+<script src="data/nav-js.js"></script>
+<script>
+
+
+	//实例化构造函数
+	var menus = new NavMenus(navs);
+	//调用创建一级导航函数
+	menus.createFirstMenu();
+	//	调用设置一级导航的二级导航
+	menus.setSubMenus_lv2();
+
+
+	/**
+	 * 构造函数
+	 * 参数：导航数据(navData)
+	 * */
+	function NavMenus(datas) {
+		var navData = datas;
+		var nav_len = navData.length;
+		var navItems = document.querySelector('.navItems');
+
+		/**
+		 * 功能：创建一级导航
+		 * * */
+		this.createFirstMenu = function () {
+			//将数据遍历，动态创建元素节点
+			var str = "";
+			for (var i = 0; i < nav_len; i++) {
+				str += `<li><a href="#">${navData[i].firstNav}</a></li>`;
+			}
+//			一次性向DOM中渲染元素
+			navItems.innerHTML = str;
+		}
+		/**
+		 * 功能：二级菜单导航生成
+		 * */
+		this.setSubMenus_lv2 = function () {
+//  获取二级导航容器
+			var navList_lv2 = document.querySelector('.nav2');
+//			一级导航集合
+			var navList_lv1 = navItems.children;
+//			循环给一级导航添加索引和绑定鼠标移入事件
+			for (var j = 0; j < nav_len; j++) {
+//				存索引
+				navList_lv1[j].index = j;
+				navList_lv1[j].onmouseenter = function () {
+//二级导航的数据及长度
+					var navData_lv2 = navData[this.index].secondNavs,
+						navData_lv2Leng = navData_lv2.length;
+					var navStr = "";
+//					循环加载二级导航数据列表
+					for (var k = 0; k < navData_lv2Leng; k++) {
+						navStr += `<li><img src="${navData_lv2[k].navImg}" alt="">
+<a href="#">${navData_lv2[k].navName}</a></li>`;
+					}
+//					渲染到DOM中
+					navList_lv2.innerHTML = navStr;
+				}
+			}
+		}
+	}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>动画效果</title>
+	<style>
+		div {
+			background-color: deeppink;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			margin-top: 10px;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+<button type="button">开始动画</button>
+<div>字体</div>
+<script src="../source/jquery.min.js"></script>
+<script>
+$(function(){
+	$("button").on('click',function(){
+		/*$("div").animate(
+//			仅支持属性值为数子的CSS样式（除CSS3变形转换）
+			{
+				left:"300",
+//				transform:"rotate(1800)",
+//				backgroundColor:"#f00",
+//				width:"400px",
+				fontSize:"40px",
+//				color:"#0f0",
+				rotate:"1800"
+			},
+			{
+				step:function(rotate,fx){
+				$("div").css({"transform":"rotate("+rotate+"deg)"});
+			},
+				duration:1000
+			}
+		);*/
+
+		//动画效果链式调用
+		$("div").css("backgroundColor","#f00").slideUp(1000).slideDown(1000)
+			.hide(500).show(500,function(){
+			$(this).remove();
+		});
+
+	})
+
+
+
+
+})
+</script>
+</body>
+</html>

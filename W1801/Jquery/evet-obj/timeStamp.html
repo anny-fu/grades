@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>检测事件触发时间</title>
+</head>
+<body>
+<button type="button">点我</button>
+<button type="button">再点我</button>
+<script src="../source/jquery.min.js"></script>
+<script>
+	$("button").first().on('click',function(e){
+		console.log(e.timeStamp);
+	});
+	$("button").last().on('click',function(e){
+		console.log(e.timeStamp);
+	});
+</script>
+</body>
+</html>

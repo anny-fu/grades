@@ -1,0 +1,51 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	background-color: #eee;
+	color: #333;
+}
+main {
+	width: 640px;
+	margin: 0 auto;
+}
+article h1, article h2 {
+	font-weight: normal;
+}
+article h1 {
+	text-align: center;
+	font-size: 2rem;
+}
+article h2 {
+	font-size: 1.6rem;
+}
+article > section {
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin: 20px 0;
+	overflow: hidden;
+}
+section img {
+	width: 480px;
+	display: block;
+	margin: 0 auto;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.21);
+}
+section p {
+	text-indent: 2em;
+	margin: 1.6em 0;
+	font-size: 1rem;
+}
+
+/* 向下偏移元素 */
+.offsetBlock {
+	transform: translate(0, 100px);
+	transition: all 1.6s ease-out;
+	opacity: 0;
+}
+.offsetBlock.show {
+	transform: translate(0, 0);
+	opacity: 1;
+}

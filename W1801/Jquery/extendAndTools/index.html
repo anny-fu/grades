@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+	<style>
+		#main {
+			width: 100px;
+			height: 100px;
+			background-color: #f00;
+		}
+	</style>
+</head>
+<body>
+<main id="main"></main>
+<script src="../source/jquery.min.js"></script>
+<script>
+	//自定义求最大值、最小值方法
+	$.extend({
+		max: function (param) {
+//			将参数数组对象转换成真正的数组  arguments ===> Array
+			console.log(arguments);
+			var parArr = Array.from(arguments);
+			console.log(parArr);
+//			var maxVal = Math.max.apply(null,parArr);
+//			Es6:rest参数
+			var maxVal = Math.max(...parArr);
+			return maxVal;
+		}
+	});
+
+	$.max(30, 4, 50, 20, 70);
+
+
+	//定义界面元素对象方法
+	$.fn.extend({
+		eleCenter: function () {
+			$(this).css({
+				position: "fixed", left: "50%", top: "50%",
+				transform: "translate(-50%,-50%)", zIndex: 100
+			});
+		}
+	});
+	$("#main").eleCenter();
+
+	/*grep方法*/
+	var arr = ["拉布拉多犬", "秋田犬", "边境牧羊犬", "暹罗猫", "咖菲猫", "英短蓝猫"];
+	//	遍历满足条件的数组元素
+	//	第三个参数：false(默认值)不取反，true:结果取反
+	var result = $.grep(arr, function (item, index) {
+		return /猫/.test(item);
+	}, false);
+	console.log(result);
+
+	/*$.when方法*/
+	var first = {
+		fn: function () {
+			console.log("红：#f00")
+		}
+	}
+	var second = {
+		fn: function () {
+			console.log("绿：#0f0")
+		}
+	}
+//	正常调用
+//	first.fn();
+//	second.fn();
+//when方法回调延时执行
+	$.when(first,second).then(function(){
+		first.fn();
+		second.fn();
+	});
+	console.log("蓝：#00f");
+
+</script>
+</body>
+</html>

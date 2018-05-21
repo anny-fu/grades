@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<min>
+	<button class="create" type="button">生成列表</button>
+	<ul class="list"></ul>
+</min>
+</body>
+<script src="../source/jquery.min.js"></script>
+<script>
+	var count = 0;
+ $("button.create").on('click',function(){
+ 	$("ul.list").append(`<li>新增列表内容</li>`);
+ })
+	$("ul.list").off("click").on("click","li",function(){
+		$(this).after(`<li>代理事件新增列表内容${count++}</li>`);
+	})
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>模块化</title>
+</head>
+<body>
+<script src="js/MouldA.js"></script>
+<script src="js/ModuleB.js"></script>
+<script>
+	//js：函数模块化
+	(function () {
+		moduleA();
+		moduleB();
+	})();
+	//	js:对象模块化
+	(function () {
+		objModule.a();
+		objModule.b();
+	})();
+//AMD、CMD
+
+
+</script>
+</body>
+</html>

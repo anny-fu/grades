@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>阻止事件冒泡方法集</title>
+</head>
+<body>
+<main id="main">
+	<div>
+		<p><span>DIV1的span</span></p>
+	</div>
+	<div>点击div在控制台查看输出结果</div>
+</main>
+<script src="../source/jquery.min.js"></script>
+<script>
+	$("div>p").on('click',function(){
+		$(this).hide(500);
+	})
+	$("div>p>span").on('click',function(e){
+//		阻止事件冒泡
+//		e.stopPropagation();
+//不仅阻止当前事件冒泡，还阻止后续绑定的相同事件的执行
+		e.stopImmediatePropagation();
+		$(this).css({fontFamily:"楷体",color:"#ffdf89"});
+	})
+
+//	添加其他事件
+	$("div>p>span").on('click',function(){
+		$(this).css("fontSize","60px");
+	});
+</script>
+</body>
+</html>

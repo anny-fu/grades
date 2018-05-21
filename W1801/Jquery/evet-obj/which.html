@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>键盘事件键值获取</title>
+</head>
+<body>
+<div>
+	<label for="">输入内容：</label>
+	<input type="text" value="">
+</div>
+<p>keyCode：<span></span></p>
+<script src="../source/jquery.min.js"></script>
+<script>
+	$("input[type='text']").on("keydown",function(e){
+		$("p>span").text(e.which);
+	});
+</script>
+</body>
+</html>

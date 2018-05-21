@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>选择器</title>
+	<style>
+		table, td {
+			border: 1px solid #aaa;
+			border-collapse: collapse;
+		}
+		table {
+			margin-top: 20px;
+		}
+		td {
+			padding: 8px 50px;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<div>
+		<label>搜索：</label>
+		<input class="search" type="search" value="1234">
+	</div>
+	<table>
+		<tbody>
+		<tr>
+			<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+		</tr>
+		<tr>
+			<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+		</tr>
+		<tr>
+			<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+		</tr>
+		<tr>
+			<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+		</tr>
+		<tr>
+			<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+		</tr>
+		<tr>
+			<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+		</tr>
+		<tr>
+			<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+		</tr>
+		<tr>
+			<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+		</tr>
+		</tbody>
+	</table>
+</main>
+<script src="../source/jquery.min.js"></script>
+<script>
+//	ele.cssText = "";
+$("table tr:even").css({"backgroundColor":"#e1f1fa","color":"#333"});
+$("table tr:first,table tr:last").css({"backgroundColor":"#2388fc","color":"#fff"});
+//$("table tr:first-child,table tr:last-child").css({"backgroundColor":"#2388fc","color":"#fff"});
+//$("table tr").first().css({"backgroundColor":"#2388fc","color":"#fff"});
+//$("table tr").last().css({"backgroundColor":"#2388fc","color":"#fff"});
+/*$().css();*/
+
+
+//Jquery的css方法
+/*	function $(tag){
+		var ele = document.querySelectorAll(tag)[0];
+		return {
+			css:function(attr,value){
+				ele.style[attr] = value;
+			}
+		}*/
+	}
+
+</script>
+</body>
+</html>

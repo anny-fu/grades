@@ -1,0 +1,91 @@
+@charset "utf-8";
+* {
+	box-sizing: border-box;
+}
+html,body {
+	margin: 0;
+	padding: 0;
+	font: 24px "微软雅黑";
+}
+input,select,button,textarea {
+	padding: 6px;
+	border: 1px solid #999;
+	border-radius: 3px;
+	font: 22px "微软雅黑";
+	outline: none;
+}
+button {
+	padding: 6px 20px;
+	background-color: #e3e3e3;
+	cursor: pointer;
+}
+button:hover {
+	background-color: #f7fafe;
+}
+button:active {
+	background-color: #e3e3e3;
+}
+body > main {
+	padding: 12px;
+}
+/* 路径导航 */
+.pathNav {
+	padding: 6px 12px;
+	background-color: #e3e3e3;
+	margin-bottom: 10px;
+}
+.pathNav a {
+	font-size: 0.8em;
+	text-decoration: none;
+	color: #2398fd;
+}
+.pathNav a:hover {
+	color: #7dc2fd;
+}
+.pathNav a:active {
+	color: #2398fd;
+}
+.pathNav a:not(:last-child):after {
+	content: " / "
+}
+.pathNav a:last-child {
+	color: #999;
+	cursor: not-allowed;
+}
+/* 小输入框 */
+.smallInput {
+	width: 120px;
+}
+/**** 元件样式 ****/
+/* 内外间距 */
+.m-no {
+	margin: 0;
+}
+.p-no {
+	padding: 0;
+}
+/* 布局 */
+.mt-10 {
+	margin-top: 10px;
+}
+.mt-20 {
+	margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

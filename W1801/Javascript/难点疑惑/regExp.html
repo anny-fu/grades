@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>正则</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<form name="signUpForm">
+	<div>
+		<p class="erroMesg"></p>
+		<label>邮箱：</label>
+		<input id="email" name="email" type="email" placeholder="请输入邮箱">
+		<span>*</span>
+	</div>
+	<div>
+		<p class="erroMesg"></p>
+		<label>昵称：</label>
+		<input id="nicename" name="nicename" type="text" placeholder="请输入用户名">
+		<span>*</span>
+	</div>
+	<div>
+		<p class="erroMesg"></p>
+		<label>密码：</label>
+		<input id="pwd" name="pwd" type="password" maxlength="16"
+					 placeholder="请输入6~16位数密码">
+		<span>*</span>
+	</div>
+	<div>
+		<p class="erroMesg"></p>
+		<label>确认密码：</label>
+		<input id="repwd" name="repwd" type="password" maxlength="16"
+					 placeholder="再次输入密码">
+		<span>*</span>
+	</div>
+	<div class="buttonGroup">
+		<button id="signUp" type="button">注册</button>
+		<button type="reset">重置</button>
+	</div>
+</form>
+<script src="js/regExp.js">
+//	正则声明方式
+	/**
+	 * 字面量：//
+	 * 构造函数：new RegExp();
+	 * */
+	/*
+	* 修饰符
+	* g；全局匹配
+	* i:忽略大小写
+	* */
+	/*
+	* 正则方法：
+	* test():返回值为boolean
+	* exec():返回值类型为Array
+	* */
+/*
+* 元字符：
+* ^:以什么开始或者取反
+* $:以什么结束
+* ():组匹配
+* []:匹配其中任意字符
+* |：或
+* -：[0-9]连读范围
+*
+* 匹配次数
+* "*":0或n次
+* “+”：1或n次
+* "?":0或1次
+* {n}：连续n次
+* {n,}:连续出现n或n+次
+* {n,m}：n~m次
+*
+*
+* */
+
+/*预定义模式：
+* \d或\D:数字或非数字
+* \w或\W:字母数字下划线或非数字字母下划线
+* \s或\S:空格或非空格
+*
+* */
+
+
+</script>
+</body>
+</html>

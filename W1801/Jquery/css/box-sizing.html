@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>jquery盒子模型</title>
+	<style>
+		div.box {
+			width: 200px; height: 200px;
+			padding: 20px;
+			background-color: rgba(125, 234, 239, 0.5);
+			background-clip: content-box;
+			border: 20px solid rgba(250, 211, 82, 0.5);
+			box-sizing: border-box;
+		}
+
+	</style>
+</head>
+<body>
+<main id="main">
+	<div class="box"></div>
+	<p>内容的宽高：<span></span></p>
+	<p>内容和内间距的宽高：<span></span></p>
+	<p>实际的宽高：<span></span></p>
+</main>
+<script src="../source/jquery.min.js"></script>
+<script>
+
+	$(function() {
+		var $box = $("div.box");
+		//content-box：content
+		var content_width = $box.width(),
+			content_height = $box.height();
+		var p_first = $("p").eq(0).children("span")
+			.text(content_width + ":" + content_height);
+
+		//padding-box：content+padding
+		var padding_width = $box.innerWidth(),
+			padding_height = $box.innerHeight();
+		var p_second = $("p").eq(1).children("span")
+			.text(padding_width + ":" + padding_height);
+
+		//	border-box：content+padding+border
+		var border_width = $box.outerWidth(),
+			border_height = $box.outerHeight();
+		var p_third = $("p").eq(2).children("span")
+			.text(border_width + ":" + border_height);
+
+		$box.css({
+			position: "fixed",
+			left: "50%",
+			top: "50%",
+			marginLeft: -(border_width / 2) + "px",
+			marginTop: -(border_height / 2) + "px",
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>练习</title>
+	<style>
+		#roleInfo li {
+			cursor: pointer;
+		}
+
+		#showRes {
+			font-size: 56px;
+			font-family: "羿创小公主体";
+			color: #f81;
+			margin-left: 40px;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<ul id="roleInfo">
+		<li>HTML</li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+		<li>jQuery</li>
+	</ul>
+	<span id="showRes">无</span>
+</main>
+<script src="../source/jquery.min.js"></script>
+<script>
+//css("color","#000")
+	/* var $showRes = $("#showRes");
+	 $("#roleInfo li").click(function(){*/
+//	 	获取当前点击元素的文本内容
+//	 	var thisText = $(this)[0].textContent;
+	/* 	var thisText = $(this).text();
+	 	switch(thisText){
+			case "HTML":
+				$showRes.css("color","#ea9900");
+				break;
+			case "CSS":
+				$showRes.css("color","#3088f0");
+				break;
+			case "JavaScript":
+				$showRes.css("color","#b6be00");
+				break;
+			case "jQuery":
+				$showRes.css("color","#00be3a");
+				break;
+		}
+		$showRes.text(thisText);
+	 });*/
+
+//	 方法二
+	var colorList = ["#ea9900","#3088f0","b6be00","#00be3a"];
+	$("#roleInfo li").click(function(){
+		var thisText = $(this).text();
+		$("#showRes").text(thisText);
+//		获取到当前点击li元素的索引
+		var thisIndex = $(this).index();
+//		通过下标索引设置数组颜色到元素上
+		$("#showRes").css("color",colorList[thisIndex]);
+	});
+</script>
+</body>
+</html>

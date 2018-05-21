@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>事件命名空间</title>
+	<style>
+		.test{width:500px;height:320px;line-height: 320px;
+			text-align: center;border:1px solid #ddd;}
+	</style>
+</head>
+<body>
+<main>
+	<div class="test">这是一段测试文本</div>
+</main>
+<script src="../source/jquery.min.js"></script>
+<script>
+var $test = $(".test");
+//改变边框颜色
+$test.on('click.borderColor',function(event){
+	$(this).css("borderColor","#e411ff");
+	console.log(event.namespace);
+});
+$test.on('click.backgroundColor',function(){
+	$(this).css("backgroundColor","#ff9");
+});
+
+//事件触发器
+//$test.trigger("click");
+$test.trigger('click.borderColor');
+
+</script>
+</body>
+</html>

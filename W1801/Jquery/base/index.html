@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<ul id="list">
+	<li>列表项1</li>
+	<li>列表项2</li>
+	<li>列表项3</li>
+	<li>列表项4</li>
+</ul>
+<!--js文件引入-->
+<script src="../source/jquery.min.js"></script>
+<script>
+//Jqeury实现
+	$("#list > li").click(function () {
+		var thisText = $(this).text();
+		console.log(thisText);
+	});
+//Jquery的基本语法格式
+//$(selector).methods();
+//$("body").on();
+//$().click().toggle();
+
+
+//	Javascript实现
+/*	var lis = document.getElementById('list').children;
+	var li_len = lis.length;
+	for(var i = 0;i<li_len;i++){
+		lis[i].onclick = function(){
+			var thisText = this.textContent;
+			console.log(thisText);
+		}
+	}*/
+
+
+//noConflict()解决Jquery($对象)和其他插件命名冲突
+//	var jqs = $.noConflict();
+//	jqs("li").click();
+
+//	Jquery对象转换JS元素对象
+/*$("#list > li").click(function () {
+	var thisText = $(this)[0].textContent;
+	console.log(thisText);
+});*/
+
+
+</script>
+</body>
+</html>

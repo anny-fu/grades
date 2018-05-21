@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>文本和HTML</title>
+</head>
+<body>
+<main>
+	<div class="txt">
+		<h5>这是一个测试标题</h5>
+		<p>这是一段测试文本</p>
+	</div>
+	<div class="print-txt"></div>
+	<div class="replace-txt">原有文本内容；</div>
+	<ul>
+		<li>姓名：</li>
+		<li>性别：</li>
+		<li>年龄：</li>
+	</ul>
+	<div class="print-html"></div>
+	<select>
+		<option value="0">HTML</option>
+		<option value="1" selected>CSS</option>
+		<option value="2">JavaScript</option>
+		<option value="3">jQuery</option>
+	</select>
+	<div class="print-val"></div>
+</main>
+<script src="../source/jquery.min.js"></script>
+<script>
+	var txt = $("div.txt").text();
+	$("div.print-txt").text(txt);
+//	新字符文本
+	var str = "新增内容！";
+	var arrStr = ["杨蒙","男"];
+$("div.replace-txt").text(function(index,oldVal){
+	return oldVal + arrStr[index];
+});
+//函数参数：index:选中元素下标索引，oldText:选中元素的原来文本内容
+$("ul>li").text(function(idx,oldTxt){
+	return oldTxt + arrStr[idx];
+});
+
+var html = $("div.txt").html();
+$("div.print-html").html(html);
+
+//表单元素value值
+	var secVal = $("select").find("option:selected").text();
+$(".print-val").text(secVal);
+</script>
+</body>
+</html>

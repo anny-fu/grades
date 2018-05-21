@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>ajax动态数据请求</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<script>
+
+
+	//	参数序列化
+	var obj = {
+		"showapi_appid": '62942', //这里需要改成自己的appid
+		"showapi_sign": 'bfb9a9788fea4816aea713c8f4c0b92b',  //这里需要改成自己的应用的密钥secret
+		"page": "1",
+		"limit": "5",
+		"type": "",
+		"id": ""
+	}
+	var datas = param(obj);
+	getData({
+		url: "http://route.showapi.com/92-92",
+		method: "POST",
+		data: datas,
+		type: "JSON",
+		callBack: function (result) {
+			console.log(result.showapi_res_body.bookList);
+//		显示到DOM中
+		}
+	});
+	/**
+	 * 封装请求函数
+	 * 参数1：url
+	 * 参数2：method(GET,POST)
+	 * 参数3：data(请求参数)
+	 * 参数4：type(JSON,script,text)
+	 * 参数5：callBack(回调函数)
+	 * */
+	function getData(dataObj) {
+//1.创建AJAX对象
+		var xhr = new XMLHttpRequest();
+//2.创建请求
+		xhr.open(dataObj.method, dataObj.url, true);
+//	xhr.open("POST","regExp.html",true);
+//3.发送请求
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+		xhr.send(dataObj.data);
+//	4.处理请求内容
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				var data = xhr.responseText;
+//如果是JSON
+				switch (dataObj.type) {
+					case "JSON":
+						var obj = JSON.parse(data);
+						return dataObj.callBack(obj);
+					case "script":
+						var script = document.createElement('script');
+						script.textContent = data;
+						return dataObj.callBack(script);
+					default:
+						return dataObj.callBack(data);
+				}
+
+
+				/*				console.log(data);
+				 //			操作结果显示到DOM
+				 document.body.innerHTML += data;
+				 //			生成js验证文件
+				 var script = document.createElement('script');
+				 script.setAttribute("src", "js/regExp.js");
+				 document.body.appendChild(script);*/
+			}
+		}
+	}
+
+
+	/**
+	 * 参数序列化
+	 * 参数：原生对象(Object)
+	 *
+	 * */
+	function param(obj) {
+		var typeVal = Object.prototype.toString.call(obj),
+			typeVal = typeVal.slice(typeVal.indexOf(' ') + 1,
+				typeVal.lastIndexOf(']')).toLowerCase();
+//异常排除
+		if (typeVal !== "object") {
+			console.error("该函数的参数只能是一个原生对象！");
+			return typeof(typeVal);
+		}
+		var paramArr = [], paramStr = "";
+		for (var x in obj) {
+			//encodeURI()
+			paramStr = x + "=" + encodeURIComponent(obj[x]);
+			paramArr.push(paramStr);
+		}
+//	将数组以&分割
+		var result = paramArr.join("&");
+		return result;
+	};
+</script>
+<!--<script src="js/regExp.js"></script>-->
+</body>
+</html>

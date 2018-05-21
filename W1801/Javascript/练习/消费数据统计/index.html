@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>消费数据（改良版）</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<main>
+		<form class="data-create-group">
+			<div class="create-line">
+				<div>
+					<label>饮食：</label>
+					<input name="expense" type="number" min='0'>
+				</div>
+				<div>
+					<label>购物：</label>
+					<input name="expense" type="number" min='0'>
+				</div>
+				<div>
+					<label>居家生活：</label>
+					<input name="expense" type="number" min='0'>
+				</div>
+			</div>
+			<div class="create-line">
+				<div>
+					<label>行车交通：</label>
+					<input name="expense" type="number" min='0'>
+				</div>
+				<div>
+					<label>休闲娱乐：</label>
+					<input name="expense" type="number" min='0'>
+				</div>
+				<div>
+					<label>人情费用：</label>
+					<input name="expense" type="number" min='0'>
+				</div>
+			</div>
+			<div class="create-line">
+				<div>
+					<label>金融保险：</label>
+					<input name="expense" type="number" min='0'>
+				</div>
+				<div>
+					<label>医疗：</label>
+					<input name="expense" type="number" min='0'>
+				</div>
+				<div>
+					<label>其他：</label>
+					<input name="expense" type="number" min='0'>
+				</div>
+			</div>
+			<div class="create-line">
+				<button id="creatData" type="reset">添加</button>
+			</div>
+		</form>
+		<table id="expenseData">
+			<thead>
+				<tr>
+					<th>饮食</th>
+					<th>购物</th>
+					<th>居家生活</th>
+					<th>行车交通</th>
+					<th>休闲娱乐</th>
+					<th>人情费用</th>
+					<th>金融保险</th>
+					<th>医疗</th>
+					<th>其他</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td>平均每天</td>
+					<td colspan="8" class="avgExpense">￥0.00</td>
+				</tr>
+				<tr>
+					<td>总计</td>
+					<td colspan="8" class="sumExpense">￥0.00</td>
+				</tr>
+			</tfoot>
+		</table>
+	</main>
+	
+	<!-- JS部分 -->
+	<script src="js/index.js"></script>
+</body>
+</html>

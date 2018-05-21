@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>offset方法</title>
+	<style>
+		#main{
+			width:500px;
+			padding:10px;
+			box-sizing: border-box;
+			position: absolute;
+		}
+		div{
+		height:200px;
+			width:480px;
+			padding:10px;
+			border:5px solid #0f0;
+			margin-top: 100px;
+			margin-left:10px;
+			background-color: #a52b2b;
+			/*box-sizing: border-box;*/
+	}
+	</style>
+</head>
+<body>
+<main id="main">
+	<div></div>
+	<div></div>
+	<div>目标元素</div>
+	<div></div>
+</main>
+<script src="../source/jquery.min.js"></script>
+<script>
+	//获取当前元素在文档中的位置（left/top）
+	var offset = $("div").eq(2).offset();
+	console.log(offset);
+//	position()：获取元素在定位的父级元素中的位置
+	var positionEle = $("div").eq(2).position();
+	console.log(positionEle);
+
+</script>
+</body>
+</html>

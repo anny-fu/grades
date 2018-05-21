@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Jquery开关效果</title>
+	<link rel="stylesheet" href="../source/css/common.css">
+	<style>
+		.showList {
+			margin-top: 20px;
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		ul > li {
+			width: 320px;
+			padding: 8px 12px;
+			margin-bottom: 12px;
+			border: 1px solid #aaa;
+			border-radius: 5px;
+
+		}
+		.showEffect {
+			background-color: #116dff;
+			border: 1px solid #0347b2;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<button class="toggle" type="button">显/隐</button>
+	<button class="show" type="button">显示</button>
+	<button class="hide" type="button">隐藏</button>
+	<ul class="showList">
+		<li>苹果</li>
+		<li>梨子</li>
+		<li>香蕉</li>
+		<li>草莓</li>
+		<li>西瓜</li>
+		<li>菠萝</li>
+	</ul>
+</main>
+<script src="../source/jquery.min.js"></script>
+<script>
+$(".toggle").click(function(){
+//	开关
+//	$(".showList").toggle(600);
+//	淡入淡出
+//	$(".showList").fadeToggle(600);
+//	卷帘门效果
+	$(".showList").slideToggle(600,function(){
+		$(".showList").children().toggleClass("showEffect");
+	});
+});
+//显示
+$(".show").click(function(){
+//	显示
+//	$(".showList").show(600);
+//	淡出
+//	$(".showList").fadeIn(600);
+//	展开
+	$(".showList").slideDown(600,function(){
+		$(".showList").children().addClass("showEffect");
+	});
+
+});
+//	隐藏
+$(".hide").click(function(){
+//	隐藏
+//	$(".showList").hide(600);
+//	淡入
+//	$(".showList").fadeOut(600);
+//收起
+	$(".showList").slideUp(600,function(){
+		$(".showList").children().removeClass("showEffect");
+	});
+});
+
+//兄弟节点属性操作
+$(".showList li").on("click",function(){
+	$(this).addClass('showEffect').siblings().removeClass('showEffect');
+});
+</script>
+</body>
+</html>

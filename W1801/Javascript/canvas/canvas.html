@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>画布</title>
+	<style>
+		#myCanvas {
+			border: 1px solid #0f0;
+			background-color: #333;
+		}
+	</style>
+</head>
+<body>
+<canvas id="myCanvas" width="1200" height="600">
+	您的浏览器不支持canvas！
+</canvas>
+<script>
+	//	获取页面画布元素
+	var myCanvas = document.getElementById('myCanvas');
+	//	创建画笔
+	var ctx = myCanvas.getContext('2d');
+	//1.路径绘制
+	/*	ctx.beginPath();//绘制路径开始
+	 //	第一条线
+	 ctx.moveTo(500, 200);//起点
+	 ctx.lineTo(700, 460);//结束点
+	 //设置线条样式
+	 ctx.lineWidth = 8.0;//线宽
+	 ctx.strokeStyle = "#f00";//线段颜色*/
+	//	为线段着色
+	//	ctx.stroke();
+
+	//	2.绘制形状
+	/*	ctx.beginPath();
+	 ctx.moveTo(100, 100);
+	 ctx.lineTo(300, 100);
+	 ctx.lineTo(300, 300);
+	 ctx.lineTo(100, 300);
+	 ctx.closePath();
+	 //设置线条样式
+	 ctx.lineWidth = 8.0;//线宽
+	 ctx.strokeStyle = "#0f0";//线段颜色*/
+	//	为线段着色
+	//ctx.stroke();
+
+	//3.图形绘制
+	/*	//实心矩形
+	 ctx.fillStyle = "#00f";
+	 ctx.fillRect(100, 100, 300, 200);//(x,y,w,h)
+
+	 //空心矩形
+	 ctx.strokeStyle = "#0f0";//线条颜色
+	 ctx.lineWidth = 5.0;
+	 ctx.strokeRect(500, 100, 200, 200);//(x,y,w,h)
+	 ctx.stroke();
+	 //中空矩形
+	 ctx.fillStyle = "#f00";
+	 ctx.fillRect(800, 100, 300, 200);//(x,y,w,h)
+	 ctx.clearRect(900,150,50,50);//(x,y,w,h),清除指定区域的形状*/
+
+	//4.绘制文本
+	//	实心文本
+/*	ctx.font = "Bold 50px Arial";//设置字体样式
+	ctx.textAlign = "center";//对齐方式
+	ctx.fillStyle = "#b500a7";//字体颜色
+	ctx.fillText("Hello World!", 200, 200);//("文本",x,y);文本内容及坐标
+
+	//	空心文本
+	ctx.strokeStyle = "#fff";
+	ctx.strokeText("Hello world!", 600, 200);//("文本",x,y);文本内容及坐标*/
+
+//	5.圆形和扇形
+//	实心圆
+	ctx.beginPath();
+	ctx.arc(200,200,100,0,Math.PI * 2,true);//(x,y,radius,startAngle,endAngle,true:顺时针;false:逆时针)
+	ctx.fillStyle = "#fff";
+	ctx.fill();
+//	空心圆
+	ctx.beginPath();
+	ctx.arc(450,200,100,0,Math.PI * 2,true);
+	ctx.lineWidth = 2.0;
+	ctx.strokeStyle = "#fff";
+	ctx.stroke();
+
+
+
+
+
+</script>
+</body>
+</html>

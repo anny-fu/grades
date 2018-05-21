@@ -209,3 +209,30 @@ function addEvent(element, type, callback) {
 		element.addEventListener(type, callback, false);
 	}
 }
+
+
+
+/**
+ * 参数序列化
+ * 参数：原生对象(Object)
+ *
+ * */
+function param(obj){
+	var typeVal = Object.prototype.toString.call(obj),
+		typeVal = typeVal.slice(typeVal.indexOf(' ')+1,
+			typeVal.lastIndexOf(']')).toLowerCase();
+//异常排除
+	if(typeVal !== "object"){
+		console.error("该函数的参数只能是一个原生对象！");
+		return typeof(typeVal);
+	}
+	var paramArr = [],paramStr = "";
+	for(var x in obj){
+		//encodeURI()
+		paramStr = x +"="+ encodeURIComponent(obj[x]);
+		paramArr.push(paramStr);
+	}
+//	将数组以&分割
+	var result = paramArr.join("&");
+	return result;
+};

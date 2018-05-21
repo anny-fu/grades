@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>小球动画</title>
+	<style>
+		#myCanvas{
+			border:2px solid #12d601;
+			/*height: 700px;*/
+		}
+	</style>
+</head>
+<body>
+<canvas id="myCanvas">
+	您的浏览器不支持canvas!
+</canvas>
+<script>
+//	获取画布
+	var canvas = document.getElementById('myCanvas');
+//创建2D图案
+	var cxt = canvas.getContext('2d');
+//动态设置画布大小
+canvas.width = document.body.offsetWidth;
+canvas.height = "700";
+
+//	定义球对象
+	var ball = {x:200,y:100,dir_x:10,dir_y:10,radius:20};
+//	调用一次函数
+//ballPlay();
+setInterval(ballPlay,20);
+
+//	球运动函数
+	function ballPlay(){
+//		每次创建小球之前覆盖前一次创建的小球
+cxt.fillStyle = "#fff";
+cxt.fillRect(0,0,canvas.width,canvas.height);
+
+//		开始绘制小球
+		cxt.beginPath();
+		cxt.fillStyle = "#f00";
+		cxt.arc(ball.x,ball.y,ball.radius,0,Math.PI*2,true);
+		cxt.fill();
+//让球上下左右运动
+		ball.x += ball.dir_x;
+		ball.y += ball.dir_y;
+
+//		控制小球在canvas画布范围内
+		if(ball.x <= ball.radius || ball.x >= Number(canvas.width) - ball.radius){
+			ball.dir_x*= -1;
+		}
+		if(ball.y <= ball.radius || ball.y >= Number(canvas.height) - ball.radius){
+			ball.dir_y*= -1;
+		}
+//		延迟函数:让小球持续运动
+//		setTimeout(ballPlay,20);
+	}
+
+
+
+
+
+</script>
+</body>
+</html>

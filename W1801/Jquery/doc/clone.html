@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>克隆</title>
+	<style>
+		.error {
+			color: #f00;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+<div><input type="text" name="userName" placeholder="请输入用户名"></div>
+<div class="cloneInput"></div>
+<script src="../source/jquery.min.js"></script>
+<script>
+	$("input[name='userName']").on({
+		blur: function () {
+			var thisVal = $(this).val();
+			if (thisVal === "") {
+				$(this).before(`<p class="error">请输入用户名。</p>`)
+			}
+		},
+		focus: function () {
+			$(this).prev().remove();
+		}
+	});
+
+//	将inputclone到cloneInput里面
+//	clone(false/true):false默认值：浅拷贝
+//	true；深拷贝（该元素的所有属性和方法(事件)全部克隆）
+	var cloneIpt = $("input:text").clone();
+	$("div.cloneInput").html(cloneIpt);
+
+
+</script>
+</body>
+</html>

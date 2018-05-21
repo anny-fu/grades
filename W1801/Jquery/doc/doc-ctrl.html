@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>添加新元素</title>
+	<style>
+		ul.goodsList {
+			border: 1px solid #cacaca;
+		}
+	</style>
+</head>
+<body>
+<ul class="goodsList">
+	<li class="goodsItem">菠萝蜜</li>
+	<li class="goodsItem">油桃</li>
+	<li class="goodsItem">薯片</li>
+	<li class="goodsItem">泡面</li>
+</ul>
+<script src="../source/jquery.min.js"></script>
+<script>
+	//在当前元素的第一个子元素之前或最后一个子元素之后插入元素
+$(".goodsList").prepend(`<li>苹果</li>`);
+$(".goodsList").append(`<li>葱油饼</li>`);
+//在当前元素之前和之后
+	$(".goodsList").before(`<h4>超市商品列表</h4>`);
+	$(".goodsList").after(`<p>价格总计：￥320.46</p>`);
+
+$("ul").on(eventType,eventfun)
+$("ul").on({eventType1:eventfun1,eventType2:eventfun2})
+
+</script>
+</body>
+</html>
