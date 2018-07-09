@@ -1,0 +1,31 @@
+{
+    "name": "小罗耗子",
+    "age": 18,
+    "profession": "Web前端工程师",
+    "skill": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "jQuery",
+        "Bootstrap",
+        "SASS/LESS",
+        "Angular",
+        "React",
+        "Vue",
+        "Grunt",
+        "Gulp",
+        "Bower",
+        "webpack",
+        "NodeJS",
+        "Apach",
+        "mySQL",
+        "mongoDB",
+        "Echarts",
+        "Cordava",
+        "Canvas",
+        "WebGL",
+        "PhotoShop",
+        "Axure",
+        "Word/Excel/PPT"
+    ]
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Bootstrap 使用</title>
+	<!--引入方式-->
+	<link rel="stylesheet"
+				href="plugin/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+	<style>
+		body{
+			background-color: #f2f2f2;
+		}
+		.imgList_box{
+			background-color: #fff;
+			padding-bottom: 30px;
+			margin-bottom: 40px;
+		}
+		.imgBox{
+			padding:12px;
+		}
+		.imgBox >img{
+			display: block;
+			max-width: 100%;
+			height: auto;
+		}
+		p.imgText{
+			text-align:center;
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<!--布局容器：container固定宽度，container-fluid:100%宽度-->
+	<div class="container">
+		<nav>
+			<ul class="nav nav-pills">
+				<li><a href="">首页</a></li>
+				<li><a href="">关于我们</a></li>
+				<li><a href="">联系我们</a></li>
+			</ul>
+		</nav>
+		<!--图片列表-->
+		<section class="row">
+			<!--列表内容-->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="imgList_box">
+					<div class="imgBox"><img src="imgs/44.png" alt=""></div>
+					<p class="imgText">
+						<a href="#">Compodoc</a>
+					</p>
+				</div>
+			</div>
+			<!--imgItem1 end-->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="imgList_box">
+					<div class="imgBox"><img src="imgs/44.png" alt=""></div>
+					<p class="imgText">
+						<a href="#">Compodoc</a>
+					</p>
+				</div>
+			</div>
+			<!--imgItem2 end-->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="imgList_box">
+					<div class="imgBox"><img src="imgs/44.png" alt=""></div>
+					<p class="imgText">
+						<a href="#">Compodoc</a>
+					</p>
+				</div>
+			</div>
+			<!--imgItem3 end-->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="imgList_box">
+					<div class="imgBox"><img src="imgs/44.png" alt=""></div>
+					<p class="imgText">
+						<a href="#">Compodoc</a>
+					</p>
+				</div>
+			</div>
+			<!--imgItem4 end-->
+		</section>
+	</div>
+</main>
+</body>
+</html>

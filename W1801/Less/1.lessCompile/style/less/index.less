@@ -1,0 +1,192 @@
+@charset "UTF-8";
+/**
+**功能：编译less
+**开发人员：Tom.Anny
+**日期：2018/5/25
+**/
+
+/***************************/
+/***样式细节设置***/
+/***************************/
+header{
+  width:100%;
+  min-width:980px;
+}
+header{
+  font-size:14px;
+  color:#fff;
+  background-color: @themeColor;
+//  局部变量
+  @lh:50px;
+  height:@lh;
+  line-height:@lh;
+  text-align:center;
+}
+
+//混合(mixin),带参函数
+//卡片特效
+.effect-card(@rs:5px){
+-webkit-border-radius: @rs;
+-moz-border-radius: @rs;
+-o-border-radius: @rs;
+border-radius: @rs;
+  overflow: hidden;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+  &:hover{
+    box-shadow: 0 10px 20px fade(@themeColor,30%);
+    transform: translate(0,-2px);
+  }
+}
+
+
+/***
+color函数：
+lighten(@color,30%)：为@color增加30%亮度
+darken(@color,30%):为@color增加30%暗度
+
+//色调修改
+spin(@color,20):增加20个色调
+spin(@color,-20):减少20个色调
+
+saturate(@color, 10%)：增加饱和度
+desaturate(@color, 10%)：减少饱和度
+
+fadein(@color,10%):减少不透明度
+fadeout(@color,10%):增加不透明度
+fade(@color,30%):给当前颜色设置30%不透明度
+
+mix(@color1,@color2):混合两种颜色
+
+
+提前颜色信息：（色调，饱和度，亮度）
+hue(@color)：提取@color的色调值
+saturation(@color):提取饱和度
+lightness(@color):提取亮度
+
+*/
+
+
+/*按钮--特效*/
+//较亮的情况
+.effect-button(@bgc) when (lightness(@bgc) > 70%){
+color:@baseColor;
+}
+//较暗的情况
+.effect-button(@bgc) when (lightness(@bgc) <= 70%){
+color:#fff;
+}
+.effect-button(@bgc){
+  background-color:@bgc;
+  border:1px solid darken(@bgc,20%);
+}
+
+
+//按钮组样式
+.button-group{
+  .btn{
+    &.red{
+      .effect-button(#f00);
+    }
+    &.normal{
+      .effect-button(#fafbfc)
+    }
+    &.green{
+      .effect-button(#0f0);
+    }
+    &.blue{
+      .effect-button(#00f);
+    }
+    &.light-blue{
+      .effect-button(#1d9ffd)
+    }
+    &.light-green{
+    .effect-button(#72f672)
+    }
+    &.dark{
+      .effect-button(#3a3b3c)
+    }
+  }
+}
+
+
+/*图片展示*/
+.photoShow{
+  margin-bottom: 20px;
+  img {
+    width: 100%;
+    .effect-card;
+  }
+  div:first-child{
+    img{
+      .effect-card(50%);
+    }
+  }
+}
+
+
+
+
+
+
+/*.div{}
+ul{}
+ul>li>a{}
+
+//less嵌套
+.div{
+//  div样式
+  ul{
+  //  ul样式
+    li{
+    //  li的样式
+      a{
+      //  a的样式
+      }
+      &:hover{
+
+      }
+    }
+  }
+}*/
+
+//混合
+/*.ctrlBtn{
+//background:url('images/arrow.png') no-repeat;
+  background-size: cover;
+  width:70px;
+  height:60px;
+  position:absolute;
+  top:0;
+  &:hover{
+    background-color: rgba(0,0,0,.5);
+  }
+}
+
+#prev{
+  .ctrlBtn;
+background-position:-100px -40px;
+  left:0;
+}
+#next{
+  .ctrlBtn;
+  background-position:-100px -100px;
+  right:0;
+}*/
+
+//命名空间
+/*#bundle {
+  .button () {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover { background-color: white }
+  }
+}
+
+div{
+  #bundle > .button;
+}*/

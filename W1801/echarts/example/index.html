@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="author" content="Auelnce,aulence@foxmail.com">
+  <title>本周生活消费数据图表</title>
+  <link rel="stylesheet" href="plugin/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="container-fluid">
+    <!-- 表格 -->
+    <div class="row">
+      <table id="weekConsumption" class="table table-bordered table-responsive col-lg-12">
+        <thead>
+          <tr>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 异步通过JSON数据加载 -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>总计</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- 图表 -->
+    <div class="charts row">
+      <div id="dataBar" class="col-lg-8"></div>
+      <div id="dataPie" class="col-lg-4"></div>
+    </div>
+  </main>
+
+  <!--<script src="js/bundle.js"></script>-->
+  <script src="plugin/jquery.min.js"></script>
+  <script src="plugin/echarts.js"></script>
+  <script src="plugin/echarts_theme/dark.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

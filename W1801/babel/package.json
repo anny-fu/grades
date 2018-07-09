@@ -1,0 +1,19 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cnpm install babel-cli babel-preset-env  babel-preset-stage-3 --save-dev",
+    "babel": "babel ./js/origin/common_es6.js -o ./js/common.js -s --watch",
+    "babels": "babel ./js/origin -d ./js -s --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1"
+  }
+}

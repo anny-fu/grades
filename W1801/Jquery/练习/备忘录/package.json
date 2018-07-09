@@ -1,0 +1,17 @@
+{
+  "name": "memo",
+  "version": "1.0.3",
+  "description": "手机备忘录",
+  "main": "./js/common.js",
+  "scripts": {
+    "contextpackage": "npm install babel-cli babel-loader babel-preset-env babel-preset-stage-3 --save-dev",
+    "babel": "babel ./js/origin -d ./js -s --watch"
+  },
+  "author": "aulence",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-stage-3": "^6.24.1"
+  }
+}

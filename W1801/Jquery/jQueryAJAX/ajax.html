@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>index</title>
+</head>
+<body>
+<script src="../source/jquery.min.js"></script>
+<script>
+	//1.请求、接口：url地址；
+	//2. 发送请求方式：GET、POST
+	// 3.请求文件类型：xml，html，script，json,jsonp,text
+	//4.请求参数：Key/value(参数序列化) === ?key=value&key=value
+	//5.回调函数：成功，不成功
+	/**
+	 * 原生AJAX
+	 * */
+
+
+	/**
+	 *
+	 * jQuery AJAX
+	 *
+	 * */
+//$.ajax();
+	$.ajax({
+		type: "GET",
+		url:"",
+		dataType:"",
+		data:{},
+		success:function(data,textStatus){
+
+		},
+		error:function(XMLHttpRequest, textStatus, errorThrown){
+			//通常 textStatus 和 errorThrown 之中只有一个会包含信息
+		}
+	});
+
+
+</script>
+</body>
+</html>

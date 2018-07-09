@@ -1,0 +1,28 @@
+概念：浏览器不能执行其他网站的脚本，由浏览器的同源
+策略造成的，是浏览器对javaScript施加的完全限制。
+
+
+同源策略：
+同域名，同协议，同端口
+
+跨域场景：
+1.http://www.123.com/index.html 调用 http://www.456.com/server.php(主域名不同)
+2.http://www.123.com:8080/index.html 调用 http://www.123.com:8081/server.php(端口不同)
+3.http://www.123.com/index.html 调用 https://www.123.com/server.php(协议不同)
+4.localhost:8080 和 127.0.0.1:8080 都指向本机，但是夜属于跨域
+
+解决跨域方法：
+1.JSONP(只支持GET请求，不支持POST请求)
+2.插件:axios [æk'si:oʊ]
+3.代理：www.123.com/index.html 调用 www.456.com/server.php
+先用www.123.com/server.php 接口去后端调用 www.456.com/server.php
+并拿到请求数据，返回给index.html,绕过浏览器，不存在跨域
+4.服务器端修改header
+header('Access-Control-Allow-Origin:*');//允许所有访问来源
+header('Access-Control-Allow-Method:POST,GET');//允许访问方式
+setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=UTF-8");
+
+
+
+
+

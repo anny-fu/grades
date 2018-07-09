@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>less 编译的方法</title>
+	<!--1.运用javascript代码less.watch()编译-->
+	<!--<link rel="stylesheet/less" href="style/less/index.less">-->
+	<!--<script src="../plugin/less.min.js"></script>-->
+	<!--<script>less.watch();</script>-->
+
+	<!--2.方法二:命令行运行： lessc less/index.less css/index.css-->
+	<link rel="stylesheet" href="style/css/index.css">
+	<!--3.考拉编译工具-->
+	<!--
+	常用命令：
+	lessc -v：查看版本
+	lessc 源文件 编译后的css文件
+	--no-color:禁用彩色输出
+	--source-map:资源映射文件
+	-x:压缩css文件
+	-->
+
+</head>
+<body>
+<header>Less编译方法</header>
+<main class="container">
+ <!--图片展示-->
+	<div class="row photoShow">
+		<div class="col-lg-3">
+			<img src="images/img-1.jpg" alt="">
+		</div>
+		<div class="col-lg-3">
+			<img src="images/img-2.jpg" alt="">
+		</div>
+		<div class="col-lg-3">
+			<img src="images/img-3.jpg" alt="">
+		</div>
+		<div class="col-lg-3">
+			<img src="images/img-4.jpg" alt="">
+		</div>
+	</div>
+
+	<!--按钮列表-->
+	<div class="button-group">
+		<button class="btn normal">按钮</button>
+		<button class="btn red">按钮</button>
+		<button class="btn green">按钮</button>
+		<button class="btn blue">按钮</button>
+		<button class="btn light-blue">按钮</button>
+		<button class="btn light-green">按钮</button>
+		<button class="btn dark">按钮</button>
+	</div>
+</main>
+<script>
+	$("").method();
+//	一般属性attr("","");
+//	状态prop();
+//	class属性：addClass();
+
+//	css样式
+//DOM元素
+//	文本，标签，表单元素值
+//	动态插入DOM元素，append();before(),after();
+//	$().appendTo();
+//	clone();
+//	on();绑定事件/事件代理  off();解除绑定
+//	click();
+//event.target.tagName
+	$("ul").on('click','li',function(){
+		$(this)
+	})
+//隐藏、显示：toggle()
+//	放下、收起:slideToggle()
+//	淡入、淡出:fadeToggle()
+//	动画：animate({},{});
+
+//$.extend({})//$.fn.extend({});
+	$.method()
+	$("").method();
+
+//	$.grep(arr,function(){},true);
+//	when//then
+//	$.ajax().then();
+//	each();
+//	$.each([]/{}/"ul li",function(index,item){});
+
+//	AJAX请求
+	/*
+	* 1.$.ajax();
+	* 2.$.get();
+	* 3.$.post();
+	* 4.$.getJSON();
+	* 5.$.getScript();
+	* 6.跨域请求
+	* */
+
+//编译less方法
+/*
+* .less  ===> .css
+*变量：@变量名：
+*嵌套规则：
+* ul{
+* list-style:none;
+* li{
+* float:left;
+* a{
+* padding；5px 10px;
+* }
+* &:hover{
+* }
+* }
+* div{
+*
+* }
+* }
+*ul{}
+* ul>li{}
+* ul>div{}
+*ul>li>a:hover{}
+*
+* 混合(minx)
+* .box-shadow(@style:0 0 2px 2px,@color:#ccc){
+* -webkit-box-shadow:@style @color;
+* -moz-box-shadow:@style @color;
+* -o-box-shadow:@style @color;
+*shadow:@style @color;
+* }
+*.box{
+* .box-shadow;
+* }
+* .h3{
+* .box-shadow(0 5px 3px 5px,#333);
+* }
+*
+*
+* */
+
+
+</script>
+</body>
+</html>

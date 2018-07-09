@@ -1,0 +1,116 @@
+@charset "utf-8";
+/**
+ * 功能：索引页样式设置
+ * 日期：2017/4/15
+**/
+
+/*************************************************/
+/* 样式初始化部分 */
+/*************************************************/
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body, html, ul, p, h1, h2, h3, fieldset, figcaption, figure, input, select, button, textarea {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #e0eaef;
+    font: normal 20px/1.6 "微软雅黑";
+    color: #333333;
+}
+
+/*************************************************/
+/* 样式细节设置部分 */
+/*************************************************/
+header,footer {
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    line-height: 50px;
+    color: #ffffff;
+    position: fixed;
+}
+header {
+    left: 0;
+    top: 0;
+}
+h1 {
+    font: normal 1.2em/50px "微软雅黑";
+    /*animation: h1_letterSpace 2s linear infinite alternate;*/
+}
+h2 {
+    font: normal 1.5em "微软雅黑";
+}
+main {
+    padding: 70px 20px;
+}
+main div > p {
+    padding: 10px 0;
+    text-indent: 2em;
+}
+main div > p code, main div > p file {
+    padding: 2px 4px;
+    text-indent: 0;
+    font: normal 22px 'Verdana','Arial';
+    display: inline-block;
+}
+main div > p code {
+    margin-left: 2px;
+    margin-right: 2px;
+    background-color: #333333;
+    border-radius: 5px;
+    color: #ffffff;
+}
+main div > p file {
+    color: #12d601;
+}
+
+footer {
+    text-align: center;
+    font-size: 18px;
+    color: #e3e3e3;
+    left: 0;
+    bottom: 0;
+}
+
+/*************************************************/
+/* 响应式设计部分 */
+/*************************************************/
+@media (min-width: 1200px) and (max-width: 1999px) {
+    main {
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
+@media (min-width: 2000px) {
+    main {
+        width: 1920px;
+        margin: 0 auto;
+    }
+}
+
+/*************************************************/
+/* 其它设置 */
+/*************************************************/
+@keyframes h1_letterSpace {
+    0% {
+        letter-spacing: 0px;
+    }
+    100% {
+        letter-spacing: 2px;
+    }
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar { width: 5px;}
+::-webkit-scrollbar-thumb {
+    min-height: 10px;
+    background-color: #aaaaaa;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #cccccc;
+}

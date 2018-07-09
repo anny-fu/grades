@@ -1,0 +1,19 @@
+/*
+ * @Author: tom.anny 
+ * @Date: 2018-06-08 14:53:57 
+ * @Last Modified by: tom.anny
+ * @Last Modified time: 2018-06-11 11:38:14
+ */
+
+@charset 'utf-8';
+body {
+  background-color: #888;
+  padding-bottom: 50px;
+}
+
+#echarts-1,
+#echarts-2,
+#echarts-3,
+#echarts-4 {
+  height: 420px;
+}
